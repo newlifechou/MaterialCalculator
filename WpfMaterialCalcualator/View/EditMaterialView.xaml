@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:WpfMaterialCalcualator.View"
         mc:Ignorable="d"
         Title="EditMaterial" Height="400" Width="600">
+    <!--Add和Edit均使用这个窗口-->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
