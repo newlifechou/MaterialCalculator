@@ -107,6 +107,7 @@
     <Compile Include="Model\ProjectItem.cs" />
     <Compile Include="Service\IMainDataService.cs" />
     <Compile Include="Service\IMaterialLibaryDataService.cs" />
+    <Compile Include="Service\MaterialLibaryDataService.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\EditMaterialView.xaml.cs">
