@@ -98,6 +98,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Common\WindowController.cs" />
     <Compile Include="Model\CalculationConditionItem.cs" />
     <Compile Include="Model\CalculationResultItem.cs" />
     <Compile Include="Model\MaterialItem.cs" />
@@ -171,7 +172,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Common\" />
     <Folder Include="Data\" />
     <Folder Include="Resource\" />
     <Folder Include="Service\" />
