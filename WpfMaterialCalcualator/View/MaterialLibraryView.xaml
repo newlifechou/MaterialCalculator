@@ -6,16 +6,34 @@
         xmlns:local="clr-namespace:WpfMaterialCalcualator.View"
         mc:Ignorable="d"
         Title="MaterialLibraryView" Height="400" Width="600">
-    <Grid>
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal">
-            <Button Content="Add Material" Style="{StaticResource btn}"/>
-        </StackPanel>
-        <DataGrid Grid.Row="1">
-
-        </DataGrid>
+        <Button Grid.Row="0" Grid.ColumnSpan="2" Content="Add" Style="{StaticResource btn}"  HorizontalAlignment="Left"/>
+        <DataGrid Grid.Row="1" Grid.Column="0"/>
+        <!--编辑区域-->
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Material Name" Style="{StaticResource txtbl}"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Text="" Style="{StaticResource txt}"/>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Mole Weight" Style="{StaticResource txtbl}"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Text="" Style="{StaticResource txt}"/>
+            <Button Content="Save" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Right" Style="{StaticResource btn}"/>
+        </Grid>
     </Grid>
 </Window>
