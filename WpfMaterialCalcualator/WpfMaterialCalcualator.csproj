@@ -108,7 +108,11 @@
     <Compile Include="Service\IMainDataService.cs" />
     <Compile Include="Service\IMaterialLibaryDataService.cs" />
     <Compile Include="Service\MaterialLibaryDataService.cs" />
+    <Compile Include="ViewModel\EditMaterialViewModel.cs" />
+    <Compile Include="ViewModel\LoadViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\MaterialLibraryViewModel.cs" />
+    <Compile Include="ViewModel\SaveViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\EditMaterialView.xaml.cs">
       <DependentUpon>EditMaterialView.xaml</DependentUpon>
