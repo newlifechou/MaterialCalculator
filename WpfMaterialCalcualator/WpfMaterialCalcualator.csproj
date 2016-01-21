@@ -103,7 +103,7 @@
     <Compile Include="Model\CalculationResultItem.cs" />
     <Compile Include="Model\MaterialItem.cs" />
     <Compile Include="Model\ProjectItem.cs" />
-    <Compile Include="Service\IDataService.cs" />
+    <Compile Include="Service\IMainDataService.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\EditMaterialView.xaml.cs">

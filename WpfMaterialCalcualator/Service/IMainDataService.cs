@@ -9,7 +9,7 @@ namespace WpfMaterialCalcualator.Service
     /// <summary>
     /// 数据服务接口
     /// </summary>
-    public interface IDataService
+    public interface IMainDataService
     {
 
     }
