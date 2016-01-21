@@ -105,12 +105,19 @@
     <Compile Include="Model\ProjectItem.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\EditMaterialView.xaml.cs">
+      <DependentUpon>EditMaterialView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MaterialLibraryView.xaml.cs">
       <DependentUpon>MaterialLibraryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SaveView.xaml.cs">
       <DependentUpon>SaveView.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\EditMaterialView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\LoadView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
