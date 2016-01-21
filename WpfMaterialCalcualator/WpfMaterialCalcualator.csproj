@@ -104,6 +104,9 @@
     <Compile Include="Model\ProjectItem.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\MaterialLibraryView.xaml.cs">
+      <DependentUpon>MaterialLibraryView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\SaveView.xaml.cs">
       <DependentUpon>SaveView.xaml</DependentUpon>
     </Compile>
@@ -129,6 +132,10 @@
     <Page Include="Skin\BasicSkin.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\MaterialLibraryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\SaveView.xaml">
       <SubType>Designer</SubType>

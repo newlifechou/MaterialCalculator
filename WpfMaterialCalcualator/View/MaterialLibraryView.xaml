@@ -1,0 +1,21 @@
+﻿<Window x:Class="WpfMaterialCalcualator.View.MaterialLibraryView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfMaterialCalcualator.View"
+        mc:Ignorable="d"
+        Title="MaterialLibraryView" Height="400" Width="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Add Material" Style="{StaticResource btn}"/>
+        </StackPanel>
+        <DataGrid Grid.Row="1">
+
+        </DataGrid>
+    </Grid>
+</Window>
