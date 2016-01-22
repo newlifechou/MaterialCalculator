@@ -4,6 +4,8 @@ using System.Collections.ObjectModel;
 using WpfMaterialCalcualator.Model;
 using System;
 using GalaSoft.MvvmLight.Messaging;
+using WpfMaterialCalcualator.Service;
+
 
 namespace WpfMaterialCalcualator.ViewModel
 {
@@ -23,14 +25,14 @@ namespace WpfMaterialCalcualator.ViewModel
     {
 
         #region 私有成员区域
-
+        private readonly IMainDataService mainDataService;
         #endregion
 
 
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
-        public MainViewModel()
+        public MainViewModel(IMainDataService ds)
         {
             ////if (IsInDesignMode)
             ////{
@@ -40,6 +42,8 @@ namespace WpfMaterialCalcualator.ViewModel
             ////{
             ////    // Code runs "for real"
             ////}
+            this.mainDataService = ds;
+
             Conditions = new ObservableCollection<CalculationConditionItem>();
             Results = new ObservableCollection<CalculationResultItem>();
 
@@ -58,10 +62,13 @@ namespace WpfMaterialCalcualator.ViewModel
             {
                 CalculationConditionItem tmp = obj.Content as CalculationConditionItem;
                 Conditions.Add(tmp);
-                RaisePropertyChanged("Conditions");
 
                 //得到数据后，这里进行计算
+                mainDataService.CalculateWt(Conditions, Results);
 
+                //排序，要么对后台数据进行排序，要么使用前排的View进行排序
+                RaisePropertyChanged("Conditions");
+                RaisePropertyChanged("Results");
 
             }
         }

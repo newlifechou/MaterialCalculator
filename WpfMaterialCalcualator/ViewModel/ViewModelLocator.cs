@@ -34,6 +34,7 @@ namespace WpfMaterialCalcualator.ViewModel
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
             SimpleIoc.Default.Register<IMaterialLibraryDataService,MaterialLibraryDataService>();
+            SimpleIoc.Default.Register<IMainDataService, MainDataService>();
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<EditMaterialViewModel>(true);

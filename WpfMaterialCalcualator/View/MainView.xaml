@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:WpfMaterialCalcualator.View"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
         Title="MainWindow" Height="600" Width="800" DataContext="{Binding Source={StaticResource Locator},Path=Main}">
     <StackPanel Margin="10">
         <!--<Menu>
@@ -67,11 +68,6 @@
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Already Known " VerticalAlignment="Center"/>
                     <ComboBox VerticalAlignment="Center">
-                        <ComboBoxItem Content="TotalWeight"/>
-                        <ComboBoxItem Content="Group1Weight"/>
-                        <ComboBoxItem Content="Group2Weight"/>
-                        <ComboBoxItem Content="Group3Weight"/>
-                        <ComboBoxItem Content="Group4Weight"/>
                     </ComboBox>
                     <TextBox Text="" Style="{StaticResource txt}"/>
                     <Button Content="Calculate Now" Style="{StaticResource btn}"/>
