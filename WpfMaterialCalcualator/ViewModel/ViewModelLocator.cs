@@ -34,6 +34,10 @@ namespace WpfMaterialCalcualator.ViewModel
 
 
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<EditMaterialViewModel>(true);
+
+
+
 
             SimpleIoc.Default.Register<WindowController>(true);
         }
@@ -45,7 +49,23 @@ namespace WpfMaterialCalcualator.ViewModel
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
             }
         }
-        
+        public EditMaterialViewModel EditMaterial
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<EditMaterialViewModel>();
+            }
+        }
+
+
+
+
+
+
+
+
+
+
         public static void Cleanup()
         {
             // TODO Clear the ViewModels

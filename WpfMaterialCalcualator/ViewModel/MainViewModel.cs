@@ -2,6 +2,8 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using System.Collections.ObjectModel;
 using WpfMaterialCalcualator.Model;
+using System;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace WpfMaterialCalcualator.ViewModel
 {
@@ -38,6 +40,18 @@ namespace WpfMaterialCalcualator.ViewModel
             ////{
             ////    // Code runs "for real"
             ////}
+
+            EditMaterialCommand = new RelayCommand(EditMaterialAction);
+
+
+
+        }
+
+        private void EditMaterialAction()
+        {
+            CalculationConditionItem item = new CalculationConditionItem() { };
+            NotificationMessage<object> msg = new NotificationMessage<object>(this, "EditMaterial", item, "OpenWindow");
+            Messenger.Default.Send<NotificationMessage<object>>(msg);
         }
         #region 公共属性区域
         //条件列表
@@ -90,7 +104,7 @@ namespace WpfMaterialCalcualator.ViewModel
         #endregion
 
         #region 公共命令区域
-        public RelayCommand AddMatertialCommand { get; private set; }
+        public RelayCommand EditMaterialCommand { get; private set; }
         public RelayCommand CalculateCommand { get; private set; }
         public RelayCommand ClearWeightCommand { get; private set; }
         #endregion
