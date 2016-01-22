@@ -16,6 +16,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 using WpfMaterialCalcualator.Common;
+using WpfMaterialCalcualator.Service;
 
 namespace WpfMaterialCalcualator.ViewModel
 {
@@ -32,6 +33,7 @@ namespace WpfMaterialCalcualator.ViewModel
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
+            SimpleIoc.Default.Register<IMaterialLibraryDataService,MaterialLibraryDataService>();
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<EditMaterialViewModel>();

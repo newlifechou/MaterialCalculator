@@ -9,7 +9,7 @@ using System.Data.SQLite;
 
 namespace WpfMaterialCalcualator.Service
 {
-    public class MaterialLibaryDataService : IMaterialLibaryDataService
+    public class MaterialLibraryDataService : IMaterialLibraryDataService
     {
         public bool AddMaterialItem(MaterialItem item)
         {

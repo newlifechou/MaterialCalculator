@@ -106,8 +106,8 @@
     <Compile Include="Model\MaterialItem.cs" />
     <Compile Include="Model\ProjectItem.cs" />
     <Compile Include="Service\IMainDataService.cs" />
-    <Compile Include="Service\IMaterialLibaryDataService.cs" />
-    <Compile Include="Service\MaterialLibaryDataService.cs" />
+    <Compile Include="Service\IMaterialLibraryDataService.cs" />
+    <Compile Include="Service\MaterialLibraryDataService.cs" />
     <Compile Include="ViewModel\EditMaterialViewModel.cs" />
     <Compile Include="ViewModel\LoadViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />

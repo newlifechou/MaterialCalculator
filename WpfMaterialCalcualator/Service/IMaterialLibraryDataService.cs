@@ -10,7 +10,7 @@ namespace WpfMaterialCalcualator.Service
     /// <summary>
     /// 材料库数据服务
     /// </summary>
-    public interface IMaterialLibaryDataService
+    public interface IMaterialLibraryDataService
     {
         IList<MaterialItem> GetAllMaterialItems();
 

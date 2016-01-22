@@ -20,7 +20,21 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <TextBox Style="{StaticResource txt}"/>
-            <DataGrid Grid.Row="1"/>
+            <DataGrid Grid.Row="1" Style="{StaticResource dg}" ItemsSource="{Binding Materials}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="MaterialName"/>
+                    <DataGridTextColumn Header="MoleWeight"/>
+                    <DataGridTemplateColumn Header="Option">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Select" Command="{Binding DataContext.SelectMaterialCommand,
+                                    RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Window}}"
+                                        />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
         <Grid Grid.Column="1" Margin="5">
             <Grid.ColumnDefinitions>
@@ -36,14 +50,15 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <TextBlock Text="Group" Grid.Row="0" Grid.Column="0" Style="{StaticResource txtbl}"/>
-            <ComboBox Grid.Row="0" Grid.Column="1" Style="{StaticResource cbo}"/>
+            <ComboBox Grid.Row="0" Grid.Column="1" Style="{StaticResource cbo}" ItemsSource="{Binding GroupNames}"
+                      SelectedItem="{Binding  ConditionItem.GroupName}"/>
             <TextBlock Grid.Row="1" Grid.Column="0" Text="Material Name" Style="{StaticResource txtbl}"/>
-            <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txt}"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txt}" Text="{Binding ConditionItem.MaterialName}"/>
             <TextBlock Grid.Row="2" Grid.Column="0" Text="Mole Weight" Style="{StaticResource txtbl}"/>
-            <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource txt}"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource txt}" Text="{Binding ConditionItem.MoleWeight}"/>
             <TextBlock Grid.Row="3" Grid.Column="0" Text="At%" Style="{StaticResource txtbl}"/>
-            <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource txt}"/>
-            <Button Grid.Row="4" Grid.ColumnSpan="2" Style="{StaticResource btn}" Content="Add In"/>
+            <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource txt}" Text="{Binding ConditionItem.At}"/>
+            <Button Grid.Row="4" Grid.ColumnSpan="2" Style="{StaticResource btn}" Content="Add In" Command="{Binding AddInCommand}"/>
 
         </Grid>
     </Grid>

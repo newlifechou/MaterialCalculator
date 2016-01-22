@@ -13,6 +13,7 @@ namespace WpfMaterialCalcualator.Model
     {
         public Guid Id { get; set; }
         public string GroupName { get; set; }
+        public string MaterialName { get; set; }
         public double MoleWeight { get; set; }
         public double At { get; set; }
     }
