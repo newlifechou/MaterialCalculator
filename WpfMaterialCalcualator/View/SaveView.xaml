@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfMaterialCalcualator.View"
         mc:Ignorable="d"
-        Title="SaveView" Height="150" Width="300">
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"        
+        Title="SaveView" Height="150" Width="300" DataContext="{Binding Source={StaticResource Locator},Path=Save}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>

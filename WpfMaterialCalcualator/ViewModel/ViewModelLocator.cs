@@ -36,7 +36,8 @@ namespace WpfMaterialCalcualator.ViewModel
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<EditMaterialViewModel>();
             SimpleIoc.Default.Register<MaterialLibraryViewModel>();
-
+            SimpleIoc.Default.Register<LoadViewModel>();
+            SimpleIoc.Default.Register<SaveViewModel>();
 
 
             SimpleIoc.Default.Register<WindowController>(true);
@@ -65,8 +66,20 @@ namespace WpfMaterialCalcualator.ViewModel
             }
         }
 
-
-
+        public LoadViewModel Load
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<LoadViewModel>();
+            }
+        }
+        public SaveViewModel Save
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<SaveViewModel>();
+            }
+        }
 
 
 

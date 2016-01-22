@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfMaterialCalcualator.View"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="600" Width="800" DataContext="{Binding Source={StaticResource Locator},Path=Main}">
     <StackPanel Margin="10">
         <!--<Menu>
@@ -19,19 +20,20 @@
         </Menu>-->
         <StackPanel Orientation="Horizontal"  Background="Wheat">
 
-            <Button Content="Load" Style="{StaticResource btn}"/>
-            <Button Content="Save" Style="{StaticResource btn}"/>
+            <Button Content="Load" Style="{StaticResource btn}" Command="{Binding LoadCommand}"/>
+            <Button Content="Save" Style="{StaticResource btn}" Command="{Binding SaveCommand}"/>
             <Button Content="Material Library" Style="{StaticResource btn}" Command="{Binding MaterialLibraryCommand}"/>
         </StackPanel>
-        <GroupBox Header="From Here">
+        <GroupBox Header="Calculation Item">
             <StackPanel>
-                <Button Content="Add Material" Style="{StaticResource btn}" HorizontalAlignment="Left" Command="{Binding EditMaterialCommand}"/>
+                <Button Content="Add Material" Style="{StaticResource btn}" HorizontalAlignment="Left"
+                        Command="{Binding EditMaterialCommand}" Padding="20,5,20,5"/>
                 <DataGrid  Height="200">
 
                 </DataGrid>
             </StackPanel>
         </GroupBox>
-        <GroupBox Header="To Result">
+        <GroupBox Header="Result">
             <StackPanel>
                 <DataGrid  Height="150">
 
