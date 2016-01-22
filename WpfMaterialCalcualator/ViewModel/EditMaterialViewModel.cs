@@ -18,14 +18,16 @@ namespace WpfMaterialCalcualator.ViewModel
     public class EditMaterialViewModel : ViewModelBase
     {
         #region 私有变量区域
+        private readonly IMainDataService mainDS;
         private readonly IMaterialLibraryDataService materialLibraryDS;
         #endregion
         /// <summary>
         /// Initializes a new instance of the EditMaterialViewModel class.
         /// </summary>
-        public EditMaterialViewModel(IMaterialLibraryDataService ds)
+        public EditMaterialViewModel(IMainDataService mainds, IMaterialLibraryDataService mlds)
         {
-            this.materialLibraryDS = ds;
+            mainDS = mainds;
+            materialLibraryDS = mlds;
 
             SelectMaterialCommand = new RelayCommand<MaterialItem>(SelectMaterialAction);
             AddInCommand = new RelayCommand(AddInAction);
@@ -35,20 +37,25 @@ namespace WpfMaterialCalcualator.ViewModel
 
         private void AddInAction()
         {
-            if (ConditionItem!=null)
+            if (ConditionItem.Id == Guid.Empty)
             {
                 ConditionItem.Id = Guid.NewGuid();
-                //发送消息到MainView更新Conditions
-                NotificationMessage<object> msg = new NotificationMessage<object>(this, "MainView", ConditionItem, "ConditionEditFinished");
-                Messenger.Default.Send<NotificationMessage<object>>(msg);
-                //发送关闭本窗口的消息
-                Messenger.Default.Send<object>(null, "CloseMe");
+                mainDS.AddCondition(ConditionItem);
             }
+            else
+            {
+                mainDS.UpdateCondition(ConditionItem);
+            }
+            //发送消息到MainView更新Conditions
+            NotificationMessage<object> msg = new NotificationMessage<object>(this, "MainView", null, "ReloadConditions");
+            Messenger.Default.Send<NotificationMessage<object>>(msg);
+            //发送关闭本窗口的消息
+            Messenger.Default.Send<object>(null, "CloseMe");
         }
 
         private void InitialAction(NotificationMessage<object> obj)
         {
-            if (obj.Target.ToString()=="EditMaterial")
+            if (obj.Target.ToString() == "EditMaterial")
             {
                 ConditionItem = obj.Content as CalculationConditionItem;
 
@@ -63,14 +70,6 @@ namespace WpfMaterialCalcualator.ViewModel
         /// <param name="item"></param>
         private void SelectMaterialAction(MaterialItem item)
         {
-            //CalculationConditionItem tmp = new CalculationConditionItem();
-            //tmp.GroupName = ConditionItem.GroupName;
-            //tmp.At = ConditionItem.At;
-            //tmp.MaterialName = item.MaterialName;
-            //tmp.MoleWeight = item.MoleWeight;
-
-            //ConditionItem = tmp;
-
             ConditionItem.MaterialName = item.MaterialName;
             ConditionItem.MoleWeight = item.MoleWeight;
             //引发属性改动事件
@@ -135,8 +134,8 @@ namespace WpfMaterialCalcualator.ViewModel
         #region 公开命令区域
         public RelayCommand<MaterialItem> SelectMaterialCommand { get; private set; }
         public RelayCommand AddInCommand { get; private set; }
-        
-        
+
+
         #endregion
     }
 }

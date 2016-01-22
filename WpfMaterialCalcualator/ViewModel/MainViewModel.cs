@@ -28,8 +28,6 @@ namespace WpfMaterialCalcualator.ViewModel
         #region 私有成员区域
         private readonly IMainDataService mainDataService;
         private readonly IDialogService dialogService;
-
-        private int editIndex;
         #endregion
 
         /// <summary>
@@ -37,17 +35,17 @@ namespace WpfMaterialCalcualator.ViewModel
         /// </summary>
         public MainViewModel(IMainDataService ds,IDialogService dialogDS)
         {
-            //Condition编辑标志位，-1表示Add,其他值表示index
-            editIndex = -1;
 
             mainDataService = ds;
             dialogService = dialogDS;
+            //每次启动后，清空TempConditions表
+            ds.ClearCondition();
 
-            Conditions = new ObservableCollection<CalculationConditionItem>();
-            Results = new ObservableCollection<CalculationResultItem>();
-            AlreadyKnownList = new ObservableCollection<string>();
             CalWeight = 1000;
+            AlreadyKnownList = new ObservableCollection<string>();
+            Results = new ObservableCollection<CalculationResultItem>();
 
+            ReloadConditions();
 
 
             AddConditionCommand = new RelayCommand(AddConditionAction);
@@ -59,7 +57,7 @@ namespace WpfMaterialCalcualator.ViewModel
             SaveCommand = new RelayCommand(SaveAction);
 
 
-            Messenger.Default.Register<NotificationMessage<object>>(this, MissonAction);
+            Messenger.Default.Register<NotificationMessage<object>>(this, ReloadConditionsAction);
         }
 
         private void  SetAlreadyKnownList()
@@ -73,26 +71,20 @@ namespace WpfMaterialCalcualator.ViewModel
             AlreadyKnownItem = "Total Weight";
         }
 
-        private void MissonAction(NotificationMessage<object> obj)
+        private void ReloadConditionsAction(NotificationMessage<object> obj)
         {
-            if (obj.Notification=="ConditionEditFinished")
+            if (obj.Notification== "ReloadConditions")
             {
-                CalculationConditionItem tmp = obj.Content as CalculationConditionItem;
-                //考虑将Condition表存放到数据库当中，这样便于修改
-                //在现有的Conditions里查找是否存在来判断是Add还是Edit
-                if (editIndex>=0)
-                {
-                    Conditions[editIndex] = tmp;
-                }
-                else
-                {
-                    Conditions.Add(tmp);
-                }
-
-                CalculateWt();
-
-                editIndex = -1;
+                ReloadConditions();
             }
+        }
+
+        private void ReloadConditions()
+        {
+            Conditions = new ObservableCollection<CalculationConditionItem>(mainDataService.GetAllConditions());
+            CalculateWt();
+            RaisePropertyChanged("Conditions");
+            RaisePropertyChanged("Results");
         }
 
         private void CalculateWt()
@@ -102,8 +94,6 @@ namespace WpfMaterialCalcualator.ViewModel
             //填充重量计算选项
             SetAlreadyKnownList();
             //排序，要么对后台数据进行排序，要么使用前排的View进行排序
-            RaisePropertyChanged("Conditions");
-            RaisePropertyChanged("Results");
         }
 
         private void SaveAction()
@@ -127,14 +117,13 @@ namespace WpfMaterialCalcualator.ViewModel
         private void AddConditionAction()
         {
             CalculationConditionItem item = new CalculationConditionItem() {GroupName="1" };
-            NotificationMessage<object> msg = new NotificationMessage<object>("Add", "EditMaterial", item, "OpenWindow");
+            NotificationMessage<object> msg = new NotificationMessage<object>(this, "EditMaterial", item, "OpenWindow");
             Messenger.Default.Send<NotificationMessage<object>>(msg);
         }
         private void EditConditionAction(CalculationConditionItem obj)
         {
-            editIndex = Conditions.IndexOf(obj);
             CalculationConditionItem item = obj;
-            NotificationMessage<object> msg = new NotificationMessage<object>("Edit", "EditMaterial", item, "OpenWindow");
+            NotificationMessage<object> msg = new NotificationMessage<object>(this, "EditMaterial", item, "OpenWindow");
             Messenger.Default.Send<NotificationMessage<object>>(msg);
         }
 
@@ -142,8 +131,8 @@ namespace WpfMaterialCalcualator.ViewModel
         {
             if (dialogService.ShowDialog("Are you sure to delete it?", "Delete"))
             {
-                Conditions.Remove(item);
-                CalculateWt();
+                mainDataService.DeleteCondition(item);
+                ReloadConditions();
             }
         }
 
