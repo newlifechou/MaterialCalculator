@@ -36,7 +36,7 @@ namespace WpfMaterialCalcualator.ViewModel
             SimpleIoc.Default.Register<IMaterialLibraryDataService,MaterialLibraryDataService>();
 
             SimpleIoc.Default.Register<MainViewModel>();
-            SimpleIoc.Default.Register<EditMaterialViewModel>();
+            SimpleIoc.Default.Register<EditMaterialViewModel>(true);
             SimpleIoc.Default.Register<MaterialLibraryViewModel>();
             SimpleIoc.Default.Register<LoadViewModel>();
             SimpleIoc.Default.Register<SaveViewModel>();

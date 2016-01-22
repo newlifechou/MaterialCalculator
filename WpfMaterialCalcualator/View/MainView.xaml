@@ -27,7 +27,7 @@
         <GroupBox Header="Calculation Item">
             <StackPanel>
                 <Button Content="Add Material" Style="{StaticResource btn}" HorizontalAlignment="Left"
-                        Command="{Binding EditMaterialCommand}" Padding="20,5,20,5"/>
+                        Command="{Binding EditMaterialCommand}" Padding="20,5,20,5" Margin="0,5,0,5"/>
                 <DataGrid  Height="200">
 
                 </DataGrid>

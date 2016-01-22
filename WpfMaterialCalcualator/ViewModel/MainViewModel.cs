@@ -67,7 +67,7 @@ namespace WpfMaterialCalcualator.ViewModel
 
         private void EditMaterialAction()
         {
-            CalculationConditionItem item = new CalculationConditionItem() { };
+            CalculationConditionItem item = new CalculationConditionItem() {GroupName="1" };
             NotificationMessage<object> msg = new NotificationMessage<object>(this, "EditMaterial", item, "OpenWindow");
             Messenger.Default.Send<NotificationMessage<object>>(msg);
         }

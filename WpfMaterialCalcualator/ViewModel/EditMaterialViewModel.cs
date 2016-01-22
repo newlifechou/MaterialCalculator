@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using WpfMaterialCalcualator.Model;
 using System;
 using WpfMaterialCalcualator.Service;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace WpfMaterialCalcualator.ViewModel
 {
@@ -26,20 +27,38 @@ namespace WpfMaterialCalcualator.ViewModel
         {
             this.materialLibraryDS = ds;
 
-            Materials = new ObservableCollection<MaterialItem>(ds.GetAllMaterialItems());
-
-            GroupNames = new ObservableCollection<string>(CreateGroups());
             SelectMaterialCommand = new RelayCommand<MaterialItem>(SelectMaterialAction);
-
+            Messenger.Default.Register<NotificationMessage<object>>(this, InitialAction);
         }
+
+        private void InitialAction(NotificationMessage<object> obj)
+        {
+            if (obj.Target.ToString()=="EditMaterial")
+            {
+                ConditionItem = obj.Content as CalculationConditionItem;
+                Materials = new ObservableCollection<MaterialItem>(materialLibraryDS.GetAllMaterialItems());
+                GroupNames = new ObservableCollection<string>(CreateGroups());
+            }
+        }
+
         /// <summary>
         /// 选择材料库项目的时候，自动填入到计算条件项目中
         /// </summary>
         /// <param name="item"></param>
         private void SelectMaterialAction(MaterialItem item)
         {
+            //CalculationConditionItem tmp = new CalculationConditionItem();
+            //tmp.GroupName = ConditionItem.GroupName;
+            //tmp.At = ConditionItem.At;
+            //tmp.MaterialName = item.MaterialName;
+            //tmp.MoleWeight = item.MoleWeight;
+
+            //ConditionItem = tmp;
+
             ConditionItem.MaterialName = item.MaterialName;
             ConditionItem.MoleWeight = item.MoleWeight;
+            //引发属性改动事件
+            RaisePropertyChanged("ConditionItem");
         }
 
         /// <summary>
