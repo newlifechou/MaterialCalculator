@@ -38,7 +38,7 @@ namespace WpfMaterialCalcualator.ViewModel
             SimpleIoc.Default.Register<IDialogService, DialogService>();
 
             SimpleIoc.Default.Register<MainViewModel>();
-            SimpleIoc.Default.Register<EditMaterialViewModel>(true);
+            SimpleIoc.Default.Register<EditConditionViewModel>(true);
             SimpleIoc.Default.Register<MaterialLibraryViewModel>();
             SimpleIoc.Default.Register<LoadViewModel>();
             SimpleIoc.Default.Register<SaveViewModel>();
@@ -54,11 +54,11 @@ namespace WpfMaterialCalcualator.ViewModel
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
             }
         }
-        public EditMaterialViewModel EditMaterial
+        public EditConditionViewModel EditCondition
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<EditMaterialViewModel>();
+                return ServiceLocator.Current.GetInstance<EditConditionViewModel>();
             }
         }
 

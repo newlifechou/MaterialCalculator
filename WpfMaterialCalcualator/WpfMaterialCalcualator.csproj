@@ -111,14 +111,14 @@
     <Compile Include="Service\IMaterialLibraryDataService.cs" />
     <Compile Include="Service\MainDataService.cs" />
     <Compile Include="Service\MaterialLibraryDataService.cs" />
-    <Compile Include="ViewModel\EditMaterialViewModel.cs" />
+    <Compile Include="ViewModel\EditConditionViewModel.cs" />
     <Compile Include="ViewModel\LoadViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\MaterialLibraryViewModel.cs" />
     <Compile Include="ViewModel\SaveViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
-    <Compile Include="View\EditMaterialView.xaml.cs">
-      <DependentUpon>EditMaterialView.xaml</DependentUpon>
+    <Compile Include="View\EditConditionView.xaml.cs">
+      <DependentUpon>EditConditionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MaterialLibraryView.xaml.cs">
       <DependentUpon>MaterialLibraryView.xaml</DependentUpon>
@@ -126,7 +126,7 @@
     <Compile Include="View\SaveView.xaml.cs">
       <DependentUpon>SaveView.xaml</DependentUpon>
     </Compile>
-    <Page Include="View\EditMaterialView.xaml">
+    <Page Include="View\EditConditionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

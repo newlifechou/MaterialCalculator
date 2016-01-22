@@ -18,9 +18,9 @@ namespace WpfMaterialCalcualator.View
     /// <summary>
     /// AddMaterial.xaml 的交互逻辑
     /// </summary>
-    public partial class EditMaterialView : Window
+    public partial class EditConditionView : Window
     {
-        public EditMaterialView()
+        public EditConditionView()
         {
             InitializeComponent();
             Messenger.Default.Register<object>(this, "CloseMe", obj =>

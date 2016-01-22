@@ -15,16 +15,16 @@ namespace WpfMaterialCalcualator.ViewModel
     /// See http://www.galasoft.ch/mvvm
     /// </para>
     /// </summary>
-    public class EditMaterialViewModel : ViewModelBase
+    public class EditConditionViewModel : ViewModelBase
     {
         #region 私有变量区域
         private readonly IMainDataService mainDS;
         private readonly IMaterialLibraryDataService materialLibraryDS;
         #endregion
         /// <summary>
-        /// Initializes a new instance of the EditMaterialViewModel class.
+        /// Initializes a new instance of the EditConditionViewModel class.
         /// </summary>
-        public EditMaterialViewModel(IMainDataService mainds, IMaterialLibraryDataService mlds)
+        public EditConditionViewModel(IMainDataService mainds, IMaterialLibraryDataService mlds)
         {
             mainDS = mainds;
             materialLibraryDS = mlds;
@@ -55,7 +55,7 @@ namespace WpfMaterialCalcualator.ViewModel
 
         private void InitialAction(NotificationMessage<object> obj)
         {
-            if (obj.Target.ToString() == "EditMaterial")
+            if (obj.Target.ToString() == "EditCondition")
             {
                 ConditionItem = obj.Content as CalculationConditionItem;
 

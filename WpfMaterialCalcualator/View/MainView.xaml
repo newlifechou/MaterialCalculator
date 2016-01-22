@@ -25,9 +25,9 @@
             <Button Content="Save" Style="{StaticResource btn}" Command="{Binding SaveCommand}"/>
             <Button Content="Material Library" Style="{StaticResource btn}" Command="{Binding MaterialLibraryCommand}"/>
         </StackPanel>
-        <GroupBox Header="Calculation Item">
+        <GroupBox Header="Calculation Conditions">
             <StackPanel>
-                <Button Content="Add Material" Style="{StaticResource btn}" HorizontalAlignment="Left"
+                <Button Content="Add Condition" Style="{StaticResource btn}" HorizontalAlignment="Left"
                         Command="{Binding AddConditionCommand}" Padding="20,5,20,5" Margin="0,5,0,5"/>
                 <DataGrid Style="{StaticResource dg}" Height="200" ItemsSource="{Binding Conditions}">
                     <DataGrid.Columns>

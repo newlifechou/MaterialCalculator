@@ -117,13 +117,13 @@ namespace WpfMaterialCalcualator.ViewModel
         private void AddConditionAction()
         {
             CalculationConditionItem item = new CalculationConditionItem() {GroupName="1" };
-            NotificationMessage<object> msg = new NotificationMessage<object>(this, "EditMaterial", item, "OpenWindow");
+            NotificationMessage<object> msg = new NotificationMessage<object>(this, "EditCondition", item, "OpenWindow");
             Messenger.Default.Send<NotificationMessage<object>>(msg);
         }
         private void EditConditionAction(CalculationConditionItem obj)
         {
             CalculationConditionItem item = obj;
-            NotificationMessage<object> msg = new NotificationMessage<object>(this, "EditMaterial", item, "OpenWindow");
+            NotificationMessage<object> msg = new NotificationMessage<object>(this, "EditCondition", item, "OpenWindow");
             Messenger.Default.Send<NotificationMessage<object>>(msg);
         }
 
