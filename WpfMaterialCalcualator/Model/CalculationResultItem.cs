@@ -14,7 +14,7 @@ namespace WpfMaterialCalcualator.Model
         public Guid Id { get; set; }
         public string GroupName { get; set; }
         public string GroupComposition { get; set; }
-        public double Tmp { get; set; }
+        //public double Tmp { get; set; }
         public double Wt { get; set; }
         public double Weight { get; set; }
     }

@@ -61,17 +61,17 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Group Name" Binding="{Binding GroupName}"/>
                         <DataGridTextColumn Header="Group Composition" Binding="{Binding GroupComposition}"/>
-                        <DataGridTextColumn Header="Wt" Binding="{Binding Wt}"/>
-                        <DataGridTextColumn Header="Weight" Binding="{Binding Weight}"/>
+                        <DataGridTextColumn Header="Wt" Binding="{Binding Wt,StringFormat={}{0:N3}}"/>
+                        <DataGridTextColumn Header="Weight" Binding="{Binding Weight,StringFormat={}{0:N3}}"/>
                     </DataGrid.Columns>
                 </DataGrid>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Already Known " VerticalAlignment="Center"/>
-                    <ComboBox VerticalAlignment="Center">
+                    <ComboBox VerticalAlignment="Center" ItemsSource="{Binding AlreadyKnownList}" SelectedItem="{Binding AlreadyKnownItem}">
                     </ComboBox>
-                    <TextBox Text="" Style="{StaticResource txt}"/>
-                    <Button Content="Calculate Now" Style="{StaticResource btn}"/>
-                    <Button Content="Clear All Weights" Style="{StaticResource btn}"/>
+                    <TextBox  Style="{StaticResource txt}" Text="{Binding CalWeight}"/>
+                    <Button Content="Calculate Now" Style="{StaticResource btn}" Command="{Binding CalculateWtCommand}"/>
+                    <Button Content="Clear All Weights" Style="{StaticResource btn}" Command="{Binding ClearWeightCommand}"/>
                     <TextBlock Text="Totol Weight=1500g" VerticalAlignment="Center"/>
                 </StackPanel>
             </StackPanel>

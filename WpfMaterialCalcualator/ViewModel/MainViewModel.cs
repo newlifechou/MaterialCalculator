@@ -5,7 +5,8 @@ using WpfMaterialCalcualator.Model;
 using System;
 using GalaSoft.MvvmLight.Messaging;
 using WpfMaterialCalcualator.Service;
-
+using System.Linq;
+using System.Collections.Generic;
 
 namespace WpfMaterialCalcualator.ViewModel
 {
@@ -28,24 +29,18 @@ namespace WpfMaterialCalcualator.ViewModel
         private readonly IMainDataService mainDataService;
         #endregion
 
-
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
         public MainViewModel(IMainDataService ds)
         {
-            ////if (IsInDesignMode)
-            ////{
-            ////    // Code runs in Blend --> create design time data.
-            ////}
-            ////else
-            ////{
-            ////    // Code runs "for real"
-            ////}
             this.mainDataService = ds;
 
             Conditions = new ObservableCollection<CalculationConditionItem>();
             Results = new ObservableCollection<CalculationResultItem>();
+            AlreadyKnownList = new ObservableCollection<string>();
+            CalWeight = 1000;
+
 
 
             AddConditionCommand = new RelayCommand(EditMaterialAction);
@@ -53,7 +48,19 @@ namespace WpfMaterialCalcualator.ViewModel
             LoadCommand = new RelayCommand(LoadAction);
             SaveCommand = new RelayCommand(SaveAction);
 
+
             Messenger.Default.Register<NotificationMessage<object>>(this, MissonAction);
+        }
+
+        private void  SetAlreadyKnownList()
+        {
+            AlreadyKnownList.Clear();
+            AlreadyKnownList.Add("Total Weight");
+            foreach (var item in Results.Select(i => i.GroupName).ToList())
+            {
+                AlreadyKnownList.Add(item);
+            }
+            AlreadyKnownItem = "Total Weight";
         }
 
         private void MissonAction(NotificationMessage<object> obj)
@@ -62,11 +69,15 @@ namespace WpfMaterialCalcualator.ViewModel
             {
                 CalculationConditionItem tmp = obj.Content as CalculationConditionItem;
                 Conditions.Add(tmp);
-
                 //得到数据后，这里进行计算
                 mainDataService.CalculateWt(Conditions, Results);
 
+                //填充重量计算选项
+                SetAlreadyKnownList();
+
                 //排序，要么对后台数据进行排序，要么使用前排的View进行排序
+
+
                 RaisePropertyChanged("Conditions");
                 RaisePropertyChanged("Results");
 
@@ -148,6 +159,38 @@ namespace WpfMaterialCalcualator.ViewModel
             }
         }
 
+        //AlreadyKnown
+        private ObservableCollection<string> alreadyKnownList;
+        public ObservableCollection<string> AlreadyKnownList
+        {
+            get { return alreadyKnownList; }
+            set
+            {
+                Set(ref alreadyKnownList, value);
+            }
+        }
+
+        private string alreadyKnownItem;
+        public string AlreadyKnownItem
+        {
+            get { return alreadyKnownItem; }
+            set
+            {
+                Set(ref alreadyKnownItem, value);
+            }
+        }
+
+        private double calWeight;
+        public double CalWeight
+        {
+            get { return calWeight; }
+            set
+            {
+                Set(ref calWeight, value);
+            }
+        }
+
+
         #endregion
 
         #region 公共命令区域
@@ -155,7 +198,7 @@ namespace WpfMaterialCalcualator.ViewModel
         public RelayCommand<CalculationConditionItem> EditConditionCommand { get; set; }
         public RelayCommand<CalculationConditionItem> DeleteConditionCommand { get; set; }
 
-        public RelayCommand CalculateCommand { get; private set; }
+        public RelayCommand CalculateWtCommand { get; private set; }
         public RelayCommand ClearWeightCommand { get; private set; }
         public RelayCommand MaterialLibraryCommand { get; private set; }
         public RelayCommand LoadCommand { get; private set; }
