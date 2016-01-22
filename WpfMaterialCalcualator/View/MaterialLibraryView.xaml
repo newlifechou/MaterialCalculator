@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfMaterialCalcualator.View"
         mc:Ignorable="d"
-        Title="MaterialLibraryView" Height="400" Width="600">
+        Title="MaterialLibraryView" Height="400" Width="600" DataContext="{Binding Source={StaticResource Locator},Path=MaterialLibrary}">
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"/>

@@ -42,9 +42,15 @@ namespace WpfMaterialCalcualator.ViewModel
             ////}
 
             EditMaterialCommand = new RelayCommand(EditMaterialAction);
+            MaterialLibraryCommand = new RelayCommand(MaterialLibraryAction);
 
 
+        }
 
+        private void MaterialLibraryAction()
+        {
+            NotificationMessage<object> msg = new NotificationMessage<object>(this, "MaterialLibrary", null, "OpenWindow");
+            Messenger.Default.Send<NotificationMessage<object>>(msg);
         }
 
         private void EditMaterialAction()
@@ -107,6 +113,7 @@ namespace WpfMaterialCalcualator.ViewModel
         public RelayCommand EditMaterialCommand { get; private set; }
         public RelayCommand CalculateCommand { get; private set; }
         public RelayCommand ClearWeightCommand { get; private set; }
+        public RelayCommand MaterialLibraryCommand { get; private set; }
         #endregion
 
     }

@@ -34,8 +34,8 @@ namespace WpfMaterialCalcualator.ViewModel
 
 
             SimpleIoc.Default.Register<MainViewModel>();
-            SimpleIoc.Default.Register<EditMaterialViewModel>(true);
-
+            SimpleIoc.Default.Register<EditMaterialViewModel>();
+            SimpleIoc.Default.Register<MaterialLibraryViewModel>();
 
 
 
@@ -57,7 +57,13 @@ namespace WpfMaterialCalcualator.ViewModel
             }
         }
 
-
+        public MaterialLibraryViewModel MaterialLibrary
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<MaterialLibraryViewModel>();
+            }
+        }
 
 
 

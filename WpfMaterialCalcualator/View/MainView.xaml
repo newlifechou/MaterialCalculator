@@ -21,7 +21,7 @@
 
             <Button Content="Load" Style="{StaticResource btn}"/>
             <Button Content="Save" Style="{StaticResource btn}"/>
-            <Button Content="Material Library" Style="{StaticResource btn}"/>
+            <Button Content="Material Library" Style="{StaticResource btn}" Command="{Binding MaterialLibraryCommand}"/>
         </StackPanel>
         <GroupBox Header="From Here">
             <StackPanel>
