@@ -41,7 +41,7 @@ namespace WpfMaterialCalcualator.ViewModel
             ////    // Code runs "for real"
             ////}
             Conditions = new ObservableCollection<CalculationConditionItem>();
-
+            Results = new ObservableCollection<CalculationResultItem>();
 
 
             AddConditionCommand = new RelayCommand(EditMaterialAction);
@@ -59,6 +59,10 @@ namespace WpfMaterialCalcualator.ViewModel
                 CalculationConditionItem tmp = obj.Content as CalculationConditionItem;
                 Conditions.Add(tmp);
                 RaisePropertyChanged("Conditions");
+
+                //得到数据后，这里进行计算
+
+
             }
         }
 

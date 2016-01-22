@@ -57,7 +57,12 @@
         <GroupBox Header="Result">
             <StackPanel>
                 <DataGrid  Height="150" Style="{StaticResource dg}" ItemsSource="{Binding Results}">
-                    
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Group Name" Binding="{Binding GroupName}"/>
+                        <DataGridTextColumn Header="Group Composition" Binding="{Binding GroupComposition}"/>
+                        <DataGridTextColumn Header="Wt" Binding="{Binding Wt}"/>
+                        <DataGridTextColumn Header="Weight" Binding="{Binding Weight}"/>
+                    </DataGrid.Columns>
                 </DataGrid>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Already Known " VerticalAlignment="Center"/>
