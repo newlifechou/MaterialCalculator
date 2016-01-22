@@ -28,7 +28,21 @@ namespace WpfMaterialCalcualator.ViewModel
             this.materialLibraryDS = ds;
 
             SelectMaterialCommand = new RelayCommand<MaterialItem>(SelectMaterialAction);
+            AddInCommand = new RelayCommand(AddInAction);
+
             Messenger.Default.Register<NotificationMessage<object>>(this, InitialAction);
+        }
+
+        private void AddInAction()
+        {
+            if (ConditionItem!=null)
+            {
+                //发送消息到MainView更新Conditions
+                NotificationMessage<object> msg = new NotificationMessage<object>(this, "MainView", ConditionItem, "ConditionEditFinished");
+                Messenger.Default.Send<NotificationMessage<object>>(msg);
+                //发送关闭本窗口的消息
+                Messenger.Default.Send<object>(null, "CloseMe");
+            }
         }
 
         private void InitialAction(NotificationMessage<object> obj)

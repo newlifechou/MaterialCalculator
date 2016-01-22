@@ -40,11 +40,26 @@ namespace WpfMaterialCalcualator.ViewModel
             ////{
             ////    // Code runs "for real"
             ////}
+            Conditions = new ObservableCollection<CalculationConditionItem>();
+
+
 
             EditMaterialCommand = new RelayCommand(EditMaterialAction);
             MaterialLibraryCommand = new RelayCommand(MaterialLibraryAction);
             LoadCommand = new RelayCommand(LoadAction);
             SaveCommand = new RelayCommand(SaveAction);
+
+            Messenger.Default.Register<NotificationMessage<object>>(this, MissonAction);
+        }
+
+        private void MissonAction(NotificationMessage<object> obj)
+        {
+            if (obj.Notification=="ConditionEditFinished")
+            {
+                CalculationConditionItem tmp = obj.Content as CalculationConditionItem;
+                Conditions.Add(tmp);
+                RaisePropertyChanged("Conditions");
+            }
         }
 
         private void SaveAction()
@@ -71,6 +86,9 @@ namespace WpfMaterialCalcualator.ViewModel
             NotificationMessage<object> msg = new NotificationMessage<object>(this, "EditMaterial", item, "OpenWindow");
             Messenger.Default.Send<NotificationMessage<object>>(msg);
         }
+
+
+
         #region 公共属性区域
         //条件列表
         private ObservableCollection<CalculationConditionItem> conditions;
