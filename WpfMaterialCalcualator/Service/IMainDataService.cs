@@ -26,5 +26,13 @@ namespace WpfMaterialCalcualator.Service
         /// </summary>
         /// <param name="results"></param>
         void ClearResultWeigtht(ICollection<CalculationResultItem> results);
+
+        void CalculateWeight(string alreadyKnownItem, double alreadyKnownWeight, ICollection<CalculationResultItem> results, double TotalWeight);
+
+        IList<CalculationConditionItem> GetAllConditions();
+        bool AddCondition(CalculationConditionItem item);
+        bool UpdateCondition(CalculationConditionItem item);
+        bool DeleteCondition(CalculationConditionItem item);
+        bool ClearCondition();
     }
 }

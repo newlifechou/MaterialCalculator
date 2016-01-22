@@ -13,7 +13,7 @@ namespace WpfMaterialCalcualator.Service
     {
         public bool AddMaterialItem(MaterialItem item)
         {
-            string cmdText = "insert into (id,materialName,moleWeight,popRate) values  (@id,@materialName,@moleWeight,@popRate) ";
+            string cmdText = "insert into material (id,materialName,moleWeight,popRate) values  (@id,@materialName,@moleWeight,@popRate) ";
             SQLiteParameter[] cmdParameters =
             {
                 new SQLiteParameter("@id",item.Id),

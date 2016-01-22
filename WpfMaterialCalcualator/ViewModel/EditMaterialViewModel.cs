@@ -37,6 +37,7 @@ namespace WpfMaterialCalcualator.ViewModel
         {
             if (ConditionItem!=null)
             {
+                ConditionItem.Id = Guid.NewGuid();
                 //发送消息到MainView更新Conditions
                 NotificationMessage<object> msg = new NotificationMessage<object>(this, "MainView", ConditionItem, "ConditionEditFinished");
                 Messenger.Default.Send<NotificationMessage<object>>(msg);
@@ -50,6 +51,7 @@ namespace WpfMaterialCalcualator.ViewModel
             if (obj.Target.ToString()=="EditMaterial")
             {
                 ConditionItem = obj.Content as CalculationConditionItem;
+
                 Materials = new ObservableCollection<MaterialItem>(materialLibraryDS.GetAllMaterialItems());
                 GroupNames = new ObservableCollection<string>(CreateGroups());
             }

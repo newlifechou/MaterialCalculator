@@ -27,14 +27,21 @@ namespace WpfMaterialCalcualator.ViewModel
 
         #region 私有成员区域
         private readonly IMainDataService mainDataService;
+        private readonly IDialogService dialogService;
+
+        private int editIndex;
         #endregion
 
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
-        public MainViewModel(IMainDataService ds)
+        public MainViewModel(IMainDataService ds,IDialogService dialogDS)
         {
-            this.mainDataService = ds;
+            //Condition编辑标志位，-1表示Add,其他值表示index
+            editIndex = -1;
+
+            mainDataService = ds;
+            dialogService = dialogDS;
 
             Conditions = new ObservableCollection<CalculationConditionItem>();
             Results = new ObservableCollection<CalculationResultItem>();
@@ -44,6 +51,7 @@ namespace WpfMaterialCalcualator.ViewModel
 
 
             AddConditionCommand = new RelayCommand(AddConditionAction);
+            EditConditionCommand = new RelayCommand<CalculationConditionItem>(EditConditionAction);
             DeleteConditionCommand = new RelayCommand<CalculationConditionItem>(DeleteConditionAction);
 
             MaterialLibraryCommand = new RelayCommand(MaterialLibraryAction);
@@ -52,11 +60,6 @@ namespace WpfMaterialCalcualator.ViewModel
 
 
             Messenger.Default.Register<NotificationMessage<object>>(this, MissonAction);
-        }
-
-        private void DeleteConditionAction(CalculationConditionItem obj)
-        {
-            
         }
 
         private void  SetAlreadyKnownList()
@@ -75,20 +78,32 @@ namespace WpfMaterialCalcualator.ViewModel
             if (obj.Notification=="ConditionEditFinished")
             {
                 CalculationConditionItem tmp = obj.Content as CalculationConditionItem;
-                Conditions.Add(tmp);
-                //得到数据后，这里进行计算
-                mainDataService.CalculateWt(Conditions, Results);
+                //考虑将Condition表存放到数据库当中，这样便于修改
+                //在现有的Conditions里查找是否存在来判断是Add还是Edit
+                if (editIndex>=0)
+                {
+                    Conditions[editIndex] = tmp;
+                }
+                else
+                {
+                    Conditions.Add(tmp);
+                }
 
-                //填充重量计算选项
-                SetAlreadyKnownList();
+                CalculateWt();
 
-                //排序，要么对后台数据进行排序，要么使用前排的View进行排序
-
-
-                RaisePropertyChanged("Conditions");
-                RaisePropertyChanged("Results");
-
+                editIndex = -1;
             }
+        }
+
+        private void CalculateWt()
+        {
+            //得到数据后，这里进行计算
+            mainDataService.CalculateWt(Conditions, Results);
+            //填充重量计算选项
+            SetAlreadyKnownList();
+            //排序，要么对后台数据进行排序，要么使用前排的View进行排序
+            RaisePropertyChanged("Conditions");
+            RaisePropertyChanged("Results");
         }
 
         private void SaveAction()
@@ -112,10 +127,25 @@ namespace WpfMaterialCalcualator.ViewModel
         private void AddConditionAction()
         {
             CalculationConditionItem item = new CalculationConditionItem() {GroupName="1" };
-            NotificationMessage<object> msg = new NotificationMessage<object>(this, "EditMaterial", item, "OpenWindow");
+            NotificationMessage<object> msg = new NotificationMessage<object>("Add", "EditMaterial", item, "OpenWindow");
+            Messenger.Default.Send<NotificationMessage<object>>(msg);
+        }
+        private void EditConditionAction(CalculationConditionItem obj)
+        {
+            editIndex = Conditions.IndexOf(obj);
+            CalculationConditionItem item = obj;
+            NotificationMessage<object> msg = new NotificationMessage<object>("Edit", "EditMaterial", item, "OpenWindow");
             Messenger.Default.Send<NotificationMessage<object>>(msg);
         }
 
+        private void DeleteConditionAction(CalculationConditionItem item)
+        {
+            if (dialogService.ShowDialog("Are you sure to delete it?", "Delete"))
+            {
+                Conditions.Remove(item);
+                CalculateWt();
+            }
+        }
 
 
         #region 公共属性区域
