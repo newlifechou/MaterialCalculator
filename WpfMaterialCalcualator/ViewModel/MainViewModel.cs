@@ -44,7 +44,7 @@ namespace WpfMaterialCalcualator.ViewModel
 
 
 
-            EditMaterialCommand = new RelayCommand(EditMaterialAction);
+            AddConditionCommand = new RelayCommand(EditMaterialAction);
             MaterialLibraryCommand = new RelayCommand(MaterialLibraryAction);
             LoadCommand = new RelayCommand(LoadAction);
             SaveCommand = new RelayCommand(SaveAction);
@@ -140,7 +140,10 @@ namespace WpfMaterialCalcualator.ViewModel
         #endregion
 
         #region ¹«¹²ÃüÁîÇøÓò
-        public RelayCommand EditMaterialCommand { get; private set; }
+        public RelayCommand AddConditionCommand { get; private set; }
+        public RelayCommand<CalculationConditionItem> EditConditionCommand { get; set; }
+        public RelayCommand<CalculationConditionItem> DeleteConditionCommand { get; set; }
+
         public RelayCommand CalculateCommand { get; private set; }
         public RelayCommand ClearWeightCommand { get; private set; }
         public RelayCommand MaterialLibraryCommand { get; private set; }
