@@ -35,11 +35,6 @@ namespace WpfMaterialCalcualator.Common
                 }
             }
         }
-
-        public bool ShowDialog(string content, string caption)
-        {
-            return MessageBox.Show(content, caption, MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK;
-        }
     }
 
 }

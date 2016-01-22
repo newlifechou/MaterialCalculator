@@ -43,13 +43,20 @@ namespace WpfMaterialCalcualator.ViewModel
 
 
 
-            AddConditionCommand = new RelayCommand(EditMaterialAction);
+            AddConditionCommand = new RelayCommand(AddConditionAction);
+            DeleteConditionCommand = new RelayCommand<CalculationConditionItem>(DeleteConditionAction);
+
             MaterialLibraryCommand = new RelayCommand(MaterialLibraryAction);
             LoadCommand = new RelayCommand(LoadAction);
             SaveCommand = new RelayCommand(SaveAction);
 
 
             Messenger.Default.Register<NotificationMessage<object>>(this, MissonAction);
+        }
+
+        private void DeleteConditionAction(CalculationConditionItem obj)
+        {
+            
         }
 
         private void  SetAlreadyKnownList()
@@ -102,7 +109,7 @@ namespace WpfMaterialCalcualator.ViewModel
             Messenger.Default.Send<NotificationMessage<object>>(msg);
         }
 
-        private void EditMaterialAction()
+        private void AddConditionAction()
         {
             CalculationConditionItem item = new CalculationConditionItem() {GroupName="1" };
             NotificationMessage<object> msg = new NotificationMessage<object>(this, "EditMaterial", item, "OpenWindow");
