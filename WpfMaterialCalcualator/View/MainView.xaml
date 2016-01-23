@@ -57,9 +57,9 @@
                 </DataGrid>
             </StackPanel>
         </GroupBox>
-        <GroupBox Header="Result">
+        <GroupBox Header="Calculation Results">
             <StackPanel>
-                <DataGrid  Height="150" Style="{StaticResource dg}" ItemsSource="{Binding Results}">
+                <DataGrid  Height="100" Style="{StaticResource dg}" ItemsSource="{Binding Results}">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Group Name" Binding="{Binding GroupName}"/>
                         <DataGridTextColumn Header="Group Composition" Binding="{Binding GroupComposition}"/>
@@ -67,15 +67,17 @@
                         <DataGridTextColumn Header="Weight" Binding="{Binding Weight,StringFormat={}{0:N3}}"/>
                     </DataGrid.Columns>
                 </DataGrid>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Already Known " VerticalAlignment="Center"/>
-                    <ComboBox VerticalAlignment="Center" ItemsSource="{Binding AlreadyKnownList}" SelectedItem="{Binding AlreadyKnownItem}">
-                    </ComboBox>
-                    <TextBox  Style="{StaticResource txt}" Text="{Binding CalWeight}"/>
-                    <Button Content="Calculate Now" Style="{StaticResource btn}" Command="{Binding CalculateWtCommand}"/>
-                    <Button Content="Clear All Weights" Style="{StaticResource btn}" Command="{Binding ClearWeightCommand}"/>
-                    <TextBlock Text="Totol Weight=1500g" VerticalAlignment="Center"/>
-                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Weight Calculation">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Already Known " VerticalAlignment="Center"/>
+                <ComboBox VerticalAlignment="Center" ItemsSource="{Binding AlreadyKnownList}" SelectedItem="{Binding AlreadyKnownItem}">
+                </ComboBox>
+                <TextBox  Style="{StaticResource txt}" Text="{Binding CalWeight}"/>
+                <Button Content="Calculate Now" Style="{StaticResource btn}" Command="{Binding CalculateWtCommand}"/>
+                <Button Content="Clear All Weights" Style="{StaticResource btn}" Command="{Binding ClearWeightCommand}"/>
+                <TextBlock Text="Totol Weight=1500g" VerticalAlignment="Center"/>
             </StackPanel>
         </GroupBox>
     </StackPanel>
