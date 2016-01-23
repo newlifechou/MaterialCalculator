@@ -38,8 +38,8 @@ namespace WpfMaterialCalcualator.ViewModel
 
             mainDataService = ds;
             dialogService = dialogDS;
-            //每次启动后，清空TempConditions表
-            ds.ClearCondition();
+            //每次启动后，加载上次的计算表
+            //mainDataService.ClearCondition();
 
             CalWeight = 1000;
             AlreadyKnownList = new ObservableCollection<string>();
@@ -51,6 +51,8 @@ namespace WpfMaterialCalcualator.ViewModel
             AddConditionCommand = new RelayCommand(AddConditionAction);
             EditConditionCommand = new RelayCommand<CalculationConditionItem>(EditConditionAction);
             DeleteConditionCommand = new RelayCommand<CalculationConditionItem>(DeleteConditionAction);
+            ClearConditionsCommand = new RelayCommand(ClearConditionsAction);
+
 
             MaterialLibraryCommand = new RelayCommand(MaterialLibraryAction);
             LoadCommand = new RelayCommand(LoadAction);
@@ -58,6 +60,12 @@ namespace WpfMaterialCalcualator.ViewModel
 
 
             Messenger.Default.Register<NotificationMessage<object>>(this, ReloadConditionsAction);
+        }
+
+        private void ClearConditionsAction()
+        {
+            mainDataService.ClearCondition();
+            ReloadConditions();
         }
 
         private void  SetAlreadyKnownList()
@@ -228,6 +236,8 @@ namespace WpfMaterialCalcualator.ViewModel
         public RelayCommand AddConditionCommand { get; private set; }
         public RelayCommand<CalculationConditionItem> EditConditionCommand { get; set; }
         public RelayCommand<CalculationConditionItem> DeleteConditionCommand { get; set; }
+        public RelayCommand ClearConditionsCommand { get; private set; }
+
 
         public RelayCommand CalculateWtCommand { get; private set; }
         public RelayCommand ClearWeightCommand { get; private set; }

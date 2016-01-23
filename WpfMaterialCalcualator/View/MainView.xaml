@@ -27,8 +27,10 @@
         </StackPanel>
         <GroupBox Header="Calculation Conditions">
             <StackPanel>
-                <Button Content="Add Condition" Style="{StaticResource btnAdd}" HorizontalAlignment="Left"
-                        Command="{Binding AddConditionCommand}"/>
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Add Condition" Style="{StaticResource btnAdd}" Command="{Binding AddConditionCommand}"/>
+                    <Button Content="Clear All Conditions" Style="{StaticResource btn}" Command="{Binding ClearConditionsCommand}"/>
+                </StackPanel>
                 <DataGrid Style="{StaticResource dg}" Height="250" ItemsSource="{Binding Conditions}">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Group Name" Binding="{Binding GroupName}"/>
