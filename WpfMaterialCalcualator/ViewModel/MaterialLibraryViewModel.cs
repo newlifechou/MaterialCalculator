@@ -27,50 +27,65 @@ namespace WpfMaterialCalcualator.ViewModel
             materialDataService = datads;
             dialogService = dialogds;
             Reload();
+            HideEditArea();
+
 
             AddCommand = new RelayCommand(AddAction);
             EditCommand = new RelayCommand<MaterialItem>(EditAction);
             DeleteCommand = new RelayCommand<MaterialItem>(DeleteAction);
             SaveCommand = new RelayCommand(SaveAction);
+            CancelCommand = new RelayCommand(CancelAction);
 
+        }
+
+        private void CancelAction()
+        {
+            HideEditArea();
         }
 
         private void DeleteAction(MaterialItem item)
         {
-            if (dialogService.ShowDialog("Delete this material?","Delete"))
+            if (dialogService.ShowDialog("Delete this material?", "Delete"))
             {
                 materialDataService.DeleteMaterialItem(item);
+                Reload();
             }
         }
 
         private void EditAction(MaterialItem item)
         {
-            EditMaterialItem = item;
+            ShowEditArea();
+            EditState = "Editing the Choosing Item";
+            //注意以后这一要深拷贝一下
+            MaterialItem newItem = new MaterialItem();
+            newItem.Id = item.Id;
+            newItem.MaterialName = item.MaterialName;
+            newItem.MoleWeight = item.MoleWeight;
+            newItem.PopRate = item.PopRate;
+            EditMaterialItem = newItem;
+        }
+
+        private void AddAction()
+        {
+            ShowEditArea();
+            EditState = "Adding New Item";
+            EditMaterialItem = new MaterialItem();
         }
 
         private void SaveAction()
         {
-            if (EditMaterialItem.Id==Guid.Empty)
+            if (EditMaterialItem.Id == Guid.Empty)
             {
                 EditMaterialItem.Id = Guid.NewGuid();
                 materialDataService.AddMaterialItem(EditMaterialItem);
             }
             else
             {
-                materialDataService.UpdateMaterialItem(EditMaterialItem);
+               bool result= materialDataService.UpdateMaterialItem(EditMaterialItem);
             }
             Reload();
 
-            EditMaterialItem.Id = Guid.Empty;
-            EditMaterialItem.MaterialName = string.Empty;
-            EditMaterialItem.MoleWeight = 0;
-            EditMaterialItem.PopRate = 0;
-            RaisePropertyChanged("EditMaterialItem");
-        }
-
-        private void AddAction()
-        {
-            EditMaterialItem = new MaterialItem();
+            HideEditArea();
         }
 
         private void Reload()
@@ -79,8 +94,58 @@ namespace WpfMaterialCalcualator.ViewModel
 
         }
 
+        private void ShowEditArea()
+        {
+            EditAreaWidth = 300;
+            MainEnableState = false;
+        }
+
+        private void HideEditArea()
+        {
+            EditAreaWidth = 0;
+            MainEnableState = true;
+        }
 
         #region 公开属性
+        /// <summary>
+        /// 显示编辑状态字符串
+        /// </summary>
+        private string editState;
+        public string EditState
+        {
+            get { return editState; }
+            set
+            {
+                Set(ref editState, value);
+            }
+        }
+        /// <summary>
+        /// 主区域可用状态，和编辑区域出现相反
+        /// </summary>
+        private bool mainEnableState;
+        public bool MainEnableState
+        {
+            get { return mainEnableState; }
+            set
+            {
+                Set(ref mainEnableState, value);
+            }
+        }
+
+        /// <summary>
+        /// 控制编辑区域显示宽度
+        /// </summary>
+        private int editAreaWidth;
+        public int EditAreaWidth
+        {
+            get { return editAreaWidth; }
+            set
+            {
+                Set(ref editAreaWidth, value);
+            }
+        }
+
+
         /// <summary>
         ///当前编辑的材料项
         /// </summary>
@@ -115,6 +180,7 @@ namespace WpfMaterialCalcualator.ViewModel
         public RelayCommand<MaterialItem> EditCommand { get; private set; }
         public RelayCommand<MaterialItem> DeleteCommand { get; private set; }
         public RelayCommand SaveCommand { get; private set; }
+        public RelayCommand CancelCommand { get; private set; }
         #endregion
     }
 }

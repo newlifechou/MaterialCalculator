@@ -38,7 +38,7 @@ namespace WpfMaterialCalcualator.Service
 
         public IList<MaterialItem> GetAllMaterialItems()
         {
-            string cmdText = "select id,materialName,moleweight,poprate from material";
+            string cmdText = "select id,materialName,moleweight,poprate from material  order by moleweight";
             SQLiteDataReader dr = SqliteHelper.ExecuteReader(cmdText, null);
             IList<MaterialItem> results = new List<MaterialItem>(); 
 
@@ -62,10 +62,10 @@ namespace WpfMaterialCalcualator.Service
             string cmdText = "update material set materialName=@materialName,moleWeight=@moleWeight,popRate=@popRate where id=@id";
             SQLiteParameter[] cmdParameters =
             {
-                new SQLiteParameter("@id",item.Id),
                 new SQLiteParameter("@materialName",item.MaterialName),
                 new SQLiteParameter("@moleWeight",item.MoleWeight),
-                new SQLiteParameter("@popRate",item.PopRate)
+                new SQLiteParameter("@popRate",item.PopRate),
+                new SQLiteParameter("@id",item.Id)
             };
 
             return SqliteHelper.ExecuteNonQuery(cmdText, cmdParameters) > 0;

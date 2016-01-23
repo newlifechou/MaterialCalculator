@@ -9,19 +9,21 @@
         Title="MaterialLibraryView" Height="600" Width="800" DataContext="{Binding Source={StaticResource Locator},Path=MaterialLibrary}">
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="{Binding EditAreaWidth}"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Button Grid.Row="0" Grid.ColumnSpan="2" Content="Add" Style="{StaticResource btn}"  HorizontalAlignment="Left"
-                Command="{Binding AddCommand}"/>
-        <DataGrid Grid.Row="1" Grid.Column="0" Style="{StaticResource dg}" ItemsSource="{Binding Materials}">
+                Command="{Binding AddCommand}" IsEnabled="{Binding MainEnableState}"/>
+        <DataGrid Grid.Row="1" Grid.Column="0" Style="{StaticResource dg}" IsEnabled="{Binding MainEnableState}"
+                  ItemsSource="{Binding Materials}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Material Name" Binding="{Binding MaterialName}"/>
-                <DataGridTextColumn Header="Mole Weight" Binding="{Binding MoleWeight}"/>
+                <DataGridTextColumn Header="Mole Weight" Binding="{Binding MoleWeight,StringFormat={}{0:N3}}"
+                                    ElementStyle="{StaticResource dgCellARight}"/>
                 <DataGridTextColumn Header="Pop Rate" Binding="{Binding PopRate}"/>
                 <DataGridTemplateColumn Width="70" CanUserResize="False">
                     <DataGridTemplateColumn.CellTemplate>
@@ -42,23 +44,30 @@
             </DataGrid.Columns>
         </DataGrid>
         <!--编辑区域-->
-        <Grid Grid.Row="1" Grid.Column="1">
+        <Grid Grid.Row="1" Grid.Column="1" >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="auto"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Grid.Column="0" Text="Material Name" Style="{StaticResource txtbl}"/>
-            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding EditMaterialItem.MaterialName}" Style="{StaticResource txt}"/>
-            <TextBlock Grid.Row="1" Grid.Column="0" Text="Mole Weight" Style="{StaticResource txtbl}"/>
-            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding EditMaterialItem.MoleWeight}" Style="{StaticResource txt}"/>
-            <Button Content="Save" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Right" Style="{StaticResource btn}"
+            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource txtbl}"
+                       Text='{Binding EditState,StringFormat="Now you are {0}"}' Foreground="Red" FontSize="15"/>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Material Name" Style="{StaticResource txtbl}"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding EditMaterialItem.MaterialName}" Style="{StaticResource txt}"/>
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Mole Weight" Style="{StaticResource txtbl}"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding EditMaterialItem.MoleWeight}" Style="{StaticResource txt}"/>
+            <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="Cancel" Style="{StaticResource btn}"
+                    Command="{Binding CancelCommand}"/>
+                <Button Content="Save" Style="{StaticResource btn}"
                     Command="{Binding SaveCommand}"/>
+            </StackPanel>
         </Grid>
     </Grid>
 </Window>

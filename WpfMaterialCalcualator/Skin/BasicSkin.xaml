@@ -33,5 +33,10 @@
         <Setter Property="HorizontalGridLinesBrush" Value="Wheat"/>
         <Setter Property="CanUserResizeRows" Value="False"/>
     </Style>
- 
+
+    <!--需要设定DataGridTextColumn的ElementStyle-->
+    <Style x:Key="dgCellARight" TargetType="{x:Type TextBlock}">
+        <Setter Property="TextAlignment" Value="Right"/>
+    </Style>
+
 </ResourceDictionary>

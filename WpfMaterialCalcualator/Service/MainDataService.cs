@@ -27,7 +27,7 @@ namespace WpfMaterialCalcualator.Service
                 results.Add(tmp);
             }
             dr.Close();
-            return results;          
+            return results;
         }
 
         public bool AddCondition(CalculationConditionItem item)
@@ -50,11 +50,11 @@ namespace WpfMaterialCalcualator.Service
             string cmdText = "update tempcondition set groupname=@groupname,materialName=@materialName,moleWeight=@moleWeight,at=@at where id=@id";
             SQLiteParameter[] cmdParameters =
             {
-                new SQLiteParameter("@id",item.Id),
                 new SQLiteParameter("@groupname",item.GroupName),
                 new SQLiteParameter("@materialName",item.MaterialName),
                 new SQLiteParameter("@moleWeight",item.MoleWeight),
-                new SQLiteParameter("@at",item.At)
+                new SQLiteParameter("@at",item.At),
+                new SQLiteParameter("@id",item.Id)
             };
 
             return SqliteHelper.ExecuteNonQuery(cmdText, cmdParameters) > 0;
