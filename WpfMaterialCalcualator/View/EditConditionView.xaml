@@ -23,7 +23,7 @@
             <DataGrid Grid.Row="1" Style="{StaticResource dg}" ItemsSource="{Binding Materials}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="MaterialName" Binding="{Binding  MaterialName}"/>
-                    <DataGridTextColumn Header="MoleWeight" Binding="{Binding MoleWeight}"/>
+                    <DataGridTextColumn Header="MoleWeight" Binding="{Binding MoleWeight,StringFormat={}{0:N3}}" ElementStyle="{StaticResource dgCellARight}"/>
                     <DataGridTemplateColumn Header="Option">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
