@@ -64,8 +64,11 @@ namespace WpfMaterialCalcualator.ViewModel
 
         private void ClearConditionsAction()
         {
-            mainDataService.ClearCondition();
-            ReloadConditions();
+            if (dialogService.ShowDialog("Delete All Conditions?","Delete"))
+            {
+                mainDataService.ClearCondition();
+                ReloadConditions();
+            }
         }
 
         private void  SetAlreadyKnownList()
