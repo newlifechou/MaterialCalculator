@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfMaterialCalcualator.View"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="MaterialLibraryView" Height="400" Width="600" DataContext="{Binding Source={StaticResource Locator},Path=MaterialLibrary}">
+        Title="MaterialLibraryView" Height="600" Width="800" DataContext="{Binding Source={StaticResource Locator},Path=MaterialLibrary}">
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"/>
@@ -16,8 +16,31 @@
             <RowDefinition Height="auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Grid.Row="0" Grid.ColumnSpan="2" Content="Add" Style="{StaticResource btn}"  HorizontalAlignment="Left"/>
-        <DataGrid Grid.Row="1" Grid.Column="0"/>
+        <Button Grid.Row="0" Grid.ColumnSpan="2" Content="Add" Style="{StaticResource btn}"  HorizontalAlignment="Left"
+                Command="{Binding AddCommand}"/>
+        <DataGrid Grid.Row="1" Grid.Column="0" Style="{StaticResource dg}" ItemsSource="{Binding Materials}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Material Name" Binding="{Binding MaterialName}"/>
+                <DataGridTextColumn Header="Mole Weight" Binding="{Binding MoleWeight}"/>
+                <DataGridTextColumn Header="Pop Rate" Binding="{Binding PopRate}"/>
+                <DataGridTemplateColumn Width="70" CanUserResize="False">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Edit" Command="{Binding DataContext.EditCommand,
+                                        RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" CommandParameter="{Binding}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="70" CanUserResize="False">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Delete" Command="{Binding DataContext.DeleteCommand,
+                                        RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" CommandParameter="{Binding}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
         <!--编辑区域-->
         <Grid Grid.Row="1" Grid.Column="1">
             <Grid.ColumnDefinitions>
@@ -31,10 +54,11 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Grid.Column="0" Text="Material Name" Style="{StaticResource txtbl}"/>
-            <TextBox Grid.Row="0" Grid.Column="1" Text="" Style="{StaticResource txt}"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding EditMaterialItem.MaterialName}" Style="{StaticResource txt}"/>
             <TextBlock Grid.Row="1" Grid.Column="0" Text="Mole Weight" Style="{StaticResource txtbl}"/>
-            <TextBox Grid.Row="1" Grid.Column="1" Text="" Style="{StaticResource txt}"/>
-            <Button Content="Save" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Right" Style="{StaticResource btn}"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding EditMaterialItem.MoleWeight}" Style="{StaticResource txt}"/>
+            <Button Content="Save" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Right" Style="{StaticResource btn}"
+                    Command="{Binding SaveCommand}"/>
         </Grid>
     </Grid>
 </Window>
