@@ -128,10 +128,6 @@ namespace WpfMaterialCalcualator.Service
             }
         }
 
-        public void CalculateWeight(string alreadyKnownItem, double alreadyKnownWeight, ICollection<CalculationResultItem> results, double TotalWeight)
-        {
-            throw new NotImplementedException();
-        }
 
         public void ClearResultWeigtht(ICollection<CalculationResultItem> results)
         {
@@ -141,5 +137,14 @@ namespace WpfMaterialCalcualator.Service
             }
         }
 
+        public void CalculateWithTotalWeight(ICollection<CalculationResultItem> results, double TotalWeight)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CalcualteWithOneGroupWeight(string alreadyKnownGroup, double groupWeight, ICollection<CalculationResultItem> results, double TotalWeight)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
