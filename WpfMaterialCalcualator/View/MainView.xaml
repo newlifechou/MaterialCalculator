@@ -73,21 +73,22 @@
             <StackPanel >
                 <RadioButton Content="Know Total Mixture Weight" IsChecked="True" Style="{StaticResource rb}"/>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="MIxture Weight=" Style="{StaticResource txtbl}"/>
-                    <TextBox Style="{StaticResource txt}"/>
+                    <TextBlock Text="Mixture Weight=" Style="{StaticResource txtbl}"/>
+                    <TextBox Style="{StaticResource txt}" Text="1000"/>
                 </StackPanel>
                 <RadioButton Content="Know One Group's Weight"  Style="{StaticResource rb}"/>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Known Group" VerticalAlignment="Center" Style="{StaticResource txtbl}"/>
                     <ComboBox VerticalAlignment="Center" ItemsSource="{Binding KnowWeightGroupList}" SelectedItem="{Binding KnownWeightGroupName}">
                     </ComboBox>
+                    <TextBlock Text="Group Weight=" Style="{StaticResource txtbl}"/>
                     <TextBox  Style="{StaticResource txt}" Text="{Binding CalWeight}"/>
+                    <TextBlock Text="Totol Weight=1500g" VerticalAlignment="Center" Style="{StaticResource txtbl}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Button Content="Calculate Now" Style="{StaticResource btn}" Command="{Binding CalculateWtCommand}"/>
                     <Button Content="Clear All Weights" Style="{StaticResource btn}" Command="{Binding ClearWeightCommand}"/>
                 </StackPanel>
-                <TextBlock Text="Totol Weight=1500g" VerticalAlignment="Center" Style="{StaticResource txtbl}"/>
             </StackPanel>
         </GroupBox>
     </StackPanel>
