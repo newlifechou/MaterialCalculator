@@ -42,7 +42,7 @@ namespace WpfMaterialCalcualator.ViewModel
             //mainDataService.ClearCondition();
 
             CalWeight = 1000;
-            AlreadyKnownList = new ObservableCollection<string>();
+            KnowWeightGroupList = new ObservableCollection<string>();
             Results = new ObservableCollection<CalculationResultItem>();
 
             ReloadConditions();
@@ -71,15 +71,17 @@ namespace WpfMaterialCalcualator.ViewModel
             }
         }
 
-        private void  SetAlreadyKnownList()
+        private void  SetKnowWeightGroupList()
         {
-            AlreadyKnownList.Clear();
-            AlreadyKnownList.Add("Total Weight");
+            KnowWeightGroupList.Clear();
             foreach (var item in Results.Select(i => i.GroupName).ToList())
             {
-                AlreadyKnownList.Add(item);
+                KnowWeightGroupList.Add(item);
             }
-            AlreadyKnownItem = "Total Weight";
+            if (KnowWeightGroupList.Count>0)
+            {
+                KnownWeightGroupName = KnowWeightGroupList[0];                
+            }
         }
 
         private void ReloadConditionsAction(NotificationMessage<object> obj)
@@ -103,7 +105,7 @@ namespace WpfMaterialCalcualator.ViewModel
             //得到数据后，这里进行计算
             mainDataService.CalculateWt(Conditions, Results);
             //填充重量计算选项
-            SetAlreadyKnownList();
+            SetKnowWeightGroupList();
             //排序，要么对后台数据进行排序，要么使用前排的View进行排序
         }
 
@@ -202,23 +204,23 @@ namespace WpfMaterialCalcualator.ViewModel
         }
 
         //AlreadyKnown
-        private ObservableCollection<string> alreadyKnownList;
-        public ObservableCollection<string> AlreadyKnownList
+        private ObservableCollection<string> knowWeightGroupList;
+        public ObservableCollection<string> KnowWeightGroupList
         {
-            get { return alreadyKnownList; }
+            get { return knowWeightGroupList; }
             set
             {
-                Set(ref alreadyKnownList, value);
+                Set(ref knowWeightGroupList, value);
             }
         }
 
-        private string alreadyKnownItem;
-        public string AlreadyKnownItem
+        private string knownWeightGroupName;
+        public string KnownWeightGroupName
         {
-            get { return alreadyKnownItem; }
+            get { return knownWeightGroupName; }
             set
             {
-                Set(ref alreadyKnownItem, value);
+                Set(ref knownWeightGroupName, value);
             }
         }
 
