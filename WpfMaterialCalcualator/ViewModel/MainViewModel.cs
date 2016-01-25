@@ -68,6 +68,7 @@ namespace WpfMaterialCalcualator.ViewModel
         private void ClearWeightAction()
         {
             mainDataService.ClearResultWeigtht(Results);
+            TotalWeight2 = 0;
         }
 
         private void CalculationWeightAction()
@@ -80,7 +81,7 @@ namespace WpfMaterialCalcualator.ViewModel
             }
             else
             {
-                if (KnownWeightGroupItem!=null)
+                if (KnownWeightGroupItem != null)
                 {
                     double totalMixtureWeight = 0;
                     mainDataService.CalcualteWithOneGroupWeight(KnownWeightGroupItem, GroupWeight, Results, out totalMixtureWeight);
@@ -166,9 +167,31 @@ namespace WpfMaterialCalcualator.ViewModel
 
         #region 公共属性区域
         //条件列表
-        public ObservableCollection<CalculationConditionItem> Conditions { get; set; }
+        private ObservableCollection<CalculationConditionItem> conditions;
+        public ObservableCollection<CalculationConditionItem> Conditions
+        {
+            get
+            {
+                return conditions;
+            }
+            set
+            {
+                Set(ref conditions, value);
+            }
+        }
         //结果列表
-        public ObservableCollection<CalculationResultItem> Results { get; set; }
+        private ObservableCollection<CalculationResultItem> results;
+        public ObservableCollection<CalculationResultItem> Results
+        {
+            get
+            {
+                return results;
+            }
+            set
+            {
+                Set(ref results, value);
+            }
+        }
 
         /// <summary>
         /// 计算组项

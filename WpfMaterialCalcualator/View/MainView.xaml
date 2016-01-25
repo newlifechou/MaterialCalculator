@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
-        Title="MainWindow" Height="600" Width="800" DataContext="{Binding Source={StaticResource Locator},Path=Main}">
+        Title="MainWindow" DataContext="{Binding Source={StaticResource Locator},Path=Main}" Width="900" Height="650">
     <StackPanel Margin="10">
         <!--<Menu>
             <MenuItem Header="File">
@@ -31,7 +31,7 @@
                     <Button Content="Add Condition" Style="{StaticResource btnAdd}" Command="{Binding AddConditionCommand}"/>
                     <Button Content="Clear All Conditions" Style="{StaticResource btn}" Command="{Binding ClearConditionsCommand}"/>
                 </StackPanel>
-                <DataGrid Style="{StaticResource dg}" Height="150" ItemsSource="{Binding Conditions}">
+                <DataGrid Style="{StaticResource dg}" Height="200" ItemsSource="{Binding Conditions}">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Group Name" Binding="{Binding GroupName}"/>
                         <DataGridTextColumn Header="Material Name" Binding="{Binding MaterialName}"/>

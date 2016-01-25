@@ -94,7 +94,16 @@ namespace WpfMaterialCalcualator.ViewModel
 
         #region 公开属性区域
         //材料库项目列表
-        public ObservableCollection<MaterialItem> Materials { get; set; }
+        private ObservableCollection<MaterialItem> materials;
+        public ObservableCollection<MaterialItem> Materials
+        {
+            get { return materials; }
+            set
+            {
+                Set(ref materials, value);
+            }
+        }
+
 
         /// <summary>
         /// 当前计算项
@@ -111,7 +120,16 @@ namespace WpfMaterialCalcualator.ViewModel
         /// <summary>
         /// Group待选项里列表
         /// </summary>
-        public ObservableCollection<string> GroupNames { get; set; }
+        private ObservableCollection<string> groupNames;
+        public ObservableCollection<string> GroupNames
+        {
+            get { return groupNames; }
+            set
+            {
+                Set(ref groupNames, value);
+            }
+        }
+
 
         #endregion
 
