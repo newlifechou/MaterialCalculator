@@ -73,7 +73,7 @@ namespace WpfMaterialCalcualator.ViewModel
             ConditionItem.MaterialName = item.MaterialName;
             ConditionItem.MoleWeight = item.MoleWeight;
             //引发属性改动事件
-            RaisePropertyChanged("ConditionItem");
+            RaisePropertyChanged(()=>ConditionItem);
         }
 
         /// <summary>

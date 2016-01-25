@@ -35,8 +35,9 @@
     <Style x:Key="dg" TargetType="DataGrid">
         <Setter Property="IsReadOnly" Value="True"/>
         <Setter Property="AutoGenerateColumns" Value="False"/>
-        <Setter Property="GridLinesVisibility" Value="Horizontal"/>
+        <Setter Property="GridLinesVisibility" Value="All"/>
         <Setter Property="HorizontalGridLinesBrush" Value="Wheat"/>
+        <Setter Property="VerticalGridLinesBrush" Value="Wheat"/>
         <Setter Property="CanUserResizeRows" Value="False"/>
     </Style>
 

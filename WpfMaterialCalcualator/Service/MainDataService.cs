@@ -103,6 +103,7 @@ namespace WpfMaterialCalcualator.Service
                 foreach (var item in query)
                 {
                     CalculationResultItem tmpCalculationResultItem = new CalculationResultItem();
+                    tmpCalculationResultItem.Id = Guid.NewGuid();
                     tmpCalculationResultItem.GroupName = item.GroupName;
                     //按照组类生成名称和临时值,分两种情况，一个一组，和多个一组
                     StringBuilder sb = new StringBuilder();
@@ -123,6 +124,7 @@ namespace WpfMaterialCalcualator.Service
                     tmpCalculationResultItem.GroupComposition = sb.ToString();
 
                     tmpCalculationResultItem.Wt = item.GroupAtMoleSum / sumAllTmp * 100;
+                    tmpCalculationResultItem.Weight = 0;
                     results.Add(tmpCalculationResultItem);
                 }
             }
@@ -139,10 +141,13 @@ namespace WpfMaterialCalcualator.Service
 
         public void CalculateWithTotalWeight(ICollection<CalculationResultItem> results, double TotalWeight)
         {
-            throw new NotImplementedException();
+            foreach (var item in results)
+            {
+                item.Weight = item.Wt * TotalWeight/100;
+            }
         }
 
-        public void CalcualteWithOneGroupWeight(string alreadyKnownGroup, double groupWeight, ICollection<CalculationResultItem> results, double TotalWeight)
+        public void CalcualteWithOneGroupWeight(string alreadyKnownGroup, double groupWeight, ICollection<CalculationResultItem> results,out  double TotalWeight)
         {
             throw new NotImplementedException();
         }

@@ -40,8 +40,10 @@ namespace WpfMaterialCalcualator.ViewModel
             dialogService = dialogDS;
             //每次启动后，加载上次的计算表
             //mainDataService.ClearCondition();
+            GroupWeight = 1000;
+            TotalWeight = 1000;
+            IsTotalWeight = true;
 
-            CalWeight = 1000;
             KnowWeightGroupList = new ObservableCollection<string>();
             Results = new ObservableCollection<CalculationResultItem>();
 
@@ -52,7 +54,7 @@ namespace WpfMaterialCalcualator.ViewModel
             EditConditionCommand = new RelayCommand<CalculationConditionItem>(EditConditionAction);
             DeleteConditionCommand = new RelayCommand<CalculationConditionItem>(DeleteConditionAction);
             ClearConditionsCommand = new RelayCommand(ClearConditionsAction);
-
+            CalculateWeightCommand = new RelayCommand(CalculationWeightAction);
 
             MaterialLibraryCommand = new RelayCommand(MaterialLibraryAction);
             LoadCommand = new RelayCommand(LoadAction);
@@ -60,6 +62,27 @@ namespace WpfMaterialCalcualator.ViewModel
 
 
             Messenger.Default.Register<NotificationMessage<object>>(this, ReloadConditionsAction);
+        }
+
+        private void CalculationWeightAction()
+        {
+            //判定计算方式
+            if (IsTotalWeight)
+            {
+                Results[0].Wt = 100;
+                //mainDataService.CalculateWithTotalWeight(Results, TotalWeight);
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(KnownWeightGroupName))
+                {
+
+                }
+
+                double totalMixtureWeight = 0;
+                mainDataService.CalcualteWithOneGroupWeight(KnownWeightGroupName, GroupWeight, Results, out totalMixtureWeight);
+
+            }
         }
 
         private void ClearConditionsAction()
@@ -95,18 +118,11 @@ namespace WpfMaterialCalcualator.ViewModel
         private void ReloadConditions()
         {
             Conditions = new ObservableCollection<CalculationConditionItem>(mainDataService.GetAllConditions());
-            CalculateWt();
-            RaisePropertyChanged("Conditions");
-            RaisePropertyChanged("Results");
-        }
-
-        private void CalculateWt()
-        {
-            //得到数据后，这里进行计算
             mainDataService.CalculateWt(Conditions, Results);
-            //填充重量计算选项
             SetKnowWeightGroupList();
-            //排序，要么对后台数据进行排序，要么使用前排的View进行排序
+            //ItemsSource的数据源只要引用不同，就会自动更新界面，所以不用下面的
+            //RaisePropertyChanged(() =>Conditions);
+            //RaisePropertyChanged(() => Results);
         }
 
         private void SaveAction()
@@ -170,18 +186,21 @@ namespace WpfMaterialCalcualator.ViewModel
             }
         }
         //结果列表
-        private ObservableCollection<CalculationResultItem> results;
-        public ObservableCollection<CalculationResultItem> Results
-        {
-            get
-            {
-                return results;
-            }
-            set
-            {
-                Set(ref results, value);
-            }
+        public ObservableCollection<CalculationResultItem> Results {
+            get; set;
         }
+        //private ObservableCollection<CalculationResultItem> results;
+        //public ObservableCollection<CalculationResultItem> Results
+        //{
+        //    get
+        //    {
+        //        return results;
+        //    }
+        //    set
+        //    {
+        //        Set(ref results, value);
+        //    }
+        //}
         //重量计算-计算组组名
         private string calculationGroupName;
         public string CalculationGroupName
@@ -224,13 +243,32 @@ namespace WpfMaterialCalcualator.ViewModel
             }
         }
 
-        private double calWeight;
-        public double CalWeight
+        private double groupWeight;
+        public double GroupWeight
         {
-            get { return calWeight; }
+            get { return groupWeight; }
             set
             {
-                Set(ref calWeight, value);
+                Set(ref groupWeight, value);
+            }
+        }
+
+        private double totalWeight;
+        public double TotalWeight
+        {
+            get { return totalWeight; }
+            set
+            {
+                Set(ref totalWeight, value);
+            }
+        }
+        private bool isTotalWeight;
+        public bool IsTotalWeight
+        {
+            get { return isTotalWeight; }
+            set
+            {
+                Set(ref isTotalWeight, value);
             }
         }
 
@@ -244,7 +282,7 @@ namespace WpfMaterialCalcualator.ViewModel
         public RelayCommand ClearConditionsCommand { get; private set; }
 
 
-        public RelayCommand CalculateWtCommand { get; private set; }
+        public RelayCommand CalculateWeightCommand { get; private set; }
         public RelayCommand ClearWeightCommand { get; private set; }
         public RelayCommand MaterialLibraryCommand { get; private set; }
         public RelayCommand LoadCommand { get; private set; }
