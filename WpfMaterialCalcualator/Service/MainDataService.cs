@@ -135,7 +135,7 @@ namespace WpfMaterialCalcualator.Service
         {
             foreach (var item in results)
             {
-                item.Wt = 0;
+                item.Weight = 0;
             }
         }
 
@@ -153,7 +153,16 @@ namespace WpfMaterialCalcualator.Service
         public void CalcualteWithOneGroupWeight(CalculationResultItem alreadyKnownGroup, double groupWeight, ICollection<CalculationResultItem> results,
             out  double totalWeight)
         {
-            throw new NotImplementedException();
+            if (groupWeight>0)
+            {
+                totalWeight = groupWeight / (alreadyKnownGroup.Wt/100);
+                //首先得知总重量，然后调用总重量已知的计算方法
+                CalculateWithTotalWeight(results, totalWeight);
+            }
+            else
+            {
+                totalWeight = 0;
+            }
         }
     }
 }

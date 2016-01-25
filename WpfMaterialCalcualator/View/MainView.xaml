@@ -88,7 +88,7 @@
                     </ComboBox>
                     <TextBlock Text="Group Weight=" Style="{StaticResource txtbl}"/>
                     <TextBox  Style="{StaticResource txt}" Text="{Binding GroupWeight}"/>
-                    <TextBlock Text="Totol Weight=1500g" VerticalAlignment="Center" Style="{StaticResource txtbl}"/>
+                    <TextBlock Text='{Binding TotalWeight2,StringFormat="Totol Weight={0:N3}"}' VerticalAlignment="Center" Style="{StaticResource txtbl}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Button Content="Calculate Now" Style="{StaticResource btn}" Command="{Binding CalculateWeightCommand}"/>

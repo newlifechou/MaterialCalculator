@@ -39,6 +39,7 @@
         <Setter Property="HorizontalGridLinesBrush" Value="Wheat"/>
         <Setter Property="VerticalGridLinesBrush" Value="Wheat"/>
         <Setter Property="CanUserResizeRows" Value="False"/>
+        <Setter Property="CanUserSortColumns" Value="False"/>
     </Style>
 
     <!--需要设定DataGridTextColumn的ElementStyle-->

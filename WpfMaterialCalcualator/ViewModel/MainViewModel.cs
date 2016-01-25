@@ -53,7 +53,9 @@ namespace WpfMaterialCalcualator.ViewModel
             EditConditionCommand = new RelayCommand<CalculationConditionItem>(EditConditionAction);
             DeleteConditionCommand = new RelayCommand<CalculationConditionItem>(DeleteConditionAction);
             ClearConditionsCommand = new RelayCommand(ClearConditionsAction);
+
             CalculateWeightCommand = new RelayCommand(CalculationWeightAction);
+            ClearWeightCommand = new RelayCommand(ClearWeightAction);
 
             MaterialLibraryCommand = new RelayCommand(MaterialLibraryAction);
             LoadCommand = new RelayCommand(LoadAction);
@@ -61,6 +63,11 @@ namespace WpfMaterialCalcualator.ViewModel
 
 
             Messenger.Default.Register<NotificationMessage<object>>(this, ReloadConditionsAction);
+        }
+
+        private void ClearWeightAction()
+        {
+            mainDataService.ClearResultWeigtht(Results);
         }
 
         private void CalculationWeightAction()
@@ -77,7 +84,7 @@ namespace WpfMaterialCalcualator.ViewModel
                 {
                     double totalMixtureWeight = 0;
                     mainDataService.CalcualteWithOneGroupWeight(KnownWeightGroupItem, GroupWeight, Results, out totalMixtureWeight);
-                    TotalWeight = totalMixtureWeight;
+                    TotalWeight2 = totalMixtureWeight;
                 }
             }
         }
@@ -188,7 +195,15 @@ namespace WpfMaterialCalcualator.ViewModel
                 Set(ref groupWeight, value);
             }
         }
-
+        private double totalWeight2;
+        public double TotalWeight2
+        {
+            get { return totalWeight2; }
+            set
+            {
+                Set(ref totalWeight2, value);
+            }
+        }
         /// <summary>
         /// 计算总重量
         /// </summary>
