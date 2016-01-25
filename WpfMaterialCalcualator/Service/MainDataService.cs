@@ -139,15 +139,19 @@ namespace WpfMaterialCalcualator.Service
             }
         }
 
-        public void CalculateWithTotalWeight(ICollection<CalculationResultItem> results, double TotalWeight)
+        public void CalculateWithTotalWeight(ICollection<CalculationResultItem> results, double totalWeight)
         {
-            foreach (var item in results)
+            if (totalWeight>0)
             {
-                item.Weight = item.Wt * TotalWeight/100;
+                foreach (var item in results)
+                {
+                    item.Weight = item.Wt * totalWeight / 100;
+                }
             }
         }
 
-        public void CalcualteWithOneGroupWeight(string alreadyKnownGroup, double groupWeight, ICollection<CalculationResultItem> results,out  double TotalWeight)
+        public void CalcualteWithOneGroupWeight(CalculationResultItem alreadyKnownGroup, double groupWeight, ICollection<CalculationResultItem> results,
+            out  double totalWeight)
         {
             throw new NotImplementedException();
         }

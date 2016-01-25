@@ -28,7 +28,7 @@ namespace WpfMaterialCalcualator.Service
         void ClearResultWeigtht(ICollection<CalculationResultItem> results);
 
         void CalculateWithTotalWeight(ICollection<CalculationResultItem> results, double TotalWeight);
-        void CalcualteWithOneGroupWeight(string alreadyKnownGroup, double groupWeight, ICollection<CalculationResultItem> results,out double TotalWeight);
+        void CalcualteWithOneGroupWeight(CalculationResultItem alreadyKnownGroup, double groupWeight, ICollection<CalculationResultItem> results,out double TotalWeight);
 
 
         IList<CalculationConditionItem> GetAllConditions();

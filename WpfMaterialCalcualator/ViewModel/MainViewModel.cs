@@ -44,7 +44,6 @@ namespace WpfMaterialCalcualator.ViewModel
             TotalWeight = 1000;
             IsTotalWeight = true;
 
-            KnowWeightGroupList = new ObservableCollection<string>();
             Results = new ObservableCollection<CalculationResultItem>();
 
             ReloadConditions();
@@ -74,14 +73,12 @@ namespace WpfMaterialCalcualator.ViewModel
             }
             else
             {
-                if (string.IsNullOrEmpty(KnownWeightGroupName))
+                if (KnownWeightGroupItem!=null)
                 {
-
+                    double totalMixtureWeight = 0;
+                    mainDataService.CalcualteWithOneGroupWeight(KnownWeightGroupItem, GroupWeight, Results, out totalMixtureWeight);
+                    TotalWeight = totalMixtureWeight;
                 }
-
-                double totalMixtureWeight = 0;
-                mainDataService.CalcualteWithOneGroupWeight(KnownWeightGroupName, GroupWeight, Results, out totalMixtureWeight);
-
             }
         }
 
@@ -96,15 +93,7 @@ namespace WpfMaterialCalcualator.ViewModel
 
         private void SetKnowWeightGroupList()
         {
-            KnowWeightGroupList.Clear();
-            foreach (var item in Results.Select(i => i.GroupName).ToList())
-            {
-                KnowWeightGroupList.Add(item);
-            }
-            if (KnowWeightGroupList.Count > 0)
-            {
-                KnownWeightGroupName = KnowWeightGroupList[0];
-            }
+            knowCalculationGroupItem = Results[0];
         }
 
         private void ReloadConditionsAction(NotificationMessage<object> obj)
@@ -173,48 +162,23 @@ namespace WpfMaterialCalcualator.ViewModel
         public ObservableCollection<CalculationConditionItem> Conditions { get; set; }
         //结果列表
         public ObservableCollection<CalculationResultItem> Results { get; set; }
-        //重量计算-计算组组名
-        private string calculationGroupName;
-        public string CalculationGroupName
+
+        /// <summary>
+        /// 计算组项
+        /// </summary>
+        private CalculationResultItem knowCalculationGroupItem;
+        public CalculationResultItem KnownWeightGroupItem
         {
-            get { return calculationGroupName; }
+            get { return knowCalculationGroupItem; }
             set
             {
-                Set(ref calculationGroupName, value);
-            }
-        }
-        //重量计算-计算组重量
-        private double calculationWeight;
-        public double CalculationWeight
-        {
-            get { return calculationWeight; }
-            set
-            {
-                Set(ref calculationWeight, value);
+                Set(ref knowCalculationGroupItem, value);
             }
         }
 
-        //AlreadyKnown
-        private ObservableCollection<string> knowWeightGroupList;
-        public ObservableCollection<string> KnowWeightGroupList
-        {
-            get { return knowWeightGroupList; }
-            set
-            {
-                Set(ref knowWeightGroupList, value);
-            }
-        }
-
-        private string knownWeightGroupName;
-        public string KnownWeightGroupName
-        {
-            get { return knownWeightGroupName; }
-            set
-            {
-                Set(ref knownWeightGroupName, value);
-            }
-        }
-
+        /// <summary>
+        /// 知道计算组重量，计算其他的时候的临时组重量
+        /// </summary>
         private double groupWeight;
         public double GroupWeight
         {
@@ -225,6 +189,9 @@ namespace WpfMaterialCalcualator.ViewModel
             }
         }
 
+        /// <summary>
+        /// 计算总重量
+        /// </summary>
         private double totalWeight;
         public double TotalWeight
         {
