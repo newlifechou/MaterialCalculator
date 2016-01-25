@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfMaterialCalcualator.Model;
 
 namespace WpfMaterialCalcualator.View
 {
@@ -20,9 +21,14 @@ namespace WpfMaterialCalcualator.View
     /// </summary>
     public partial class EditConditionView : Window
     {
+        private ListCollectionView lcv;
         public EditConditionView()
         {
             InitializeComponent();
+            //获取View
+            lcv = CollectionViewSource.GetDefaultView(lstMaterials.ItemsSource) as ListCollectionView;
+
+
             Messenger.Default.Register<object>(this, "CloseMe", obj =>
             {
                 this.Close();
@@ -31,6 +37,15 @@ namespace WpfMaterialCalcualator.View
             this.Unloaded += (s, e) =>
             {
                 Messenger.Default.Unregister(this);
+            };
+        }
+
+        private void txtFilterContent_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            lcv.Filter = m =>
+            {
+                MaterialItem material = m as MaterialItem;
+                return material.MaterialName.ToLower().Contains(txtFilterContent.Text.ToLower());
             };
         }
     }
