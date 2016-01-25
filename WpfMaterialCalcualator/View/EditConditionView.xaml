@@ -58,7 +58,7 @@
             <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource txt}" Text="{Binding ConditionItem.MoleWeight}"/>
             <TextBlock Grid.Row="3" Grid.Column="0" Text="At%" Style="{StaticResource txtbl}"/>
             <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource txt}" Text="{Binding ConditionItem.At}"/>
-            <Button Grid.Row="4" Grid.ColumnSpan="2" Style="{StaticResource btn}" Content="Add In" Command="{Binding AddInCommand}"/>
+            <Button Grid.Row="4" Grid.ColumnSpan="2" Style="{StaticResource btn}" Content="Save" Command="{Binding SaveCommand}"/>
 
         </Grid>
     </Grid>

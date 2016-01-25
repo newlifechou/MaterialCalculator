@@ -44,6 +44,7 @@
     <!--需要设定DataGridTextColumn的ElementStyle-->
     <Style x:Key="dgCellARight" TargetType="{x:Type TextBlock}">
         <Setter Property="TextAlignment" Value="Right"/>
+        <Setter Property="MinWidth" Value="80"/>
     </Style>
 
     <sys:Double x:Key="btnImageHeight">20</sys:Double>

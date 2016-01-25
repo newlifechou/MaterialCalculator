@@ -30,12 +30,12 @@ namespace WpfMaterialCalcualator.ViewModel
             materialLibraryDS = mlds;
 
             SelectMaterialCommand = new RelayCommand<MaterialItem>(SelectMaterialAction);
-            AddInCommand = new RelayCommand(AddInAction);
+            SaveCommand = new RelayCommand(SaveAction);
 
             Messenger.Default.Register<NotificationMessage<object>>(this, InitialAction);
         }
 
-        private void AddInAction()
+        private void SaveAction()
         {
             if (ConditionItem.Id == Guid.Empty)
             {
@@ -94,15 +94,7 @@ namespace WpfMaterialCalcualator.ViewModel
 
         #region 公开属性区域
         //材料库项目列表
-        private ObservableCollection<MaterialItem> materials;
-        public ObservableCollection<MaterialItem> Materials
-        {
-            get { return materials; }
-            set
-            {
-                Set(ref materials, value);
-            }
-        }
+        public ObservableCollection<MaterialItem> Materials { get; set; }
 
         /// <summary>
         /// 当前计算项
@@ -119,21 +111,13 @@ namespace WpfMaterialCalcualator.ViewModel
         /// <summary>
         /// Group待选项里列表
         /// </summary>
-        private ObservableCollection<string> groupNames;
-        public ObservableCollection<string> GroupNames
-        {
-            get { return groupNames; }
-            set
-            {
-                Set(ref groupNames, value);
-            }
-        }
+        public ObservableCollection<string> GroupNames { get; set; }
 
         #endregion
 
         #region 公开命令区域
         public RelayCommand<MaterialItem> SelectMaterialCommand { get; private set; }
-        public RelayCommand AddInCommand { get; private set; }
+        public RelayCommand SaveCommand { get; private set; }
 
 
         #endregion

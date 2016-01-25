@@ -162,15 +162,7 @@ namespace WpfMaterialCalcualator.ViewModel
         /// <summary>
         /// 所有材料列表
         /// </summary>
-        private ObservableCollection<MaterialItem> materials;
-        public ObservableCollection<MaterialItem> Materials
-        {
-            get { return materials; }
-            set
-            {
-                Set(ref materials, value);
-            }
-        }
+        public ObservableCollection<MaterialItem> Materials { get; set; }
 
 
         #endregion

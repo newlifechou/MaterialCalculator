@@ -33,7 +33,7 @@ namespace WpfMaterialCalcualator.ViewModel
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
-        public MainViewModel(IMainDataService ds,IDialogService dialogDS)
+        public MainViewModel(IMainDataService ds, IDialogService dialogDS)
         {
 
             mainDataService = ds;
@@ -69,8 +69,8 @@ namespace WpfMaterialCalcualator.ViewModel
             //判定计算方式
             if (IsTotalWeight)
             {
-                Results[0].Wt = 100;
-                //mainDataService.CalculateWithTotalWeight(Results, TotalWeight);
+                //Results[0].Weight= 100;
+                mainDataService.CalculateWithTotalWeight(Results, TotalWeight);
             }
             else
             {
@@ -87,29 +87,29 @@ namespace WpfMaterialCalcualator.ViewModel
 
         private void ClearConditionsAction()
         {
-            if (dialogService.ShowDialog("Delete All Conditions?","Delete"))
+            if (dialogService.ShowDialog("Delete All Conditions?", "Delete"))
             {
                 mainDataService.ClearCondition();
                 ReloadConditions();
             }
         }
 
-        private void  SetKnowWeightGroupList()
+        private void SetKnowWeightGroupList()
         {
             KnowWeightGroupList.Clear();
             foreach (var item in Results.Select(i => i.GroupName).ToList())
             {
                 KnowWeightGroupList.Add(item);
             }
-            if (KnowWeightGroupList.Count>0)
+            if (KnowWeightGroupList.Count > 0)
             {
-                KnownWeightGroupName = KnowWeightGroupList[0];                
+                KnownWeightGroupName = KnowWeightGroupList[0];
             }
         }
 
         private void ReloadConditionsAction(NotificationMessage<object> obj)
         {
-            if (obj.Notification== "ReloadConditions")
+            if (obj.Notification == "ReloadConditions")
             {
                 ReloadConditions();
             }
@@ -120,9 +120,6 @@ namespace WpfMaterialCalcualator.ViewModel
             Conditions = new ObservableCollection<CalculationConditionItem>(mainDataService.GetAllConditions());
             mainDataService.CalculateWt(Conditions, Results);
             SetKnowWeightGroupList();
-            //ItemsSource的数据源只要引用不同，就会自动更新界面，所以不用下面的
-            //RaisePropertyChanged(() =>Conditions);
-            //RaisePropertyChanged(() => Results);
         }
 
         private void SaveAction()
@@ -145,7 +142,7 @@ namespace WpfMaterialCalcualator.ViewModel
 
         private void AddConditionAction()
         {
-            CalculationConditionItem item = new CalculationConditionItem() {GroupName="1",At=10};
+            CalculationConditionItem item = new CalculationConditionItem() { GroupName = "1", At = 10 };
             NotificationMessage<object> msg = new NotificationMessage<object>(this, "EditCondition", item, "OpenWindow");
             Messenger.Default.Send<NotificationMessage<object>>(msg);
         }
@@ -173,34 +170,9 @@ namespace WpfMaterialCalcualator.ViewModel
 
         #region 公共属性区域
         //条件列表
-        private ObservableCollection<CalculationConditionItem> conditions;
-        public ObservableCollection<CalculationConditionItem> Conditions
-        {
-            get
-            {
-                return conditions;
-            }
-            set
-            {
-                Set(ref conditions, value);
-            }
-        }
+        public ObservableCollection<CalculationConditionItem> Conditions { get; set; }
         //结果列表
-        public ObservableCollection<CalculationResultItem> Results {
-            get; set;
-        }
-        //private ObservableCollection<CalculationResultItem> results;
-        //public ObservableCollection<CalculationResultItem> Results
-        //{
-        //    get
-        //    {
-        //        return results;
-        //    }
-        //    set
-        //    {
-        //        Set(ref results, value);
-        //    }
-        //}
+        public ObservableCollection<CalculationResultItem> Results { get; set; }
         //重量计算-计算组组名
         private string calculationGroupName;
         public string CalculationGroupName
