@@ -1,0 +1,7 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:valid="clr-namespace:WpfMaterialCalcualator.Resource"
+                    xmlns:local="clr-namespace:WpfMaterialCalcualator.Resource">
+    <valid:RegexValidateRule x:Key="mustNotBeEmpty" RegexMessage="Must not empty" RegexExpression="^[\S]{1,}$"/>
+    <valid:RegexValidateRule x:Key="mustBeNumber" RegexMessage="Must be number" RegexExpression="^[\d]{1,}$"/>
+</ResourceDictionary>

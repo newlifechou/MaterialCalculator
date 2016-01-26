@@ -53,7 +53,15 @@
             <ComboBox Grid.Row="0" Grid.Column="1" Style="{StaticResource cbo}" ItemsSource="{Binding GroupNames}"
                       SelectedItem="{Binding  ConditionItem.GroupName}"/>
             <TextBlock Grid.Row="1" Grid.Column="0" Text="Material Name" Style="{StaticResource txtbl}"/>
-            <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txt}" Text="{Binding ConditionItem.MaterialName}"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txt}" >
+                <TextBox.Text>
+                    <Binding Path="ConditionItem.MaterialName" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <StaticResource ResourceKey="mustNotBeEmpty"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
             <TextBlock Grid.Row="2" Grid.Column="0" Text="Mole Weight" Style="{StaticResource txtbl}"/>
             <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource txt}" Text="{Binding ConditionItem.MoleWeight}"/>
             <TextBlock Grid.Row="3" Grid.Column="0" Text="At%" Style="{StaticResource txtbl}"/>

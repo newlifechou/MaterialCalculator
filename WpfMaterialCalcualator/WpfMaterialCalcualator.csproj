@@ -106,6 +106,8 @@
     <Compile Include="Model\MaterialItem.cs" />
     <Compile Include="Model\NotifyPropertyChangedBase.cs" />
     <Compile Include="Model\ProjectItem.cs" />
+    <Compile Include="Resource\MustNotBeNullRule.cs" />
+    <Compile Include="Resource\RegexValidateRule.cs" />
     <Compile Include="Service\DialogService.cs" />
     <Compile Include="Service\IDialogService.cs" />
     <Compile Include="Service\IMainDataService.cs" />
@@ -127,6 +129,10 @@
     <Compile Include="View\SaveView.xaml.cs">
       <DependentUpon>SaveView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Resource\ValidationDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\EditConditionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -194,9 +200,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resource\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Skin\Images\Add.png" />
     <Resource Include="Skin\Images\delete-1-icon.png" />
