@@ -2,6 +2,8 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:command="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfMaterialCalcualator.View"
         mc:Ignorable="d"
@@ -37,6 +39,12 @@
             </DataGrid>
         </Grid>
         <Grid Grid.Column="1" Margin="5">
+            <!--使用EventToComand来关联错误事件-->
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Validation.ErrorEvent">
+                    <command:EventToCommand Command="{Binding ErrorCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition/>
@@ -55,7 +63,7 @@
             <TextBlock Grid.Row="1" Grid.Column="0" Text="Material Name" Style="{StaticResource txtbl}"/>
             <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txt}" >
                 <TextBox.Text>
-                    <Binding Path="ConditionItem.MaterialName" UpdateSourceTrigger="PropertyChanged">
+                    <Binding Path="ConditionItem.MaterialName" NotifyOnValidationError="True">
                         <Binding.ValidationRules>
                             <StaticResource ResourceKey="mustNotBeEmpty"/>
                         </Binding.ValidationRules>
@@ -63,9 +71,27 @@
                 </TextBox.Text>
             </TextBox>
             <TextBlock Grid.Row="2" Grid.Column="0" Text="Mole Weight" Style="{StaticResource txtbl}"/>
-            <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource txt}" Text="{Binding ConditionItem.MoleWeight}"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource txt}">
+                <TextBox.Text>
+                    <Binding Path="ConditionItem.MoleWeight">
+                        <Binding.ValidationRules>
+                            <StaticResource ResourceKey="mustNotBeEmpty"/>
+                            <StaticResource ResourceKey="mustBeNumber"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
             <TextBlock Grid.Row="3" Grid.Column="0" Text="At%" Style="{StaticResource txtbl}"/>
-            <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource txt}" Text="{Binding ConditionItem.At}"/>
+            <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource txt}" >
+                <TextBox.Text>
+                    <Binding Path="ConditionItem.At" >
+                        <Binding.ValidationRules>
+                            <StaticResource ResourceKey="mustNotBeEmpty"/>
+                            <StaticResource ResourceKey="mustBeNumber"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
             <Button Grid.Row="4" Grid.ColumnSpan="2" Style="{StaticResource btn}" Content="Save" Command="{Binding SaveCommand}"/>
 
         </Grid>

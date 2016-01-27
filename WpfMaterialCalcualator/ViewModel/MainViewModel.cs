@@ -99,11 +99,6 @@ namespace WpfMaterialCalcualator.ViewModel
             }
         }
 
-        private void SetKnowWeightGroupList()
-        {
-            knowCalculationGroupItem = Results[0];
-        }
-
         private void ReloadConditionsAction(NotificationMessage<object> obj)
         {
             if (obj.Notification == "ReloadConditions")
@@ -116,7 +111,7 @@ namespace WpfMaterialCalcualator.ViewModel
         {
             Conditions = new ObservableCollection<CalculationConditionItem>(mainDataService.GetAllConditions());
             mainDataService.CalculateWt(Conditions, Results);
-            SetKnowWeightGroupList();
+           KnownWeightGroupItem = Results[0];
         }
 
         private void SaveAction()
@@ -196,13 +191,13 @@ namespace WpfMaterialCalcualator.ViewModel
         /// <summary>
         /// ¼ÆËã×éÏî
         /// </summary>
-        private CalculationResultItem knowCalculationGroupItem;
+        private CalculationResultItem knowWeightGroupItem;
         public CalculationResultItem KnownWeightGroupItem
         {
-            get { return knowCalculationGroupItem; }
+            get { return knowWeightGroupItem; }
             set
             {
-                Set(ref knowCalculationGroupItem, value);
+                Set(ref knowWeightGroupItem, value);
             }
         }
 

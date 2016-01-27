@@ -6,6 +6,7 @@ using WpfMaterialCalcualator.Model;
 using System;
 using WpfMaterialCalcualator.Service;
 using GalaSoft.MvvmLight.Messaging;
+using System.Windows;
 
 namespace WpfMaterialCalcualator.ViewModel
 {
@@ -31,6 +32,11 @@ namespace WpfMaterialCalcualator.ViewModel
 
             SelectMaterialCommand = new RelayCommand<MaterialItem>(SelectMaterialAction);
             SaveCommand = new RelayCommand(SaveAction);
+
+            ErrorCommand = new RelayCommand(() =>
+              {
+                  MessageBox.Show("error");
+              });
 
             Messenger.Default.Register<NotificationMessage<object>>(this, InitialAction);
         }
@@ -137,7 +143,7 @@ namespace WpfMaterialCalcualator.ViewModel
         public RelayCommand<MaterialItem> SelectMaterialCommand { get; private set; }
         public RelayCommand SaveCommand { get; private set; }
 
-
+        public RelayCommand ErrorCommand { get; set; }
         #endregion
     }
 }
