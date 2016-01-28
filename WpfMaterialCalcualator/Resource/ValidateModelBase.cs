@@ -13,6 +13,22 @@ namespace WpfMaterialCalcualator.Resource
     /// </summary>
     public class ValidateModelBase:INotifyDataErrorInfo
     {
+        public void ValidateProperty(string value,string propertyName,CustomValidationItem validtion)
+        {
+            List<string> errors = new List<string>();
+            if (validtion.validationExpression(value))
+            {
+                errors.Add(validtion.ErrorMessage);
+                errorList[propertyName] = errors;
+                //考虑精简这个语句
+                RaiseErrorsChanged(propertyName);
+            }
+            else if (errorList.ContainsKey(propertyName))
+            {
+                errorList.Remove(propertyName);
+                RaiseErrorsChanged(propertyName);
+            }
+        }
         /// <summary>
         /// 验证方法
         /// 继承子类当中可以调用这个方法，传入一个自定义的验证列表，进行多种单值验证
