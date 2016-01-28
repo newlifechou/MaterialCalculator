@@ -31,7 +31,7 @@ namespace WpfMaterialCalcualator.ViewModel
             materialLibraryDS = mlds;
 
             SelectMaterialCommand = new RelayCommand<MaterialItem>(SelectMaterialAction);
-            SaveCommand = new RelayCommand(SaveAction);
+            SaveCommand = new RelayCommand(SaveAction,CanSaveFunc);
 
             ErrorCommand = new RelayCommand(() =>
               {
@@ -39,6 +39,11 @@ namespace WpfMaterialCalcualator.ViewModel
               });
 
             Messenger.Default.Register<NotificationMessage<object>>(this, InitialAction);
+        }
+
+        private bool CanSaveFunc()
+        {
+            return (!ConditionItem.HasErrors);
         }
 
         private void SaveAction()

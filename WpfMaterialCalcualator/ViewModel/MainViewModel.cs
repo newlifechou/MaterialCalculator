@@ -134,7 +134,7 @@ namespace WpfMaterialCalcualator.ViewModel
 
         private void AddConditionAction()
         {
-            CalculationConditionItem item = new CalculationConditionItem() { GroupName = "1", At = 10 };
+            CalculationConditionItem item = new CalculationConditionItem() { GroupName = "1",MaterialName="default",MoleWeight=100, At = 10 };
             NotificationMessage<object> msg = new NotificationMessage<object>(this, "EditCondition", item, "OpenWindow");
             Messenger.Default.Send<NotificationMessage<object>>(msg);
         }
