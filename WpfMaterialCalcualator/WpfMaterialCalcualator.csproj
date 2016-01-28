@@ -107,7 +107,7 @@
     <Compile Include="Model\NotifyPropertyChangedBase.cs" />
     <Compile Include="Model\ProjectItem.cs" />
     <Compile Include="Resource\CustomValidation.cs" />
-    <Compile Include="Resource\CustomValidationItem.cs" />
+    <Compile Include="Resource\ValidationItem.cs" />
     <Compile Include="Resource\ICustomValidation.cs" />
     <Compile Include="Resource\MustNotBeNullRule.cs" />
     <Compile Include="Resource\RegexValidateRule.cs" />

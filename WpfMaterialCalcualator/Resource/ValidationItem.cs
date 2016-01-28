@@ -9,12 +9,12 @@ namespace WpfMaterialCalcualator.Resource
     /// <summary>
     /// 自定义验证项目
     /// </summary>
-    public class CustomValidationItem
+    public class ValidationItem
     {
         /// <summary>
         /// 验证委托表达式
         /// </summary>
-        public Func<string, bool> validationExpression { get; set; }
+        public Func<string, bool> ValidationExpression { get; set; }
         /// <summary>
         /// 验证不通过的时候的错误消息
         /// </summary>

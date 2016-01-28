@@ -13,10 +13,10 @@ namespace WpfMaterialCalcualator.Resource
     /// </summary>
     public class ValidateModelBase:INotifyDataErrorInfo
     {
-        public void ValidateProperty(string value,string propertyName,CustomValidationItem validtion)
+        public void ValidateProperty(string value,string propertyName,ValidationItem validtion)
         {
             List<string> errors = new List<string>();
-            if (validtion.validationExpression(value))
+            if (validtion.ValidationExpression(value))
             {
                 errors.Add(validtion.ErrorMessage);
                 errorList[propertyName] = errors;
@@ -36,7 +36,7 @@ namespace WpfMaterialCalcualator.Resource
         /// <param name="value"></param>
         /// <param name="propertyName"></param>
         /// <param name="validations"></param>
-        public void ValidateProperty(string value, string propertyName, List<CustomValidationItem> validations)
+        public void ValidateProperty(string value, string propertyName, List<ValidationItem> validations)
         {
             bool isValid = true;
             //循环遍历每一个验证规则，如果有问题，添加进errorlist当中
@@ -44,7 +44,7 @@ namespace WpfMaterialCalcualator.Resource
             foreach (var item in validations)
             {
                 List<string> errors = new List<string>();
-                if (item.validationExpression(value))
+                if (item.ValidationExpression(value))
                 {
                     errors.Add(item.ErrorMessage);
                     isValid = false;
