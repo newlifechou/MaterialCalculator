@@ -33,17 +33,13 @@ namespace WpfMaterialCalcualator.ViewModel
             SelectMaterialCommand = new RelayCommand<MaterialItem>(SelectMaterialAction);
             SaveCommand = new RelayCommand(SaveAction,CanSaveFunc);
 
-            ErrorCommand = new RelayCommand(() =>
-              {
-                  MessageBox.Show("error");
-              });
-
             Messenger.Default.Register<NotificationMessage<object>>(this, InitialAction);
         }
 
         private bool CanSaveFunc()
         {
-            return (!ConditionItem.HasErrors);
+            //return (!ConditionItem.HasErrors);
+            return true;
         }
 
         private void SaveAction()
@@ -147,8 +143,6 @@ namespace WpfMaterialCalcualator.ViewModel
         #region 公开命令区域
         public RelayCommand<MaterialItem> SelectMaterialCommand { get; private set; }
         public RelayCommand SaveCommand { get; private set; }
-
-        public RelayCommand ErrorCommand { get; set; }
         #endregion
     }
 }

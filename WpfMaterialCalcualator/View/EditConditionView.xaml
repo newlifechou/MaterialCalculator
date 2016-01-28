@@ -39,12 +39,6 @@
             </DataGrid>
         </Grid>
         <Grid Grid.Column="1" Margin="5">
-            <!--使用EventToComand来关联错误事件-->
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="Validation.ErrorEvent">
-                    <command:EventToCommand Command="{Binding ErrorCommand}"/>
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition/>
@@ -61,29 +55,11 @@
             <ComboBox Grid.Row="0" Grid.Column="1" Style="{StaticResource cbo}" ItemsSource="{Binding GroupNames}"
                       SelectedItem="{Binding  ConditionItem.GroupName}"/>
             <TextBlock Grid.Row="1" Grid.Column="0" Text="Material Name" Style="{StaticResource txtbl}"/>
-            <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txt}" Text="{Binding ConditionItem.MaterialName,NotifyOnValidationError=True,UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txt}" Text="{Binding ConditionItem.MaterialName,UpdateSourceTrigger=PropertyChanged}" />
             <TextBlock Grid.Row="2" Grid.Column="0" Text="Mole Weight" Style="{StaticResource txtbl}"/>
-            <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource txt}">
-                <TextBox.Text>
-                    <Binding Path="ConditionItem.MoleWeight">
-                        <Binding.ValidationRules>
-                            <StaticResource ResourceKey="mustNotBeEmpty"/>
-                            <StaticResource ResourceKey="mustBeNumber"/>
-                        </Binding.ValidationRules>
-                    </Binding>
-                </TextBox.Text>
-            </TextBox>
+            <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource txt}" Text="{Binding ConditionItem.MoleWeight,UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Grid.Row="3" Grid.Column="0" Text="At%" Style="{StaticResource txtbl}"/>
-            <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource txt}" >
-                <TextBox.Text>
-                    <Binding Path="ConditionItem.At" >
-                        <Binding.ValidationRules>
-                            <StaticResource ResourceKey="mustNotBeEmpty"/>
-                            <StaticResource ResourceKey="mustBeNumber"/>
-                        </Binding.ValidationRules>
-                    </Binding>
-                </TextBox.Text>
-            </TextBox>
+            <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource txt}"  Text="{Binding ConditionItem.At}"/>
             <Button Grid.Row="4" Grid.ColumnSpan="2" Style="{StaticResource btn}" Content="Save" Command="{Binding SaveCommand}"/>
 
         </Grid>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,6 +29,7 @@ namespace WpfMaterialCalcualator.Model
             }
         }
         public string materialName;
+        [NotEmpty]
         public string MaterialName
         {
             get
@@ -37,10 +39,23 @@ namespace WpfMaterialCalcualator.Model
             set
             {
                 materialName = value;
-                ValidateProperty(materialName, "MaterialName", ValidatonRuleFactory.NotEmpty());
+                //ValidateProperty(materialName, "MaterialName", ValidatonRuleFactory.NotEmpty());
             }
         }
-        public double MoleWeight { get; set; }
+        private double moleWeight;
+        [Required(ErrorMessage ="Must Not Be Empty")]
+        public double MoleWeight
+        {
+            get
+            {
+                return moleWeight;
+            }
+            set
+            {
+                moleWeight = value;
+                //ValidateProperty(moleWeight.ToString(), "MoleWeight", ValidatonRuleFactory.NotEmptyAndMustPositive());
+            }
+        }
         public double At { get; set; }
     }
 }

@@ -107,10 +107,9 @@
     <Compile Include="Model\NotifyPropertyChangedBase.cs" />
     <Compile Include="Model\ProjectItem.cs" />
     <Compile Include="Resource\CustomValidation.cs" />
+    <Compile Include="Resource\NotEmpty.cs" />
     <Compile Include="Resource\ValidationItem.cs" />
     <Compile Include="Resource\ICustomValidation.cs" />
-    <Compile Include="Resource\MustNotBeNullRule.cs" />
-    <Compile Include="Resource\RegexValidateRule.cs" />
     <Compile Include="Resource\ValidateModelBase.cs" />
     <Compile Include="Resource\ValidatonRuleFactory.cs" />
     <Compile Include="Service\DialogService.cs" />
@@ -134,10 +133,6 @@
     <Compile Include="View\SaveView.xaml.cs">
       <DependentUpon>SaveView.xaml</DependentUpon>
     </Compile>
-    <Page Include="Resource\ValidationDictionary.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\EditConditionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
