@@ -76,8 +76,13 @@ namespace WpfMaterialCalcualator.ViewModel
         /// <param name="item"></param>
         private void SelectMaterialAction(MaterialItem item)
         {
+            //每次选择材料后，都给材料的PopRate数值+1
+            item.PopRate++;
+            materialLibraryDS.UpdateMaterialItem(item);
+
             ConditionItem.MaterialName = item.MaterialName;
             ConditionItem.MoleWeight = item.MoleWeight;
+
             //引发属性改动事件
             RaisePropertyChanged(()=>ConditionItem);
         }

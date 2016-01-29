@@ -27,6 +27,7 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="MaterialName" Binding="{Binding  MaterialName}"/>
                     <DataGridTextColumn Header="MoleWeight" Binding="{Binding MoleWeight,StringFormat={}{0:N3}}" ElementStyle="{StaticResource dgCellARight}"/>
+                    <DataGridTextColumn Header="Pop Rate" Binding="{Binding PopRate}"/>
                     <DataGridTemplateColumn Header="Option">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
