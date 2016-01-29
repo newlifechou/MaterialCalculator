@@ -56,13 +56,13 @@
                       SelectedItem="{Binding  ConditionItem.GroupName}"/>
             <TextBlock Grid.Row="1" Grid.Column="0" Text="Material Name" Style="{StaticResource txtbl}"/>
             <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txt}"
-                     Text="{Binding ConditionItem.MaterialName,UpdateSourceTrigger=PropertyChanged}" />
+                     Text="{Binding ConditionItem.MaterialName,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" />
             <TextBlock Grid.Row="2" Grid.Column="0" Text="Mole Weight" Style="{StaticResource txtbl}"/>
             <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource txt}"
-                     Text="{Binding ConditionItem.MoleWeight,UpdateSourceTrigger=PropertyChanged}"/>
+                     Text="{Binding ConditionItem.MoleWeight,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}"/>
             <TextBlock Grid.Row="3" Grid.Column="0" Text="At%" Style="{StaticResource txtbl}"/>
             <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource txt}"
-                     Text="{Binding ConditionItem.At}"/>
+                     Text="{Binding ConditionItem.At,ValidatesOnDataErrors=True}"/>
             <Button Grid.Row="4" Grid.ColumnSpan="2" Style="{StaticResource btn}" Content="Save" Command="{Binding SaveCommand}"/>
 
         </Grid>

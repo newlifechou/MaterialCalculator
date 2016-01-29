@@ -22,6 +22,22 @@
         <Setter Property="Padding" Value="5"/>
         <Setter Property="MinWidth" Value="60"/>
     </Style>
+    <Style x:Key="txtValidate" TargetType="{x:Type TextBox}">
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="MinWidth" Value="80"/>
+        <Setter Property="Validation.ErrorTemplate">
+            <Setter.Value>
+                <ControlTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <AdornedElementPlaceholder Name="adore"/>
+                        <TextBlock Text="{Binding ElementName=adore,Path=AdornedElement.(Validation.Errors)[0].ErrorContent}"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <Style x:Key="chk" TargetType="CheckBox">
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Margin" Value="5,0,0,0"/>

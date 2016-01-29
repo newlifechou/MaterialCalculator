@@ -12,7 +12,7 @@ namespace WpfMaterialCalcualator.Model
     /// <summary>
     /// 实体类-计算条件表项目
     /// </summary>
-    public class CalculationConditionItem : ValidateModelBase
+    public class CalculationConditionItem : ModelBase
     {
         public Guid Id { get; set; }
 
@@ -29,7 +29,7 @@ namespace WpfMaterialCalcualator.Model
             }
         }
         public string materialName;
-        [NotEmpty]
+        [Required]
         public string MaterialName
         {
             get
@@ -39,11 +39,10 @@ namespace WpfMaterialCalcualator.Model
             set
             {
                 materialName = value;
-                //ValidateProperty(materialName, "MaterialName", ValidatonRuleFactory.NotEmpty());
             }
         }
         private double moleWeight;
-        [Required(ErrorMessage ="Must Not Be Empty")]
+        [Required]
         public double MoleWeight
         {
             get
@@ -53,9 +52,9 @@ namespace WpfMaterialCalcualator.Model
             set
             {
                 moleWeight = value;
-                //ValidateProperty(moleWeight.ToString(), "MoleWeight", ValidatonRuleFactory.NotEmptyAndMustPositive());
             }
         }
+        [Required]
         public double At { get; set; }
     }
 }

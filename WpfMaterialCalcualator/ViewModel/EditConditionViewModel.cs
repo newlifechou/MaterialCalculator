@@ -38,8 +38,7 @@ namespace WpfMaterialCalcualator.ViewModel
 
         private bool CanSaveFunc()
         {
-            //return (!ConditionItem.HasErrors);
-            return true;
+            return ConditionItem.IsValid;
         }
 
         private void SaveAction()
