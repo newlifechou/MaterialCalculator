@@ -52,17 +52,37 @@ namespace WpfMaterialCalcualator.ViewModel
             AddConditionCommand = new RelayCommand(AddConditionAction);
             EditConditionCommand = new RelayCommand<CalculationConditionItem>(EditConditionAction);
             DeleteConditionCommand = new RelayCommand<CalculationConditionItem>(DeleteConditionAction);
-            ClearConditionsCommand = new RelayCommand(ClearConditionsAction);
+            ClearConditionsCommand = new RelayCommand(ClearConditionsAction,CanClearConditonFunc);
 
-            CalculateWeightCommand = new RelayCommand(CalculationWeightAction);
-            ClearWeightCommand = new RelayCommand(ClearWeightAction);
+            CalculateWeightCommand = new RelayCommand(CalculationWeightAction,CanCalculateWeightFunc);
+            ClearWeightCommand = new RelayCommand(ClearWeightAction,CanClearWeightFunc);
 
             MaterialLibraryCommand = new RelayCommand(MaterialLibraryAction);
             LoadCommand = new RelayCommand(LoadAction);
-            SaveCommand = new RelayCommand(SaveAction);
+            SaveCommand = new RelayCommand(SaveAction,CanSaveFunc);
 
 
             Messenger.Default.Register<NotificationMessage<object>>(this, ReloadConditionsAction);
+        }
+
+        private bool CanSaveFunc()
+        {
+            return Results.Count > 0;
+        }
+
+        private bool CanClearWeightFunc()
+        {
+            return Results.Count > 0;
+        }
+
+        private bool CanCalculateWeightFunc()
+        {
+            return Results.Count > 0;
+        }
+
+        private bool CanClearConditonFunc()
+        {
+            return Results.Count > 0;
         }
 
         private void ClearWeightAction()
@@ -94,8 +114,11 @@ namespace WpfMaterialCalcualator.ViewModel
         {
             if (dialogService.ShowDialog("Delete All Conditions?", "Delete"))
             {
+                //清除临时数据库
                 mainDataService.ClearCondition();
-                ReloadConditions();
+                //清除集合
+                Conditions.Clear();
+                Results.Clear();
             }
         }
 
@@ -110,6 +133,10 @@ namespace WpfMaterialCalcualator.ViewModel
         private void ReloadConditions()
         {
             Conditions = new ObservableCollection<CalculationConditionItem>(mainDataService.GetAllConditions());
+            if (Conditions.Count==0)
+            {
+                return;
+            }
             mainDataService.CalculateWt(Conditions, Results);
            KnownWeightGroupItem = Results[0];
         }
