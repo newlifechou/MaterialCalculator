@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
-namespace WpfMaterialCalcualator.Resource
+namespace WpfMaterialCalcualator.ValidationRule
 {
     public class CustomValidation : ICustomValidation
     {

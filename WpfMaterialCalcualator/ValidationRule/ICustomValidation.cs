@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfMaterialCalcualator.Resource
+namespace WpfMaterialCalcualator.ValidationRule
 {
     /// <summary>
     /// 自定义检验类接口

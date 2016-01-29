@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfMaterialCalcualator.Resource
+namespace WpfMaterialCalcualator.ValidationRule
 {
     /// <summary>
     /// 这个是验证所有模型的基类

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfMaterialCalcualator.Resource
+namespace WpfMaterialCalcualator.ValidationRule
 {
     public static class ValidatonRuleFactory
     {

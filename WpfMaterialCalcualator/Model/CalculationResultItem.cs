@@ -9,7 +9,7 @@ namespace WpfMaterialCalcualator.Model
     /// <summary>
     /// 实体类-计算结果表项目
     /// </summary>
-    public class CalculationResultItem:NotifyPropertyChangedBase
+    public class CalculationResultItem:ModelBase
     {
 
         public Guid Id { get; set; }
