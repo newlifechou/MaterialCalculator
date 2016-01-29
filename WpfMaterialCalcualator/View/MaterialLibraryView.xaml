@@ -4,12 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfMaterialCalcualator.View"
+        xmlns:ctrl="clr-namespace:WpfMaterialCalcualator.Control"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="MaterialLibraryView" Height="600" Width="800" DataContext="{Binding Source={StaticResource Locator},Path=MaterialLibrary}">
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition/>
             <ColumnDefinition Width="{Binding EditAreaWidth}"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -59,9 +60,9 @@
             <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource txtbl}"
                        Text='{Binding EditState,StringFormat="Now you are {0}"}' Foreground="Red" FontSize="15"/>
             <TextBlock Grid.Row="1" Grid.Column="0" Text="Material Name" Style="{StaticResource txtbl}"/>
-            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding EditMaterialItem.MaterialName}" Style="{StaticResource txt}"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding EditMaterialItem.MaterialName,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource txtValidate}"/>
             <TextBlock Grid.Row="2" Grid.Column="0" Text="Mole Weight" Style="{StaticResource txtbl}"/>
-            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding EditMaterialItem.MoleWeight}" Style="{StaticResource txt}"/>
+            <ctrl:NumberTextBox Grid.Row="2" Grid.Column="1" Text="{Binding EditMaterialItem.MoleWeight,ValidatesOnDataErrors=True,UpdateSourceTrigger=LostFocus}" Style="{StaticResource txtValidate}"/>
             <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button Content="Cancel" Style="{StaticResource btn}"
                     Command="{Binding CancelCommand}"/>

@@ -28,14 +28,19 @@ namespace WpfMaterialCalcualator.ViewModel
             dialogService = dialogds;
             Reload();
             HideEditArea();
-
+            EditMaterialItem = new MaterialItem() { };
 
             AddCommand = new RelayCommand(AddAction);
             EditCommand = new RelayCommand<MaterialItem>(EditAction);
             DeleteCommand = new RelayCommand<MaterialItem>(DeleteAction);
-            SaveCommand = new RelayCommand(SaveAction);
+            SaveCommand = new RelayCommand(SaveAction, CanSaveFunc);
             CancelCommand = new RelayCommand(CancelAction);
 
+        }
+
+        private bool CanSaveFunc()
+        {
+            return editMaterialItem.IsValid;
         }
 
         private void CancelAction()
@@ -69,7 +74,7 @@ namespace WpfMaterialCalcualator.ViewModel
         {
             ShowEditArea();
             EditState = "Adding New Item";
-            EditMaterialItem = new MaterialItem();
+            EditMaterialItem = new MaterialItem() { MaterialName = "default", MoleWeight = 10 };
         }
 
         private void SaveAction()
@@ -81,7 +86,7 @@ namespace WpfMaterialCalcualator.ViewModel
             }
             else
             {
-               bool result= materialDataService.UpdateMaterialItem(EditMaterialItem);
+                bool result = materialDataService.UpdateMaterialItem(EditMaterialItem);
             }
             Reload();
 
@@ -96,7 +101,7 @@ namespace WpfMaterialCalcualator.ViewModel
 
         private void ShowEditArea()
         {
-            EditAreaWidth = 300;
+            EditAreaWidth = 450;
             MainEnableState = false;
         }
 
