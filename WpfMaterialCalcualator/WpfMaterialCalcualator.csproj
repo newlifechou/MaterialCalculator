@@ -112,8 +112,7 @@
     <Compile Include="Service\IMaterialLibraryDataService.cs" />
     <Compile Include="Service\MainDataService.cs" />
     <Compile Include="Service\MaterialLibraryDataService.cs" />
-    <Compile Include="Validation\NumberTextBox.cs" />
-    <Compile Include="Validation\PositiveNumberAttribute.cs" />
+    <Compile Include="Control\NumberTextBox.cs" />
     <Compile Include="ViewModel\EditConditionViewModel.cs" />
     <Compile Include="ViewModel\LoadViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />

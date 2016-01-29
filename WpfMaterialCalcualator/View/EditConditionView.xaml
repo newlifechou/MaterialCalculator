@@ -6,15 +6,16 @@
         xmlns:command="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfMaterialCalcualator.View"
+        xmlns:ctrl="clr-namespace:WpfMaterialCalcualator.Control"
         mc:Ignorable="d"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
-        Title="EditCondition" Height="400" Width="600" DataContext="{Binding Source={StaticResource Locator},Path=EditCondition}">
+        Title="EditCondition" Height="600" Width="800" DataContext="{Binding Source={StaticResource Locator},Path=EditCondition}">
     <!--Add和Edit均使用这个窗口-->
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0" Margin="5">
             <Grid.RowDefinitions>
@@ -55,14 +56,14 @@
             <ComboBox Grid.Row="0" Grid.Column="1" Style="{StaticResource cbo}" ItemsSource="{Binding GroupNames}"
                       SelectedItem="{Binding  ConditionItem.GroupName}"/>
             <TextBlock Grid.Row="1" Grid.Column="0" Text="Material Name" Style="{StaticResource txtbl}"/>
-            <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txt}"
+            <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txtValidate}"
                      Text="{Binding ConditionItem.MaterialName,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" />
             <TextBlock Grid.Row="2" Grid.Column="0" Text="Mole Weight" Style="{StaticResource txtbl}"/>
-            <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource txt}"
-                     Text="{Binding ConditionItem.MoleWeight,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}"/>
+            <ctrl:NumberTextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource txtValidate}"
+                     Text="{Binding ConditionItem.MoleWeight,UpdateSourceTrigger=LostFocus,ValidatesOnDataErrors=True}"/>
             <TextBlock Grid.Row="3" Grid.Column="0" Text="At%" Style="{StaticResource txtbl}"/>
-            <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource txt}"
-                     Text="{Binding ConditionItem.At,ValidatesOnDataErrors=True}"/>
+            <ctrl:NumberTextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource txtValidate}"
+                     Text="{Binding ConditionItem.At,UpdateSourceTrigger=LostFocus,ValidatesOnDataErrors=True}"/>
             <Button Grid.Row="4" Grid.ColumnSpan="2" Style="{StaticResource btn}" Content="Save" Command="{Binding SaveCommand}"/>
 
         </Grid>

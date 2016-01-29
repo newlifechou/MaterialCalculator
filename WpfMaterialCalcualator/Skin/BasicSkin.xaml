@@ -26,13 +26,14 @@
         <Setter Property="Margin" Value="5"/>
         <Setter Property="Padding" Value="5"/>
         <Setter Property="MinWidth" Value="80"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="Validation.ErrorTemplate">
             <Setter.Value>
                 <ControlTemplate>
                     <StackPanel Orientation="Horizontal">
                         <AdornedElementPlaceholder Name="adore"/>
                         <TextBlock Text="{Binding ElementName=adore,Path=AdornedElement.(Validation.Errors)[0].ErrorContent}"
-                                   VerticalAlignment="Center"/>
+                                   VerticalAlignment="Center" Background="Green" Foreground="Wheat" Padding="5"/>
                     </StackPanel>
                 </ControlTemplate>
             </Setter.Value>

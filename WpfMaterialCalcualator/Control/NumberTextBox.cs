@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace WpfMaterialCalcualator.Validation
+namespace WpfMaterialCalcualator.Control
 {
     public class NumberTextBox:TextBox
     {
