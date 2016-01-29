@@ -19,7 +19,8 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <TextBlock Text="Project Name" Grid.Row="0" Grid.Column="0" Style="{StaticResource txtbl}"/>
-        <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txt}"/>
-        <Button Content="Save" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Right" Style="{StaticResource btn}"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txt}"
+                 Text="{Binding CurrentProjectItem.ProjectName,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Content="Save" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Right" Style="{StaticResource btn}" Command="{Binding SaveCommand}"/>
     </Grid>
 </Window>

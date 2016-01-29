@@ -164,5 +164,35 @@ namespace WpfMaterialCalcualator.Service
                 totalWeight = 0;
             }
         }
+
+        public List<ProjectItem> GetAllProjects()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool AddProject(ProjectItem item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DeleteProject(ProjectItem item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<CalculationConditionItem> GetCalculationsByProjectId(Guid projectId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool AddConditionsByProjectId(IList<CalculationConditionItem> conditions, Guid projectId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DeleteConditionsByProjectId(Guid projectId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

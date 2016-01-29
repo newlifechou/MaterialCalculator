@@ -20,7 +20,7 @@ namespace WpfMaterialCalcualator.ViewModel
         public SaveViewModel()
         {
             CurrentProjectItem = new ProjectItem() { ProjectId = Guid.NewGuid(), ProjectName = "default", SaveDate = DateTime.Now };
-            SaveCommand=new RelayCommand(SaveAction,CanSaveFunc)
+            SaveCommand = new RelayCommand(SaveAction, CanSaveFunc);
         }
 
         private void SaveAction()
@@ -32,7 +32,7 @@ namespace WpfMaterialCalcualator.ViewModel
 
         private bool CanSaveFunc()
         {
-            throw new NotImplementedException();
+            return CurrentProjectItem.IsValid;
         }
 
         private ProjectItem currentProjectItem;
