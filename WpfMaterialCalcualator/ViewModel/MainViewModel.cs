@@ -63,6 +63,12 @@ namespace WpfMaterialCalcualator.ViewModel
 
 
             Messenger.Default.Register<NotificationMessage<object>>(this, ReloadConditionsAction);
+            Messenger.Default.Register<NotificationMessage<ProjectItem>>(this, SaveConditionsAction);
+        }
+
+        private void SaveConditionsAction(NotificationMessage<ProjectItem> obj)
+        {
+           
         }
 
         private bool CanSaveFunc()

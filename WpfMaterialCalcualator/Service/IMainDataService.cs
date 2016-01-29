@@ -31,10 +31,21 @@ namespace WpfMaterialCalcualator.Service
         void CalcualteWithOneGroupWeight(CalculationResultItem alreadyKnownGroup, double groupWeight, ICollection<CalculationResultItem> results,out double TotalWeight);
 
 
+        //临时保存计算项目
         IList<CalculationConditionItem> GetAllConditions();
         bool AddCondition(CalculationConditionItem item);
         bool UpdateCondition(CalculationConditionItem item);
         bool DeleteCondition(CalculationConditionItem item);
         bool ClearCondition();
+
+        //项目相关
+
+        List<ProjectItem> GetAllProjects();
+        bool AddProject(ProjectItem item);
+        bool DeleteProject(ProjectItem item);
+
+        List<CalculationConditionItem> GetCalculationsByProjectId(Guid projectId);
+        bool AddConditionsByProjectId(IList<CalculationConditionItem> conditions, Guid projectId);
+        bool DeleteConditionsByProjectId(Guid projectId);
     }
 }

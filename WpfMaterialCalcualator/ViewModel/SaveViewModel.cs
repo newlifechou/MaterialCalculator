@@ -1,4 +1,8 @@
-﻿using GalaSoft.MvvmLight;
+﻿using System;
+using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
+using WpfMaterialCalcualator.Model;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace WpfMaterialCalcualator.ViewModel
 {
@@ -15,6 +19,31 @@ namespace WpfMaterialCalcualator.ViewModel
         /// </summary>
         public SaveViewModel()
         {
+            CurrentProjectItem = new ProjectItem() { ProjectId = Guid.NewGuid(), ProjectName = "default", SaveDate = DateTime.Now };
+            SaveCommand=new RelayCommand(SaveAction,CanSaveFunc)
         }
+
+        private void SaveAction()
+        {
+            NotificationMessage<ProjectItem> msg = new NotificationMessage<ProjectItem>(this, "MainViewModel", 
+                CurrentProjectItem, "SaveConditions");
+            Messenger.Default.Send<NotificationMessage<ProjectItem>>(msg);
+        }
+
+        private bool CanSaveFunc()
+        {
+            throw new NotImplementedException();
+        }
+
+        private ProjectItem currentProjectItem;
+        public ProjectItem CurrentProjectItem
+        {
+            get { return currentProjectItem; }
+            set
+            {
+                Set(ref currentProjectItem, value);
+            }
+        }
+        public RelayCommand SaveCommand { get; set; }
     }
 }
