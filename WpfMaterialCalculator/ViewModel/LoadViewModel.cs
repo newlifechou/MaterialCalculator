@@ -26,9 +26,16 @@ namespace WpfMaterialCalculator.ViewModel
             mainDS = mainds;
             dialogDS = dialogds;
 
+            LoadCommand = new RelayCommand<ProjectItem>(LoadAction);
             DeleteCommand = new RelayCommand<ProjectItem>(DeleteAction);
 
             Messenger.Default.Register<NotificationMessage<object>>(this, InitialAction);
+        }
+
+        private void LoadAction(ProjectItem obj)
+        {
+            Messenger.Default.Send<ProjectItem>(obj, "LoadConditions");
+            Messenger.Default.Send<object>(null, "LoadClose");
         }
 
         private void DeleteAction(ProjectItem item)

@@ -25,9 +25,7 @@ namespace WpfMaterialCalculator.ViewModel
 
         private void SaveAction()
         {
-            NotificationMessage<ProjectItem> msg = new NotificationMessage<ProjectItem>(this, "MainViewModel",
-                CurrentProjectItem, "SaveConditions");
-            Messenger.Default.Send<NotificationMessage<ProjectItem>>(msg);
+            Messenger.Default.Send<ProjectItem>(CurrentProjectItem,"SaveConditions");
             //发送关闭本窗口的消息
             Messenger.Default.Send<object>(null, "SaveClose");
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Messaging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,17 @@ namespace WpfMaterialCalculator.View
         public LoadView()
         {
             InitializeComponent();
+
+            Messenger.Default.Register<object>(this, "LoadClose", obj =>
+                {
+                    this.Close();
+                });
+
+            this.Unloaded += (s, e) =>
+            {
+                Messenger.Default.Unregister(this);
+            };
         }
+
     }
 }

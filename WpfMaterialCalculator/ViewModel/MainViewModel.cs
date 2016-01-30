@@ -63,15 +63,22 @@ namespace WpfMaterialCalculator.ViewModel
 
 
             Messenger.Default.Register<NotificationMessage<object>>(this, ReloadConditionsAction);
-            Messenger.Default.Register<NotificationMessage<ProjectItem>>(this, SaveConditionsAction);
+
+            Messenger.Default.Register<ProjectItem>(this, "SaveConditions",SaveConditionsAction);
+            Messenger.Default.Register<ProjectItem>(this, "LoadConditions", LoadConditionsAction);
         }
 
-        private void SaveConditionsAction(NotificationMessage<ProjectItem> obj)
+        private void LoadConditionsAction(ProjectItem item)
         {
-            if (obj!=null&&Conditions.Count>0)
+            
+        }
+
+        private void SaveConditionsAction(ProjectItem item)
+        {
+            if (item!=null&&Conditions.Count>0)
             {
-                mainDataService.AddProject(obj.Content);
-                mainDataService.AddConditionsByProjectId(Conditions, obj.Content.ProjectId);
+                mainDataService.AddProject(item);
+                mainDataService.AddConditionsByProjectId(Conditions, item.ProjectId);
             }
         }
 
