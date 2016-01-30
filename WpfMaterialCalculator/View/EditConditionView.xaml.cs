@@ -29,7 +29,7 @@ namespace WpfMaterialCalculator.View
             lcv = CollectionViewSource.GetDefaultView(lstMaterials.ItemsSource) as ListCollectionView;
 
 
-            Messenger.Default.Register<object>(this, "CloseMe", obj =>
+            Messenger.Default.Register<object>(this, "EditConditionClose", obj =>
             {
                 this.Close();
             });

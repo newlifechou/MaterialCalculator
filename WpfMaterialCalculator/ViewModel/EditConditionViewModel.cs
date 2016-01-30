@@ -56,7 +56,7 @@ namespace WpfMaterialCalculator.ViewModel
             NotificationMessage<object> msg = new NotificationMessage<object>(this, "MainView", null, "ReloadConditions");
             Messenger.Default.Send<NotificationMessage<object>>(msg);
             //发送关闭本窗口的消息
-            Messenger.Default.Send<object>(null, "CloseMe");
+            Messenger.Default.Send<object>(null, "EditConditionClose");
         }
 
         private void InitialAction(NotificationMessage<object> obj)
