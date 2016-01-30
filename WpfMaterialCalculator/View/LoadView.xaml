@@ -22,9 +22,9 @@
                         <TextBlock Text="{Binding SaveDate,StringFormat={}{0:yyyy-MM-dd hh:mm:ss}}" Style="{StaticResource txtbl}"/>
                         <TextBlock Text="{Binding ProjectName}" Grid.Column="1" Style="{StaticResource txtbl}"/>
                         <Button Content="Delete" Grid.Column="2" Style="{StaticResource btn}" Command="{Binding DataContext.DeleteCommand,
-                            RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Window}}"/>
+                            RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Window}}" CommandParameter="{Binding}"/>
                         <Button Content="Load" Grid.Column="3" Style="{StaticResource btn}" Command="{Binding DataContext.LoadCommand,
-                            RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Window}}"/>
+                            RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Window}}" CommandParameter="{Binding}"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>

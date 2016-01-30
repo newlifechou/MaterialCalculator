@@ -3,8 +3,8 @@ using GalaSoft.MvvmLight.Messaging;
 using System.Collections.ObjectModel;
 using WpfMaterialCalculator.Model;
 using WpfMaterialCalculator.Service;
-using System;
 using GalaSoft.MvvmLight.CommandWpf;
+using System;
 
 namespace WpfMaterialCalculator.ViewModel
 {
@@ -25,7 +25,20 @@ namespace WpfMaterialCalculator.ViewModel
         {
             mainDS = mainds;
             dialogDS = dialogds;
+
+            DeleteCommand = new RelayCommand<ProjectItem>(DeleteAction);
+
             Messenger.Default.Register<NotificationMessage<object>>(this, InitialAction);
+        }
+
+        private void DeleteAction(ProjectItem item)
+        {
+            if (dialogDS.ShowDialog("Really want to Delete this Project?","Delete"))
+            {
+                mainDS.DeleteProject(item);
+                mainDS.DeleteConditionsByProjectId(item.ProjectId);
+                LoadProjects();
+            }
         }
 
         private void InitialAction(NotificationMessage<object> obj)

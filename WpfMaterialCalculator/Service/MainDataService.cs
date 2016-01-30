@@ -196,7 +196,7 @@ namespace WpfMaterialCalculator.Service
 
         public bool DeleteProject(ProjectItem item)
         {
-            string cmdText = "delele from project where id=@id";
+            string cmdText = "delete from project where id=@id";
             SQLiteParameter[] cmdParameters = new SQLiteParameter[]
             {
                 new SQLiteParameter("@id",item.ProjectId),
@@ -254,7 +254,7 @@ namespace WpfMaterialCalculator.Service
         }
         public bool DeleteConditionsByProjectId(Guid projectId)
         {
-            string cmdText = "delele from projectitem where projectid=@projectid";
+            string cmdText = "delete from projectitem where projectid=@projectid";
             SQLiteParameter[] cmdParameters = new SQLiteParameter[]
             {
                 new SQLiteParameter("@projectid",projectId)
