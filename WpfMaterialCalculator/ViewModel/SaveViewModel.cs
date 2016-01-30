@@ -1,6 +1,6 @@
 ﻿using System;
 using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.CommandWpf;
 using WpfMaterialCalculator.Model;
 using GalaSoft.MvvmLight.Messaging;
 
