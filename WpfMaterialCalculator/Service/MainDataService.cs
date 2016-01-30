@@ -167,7 +167,19 @@ namespace WpfMaterialCalculator.Service
 
         public List<ProjectItem> GetAllProjects()
         {
-            throw new NotImplementedException();
+            List<ProjectItem> results = new List<ProjectItem>();
+            string cmdText = "select id,projectname,savedate from project order by savedate desc ";
+            SQLiteDataReader sdr = SqliteHelper.ExecuteReader(cmdText, null);
+            while (sdr.Read())
+            {
+                ProjectItem tmp = new ProjectItem();
+                tmp.ProjectId = sdr.GetGuid(0);
+                tmp.ProjectName = sdr.GetString(1);
+                tmp.SaveDate = sdr.GetDateTime(2);
+                results.Add(tmp);
+            }
+            sdr.Close();
+            return results;
         }
 
         public bool AddProject(ProjectItem item)
