@@ -52,6 +52,8 @@
         <Setter Property="HorizontalAlignment" Value="Stretch"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Margin" Value="5,0,5,0"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="MinWidth" Value="80"/>
     </Style>
 
     <Style x:Key="dg" TargetType="DataGrid">

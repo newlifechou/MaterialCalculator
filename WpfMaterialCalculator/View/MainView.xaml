@@ -79,7 +79,7 @@
                 <RadioButton Content="Know One Group's Weight"  Style="{StaticResource rb}"/>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Known Group" VerticalAlignment="Center" Style="{StaticResource txtbl}"/>
-                    <ComboBox VerticalAlignment="Center" ItemsSource="{Binding Results}"  SelectedItem="{Binding KnownWeightGroupItem}">
+                    <ComboBox VerticalAlignment="Center" ItemsSource="{Binding Results}"  SelectedItem="{Binding KnownWeightGroupItem}" Style="{StaticResource cbo}">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding GroupName}"/>
