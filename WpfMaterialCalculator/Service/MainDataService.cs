@@ -141,7 +141,7 @@ namespace WpfMaterialCalculator.Service
 
         public void CalculateWithTotalWeight(ICollection<CalculationResultItem> results, double totalWeight)
         {
-            if (totalWeight>0)
+            if (totalWeight > 0)
             {
                 foreach (var item in results)
                 {
@@ -151,11 +151,11 @@ namespace WpfMaterialCalculator.Service
         }
 
         public void CalcualteWithOneGroupWeight(CalculationResultItem alreadyKnownGroup, double groupWeight, ICollection<CalculationResultItem> results,
-            out  double totalWeight)
+            out double totalWeight)
         {
-            if (groupWeight>0)
+            if (groupWeight > 0)
             {
-                totalWeight = groupWeight / (alreadyKnownGroup.Wt/100);
+                totalWeight = groupWeight / (alreadyKnownGroup.Wt / 100);
                 //首先得知总重量，然后调用总重量已知的计算方法
                 CalculateWithTotalWeight(results, totalWeight);
             }
@@ -184,27 +184,82 @@ namespace WpfMaterialCalculator.Service
 
         public bool AddProject(ProjectItem item)
         {
-            throw new NotImplementedException();
+            string cmdText = "insert into project (id,projectname,savedate) values (@id,@projectname,@savedate)";
+            SQLiteParameter[] cmdParameters = new SQLiteParameter[]
+            {
+                new SQLiteParameter("@id",item.ProjectId),
+                new SQLiteParameter("@projectname",item.ProjectName),
+                new SQLiteParameter("@savedate",item.SaveDate)
+            };
+            return SqliteHelper.ExecuteNonQuery(cmdText, cmdParameters) > 0;
         }
 
         public bool DeleteProject(ProjectItem item)
         {
-            throw new NotImplementedException();
+            string cmdText = "delele from project where id=@id";
+            SQLiteParameter[] cmdParameters = new SQLiteParameter[]
+            {
+                new SQLiteParameter("@id",item.ProjectId),
+            };
+            return SqliteHelper.ExecuteNonQuery(cmdText, cmdParameters) > 0;
+
         }
 
         public List<CalculationConditionItem> GetCalculationsByProjectId(Guid projectId)
         {
-            throw new NotImplementedException();
+            List<CalculationConditionItem> results = new List<CalculationConditionItem>();
+            string cmdText = "select id,groupname,materialname,moleweight,at from projectitem where projectid=@projectid order by groupname";
+            SQLiteParameter[] cmdParameters = new SQLiteParameter[]
+            {
+                new SQLiteParameter("@projectid",projectId)
+            };
+            SQLiteDataReader dr = SqliteHelper.ExecuteReader(cmdText, cmdParameters);
+            while (dr.Read())
+            {
+                CalculationConditionItem tmp = new CalculationConditionItem();
+                tmp.Id = dr.GetGuid(0);
+                tmp.GroupName = dr.GetString(1);
+                tmp.MaterialName = dr.GetString(2);
+                tmp.MoleWeight = dr.GetDouble(3);
+                tmp.At = dr.GetDouble(4);
+                results.Add(tmp);
+            }
+            dr.Close();
+            return results;
         }
 
         public bool AddConditionsByProjectId(IList<CalculationConditionItem> conditions, Guid projectId)
         {
-            throw new NotImplementedException();
+            foreach (var item in conditions)
+            {
+                AddSingleConditionByProjectId(item, projectId);
+            }
+            return true;
         }
 
+        public bool AddSingleConditionByProjectId(CalculationConditionItem item,Guid projectId)
+        {
+            string cmdText = "insert into projectitem (id,groupname,materialName,moleWeight,at,projectid) values  (@id,@groupname,@materialName,@moleWeight,@at,@projectid) ";
+            SQLiteParameter[] cmdParameters =
+            {
+                new SQLiteParameter("@id",item.Id),
+                new SQLiteParameter("@groupname",item.GroupName),
+                new SQLiteParameter("@materialName",item.MaterialName),
+                new SQLiteParameter("@moleWeight",item.MoleWeight),
+                new SQLiteParameter("@at",item.At),
+                new SQLiteParameter("@projectid",projectId)
+            };
+
+            return SqliteHelper.ExecuteNonQuery(cmdText, cmdParameters) > 0;
+        }
         public bool DeleteConditionsByProjectId(Guid projectId)
         {
-            throw new NotImplementedException();
+            string cmdText = "delele from projectitem where projectid=@projectid";
+            SQLiteParameter[] cmdParameters = new SQLiteParameter[]
+            {
+                new SQLiteParameter("@projectid",projectId)
+            };
+            return SqliteHelper.ExecuteNonQuery(cmdText, cmdParameters) > 0;
         }
     }
 }
