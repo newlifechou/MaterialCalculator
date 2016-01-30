@@ -242,7 +242,7 @@ namespace WpfMaterialCalculator.Service
             string cmdText = "insert into projectitem (id,groupname,materialName,moleWeight,at,projectid) values  (@id,@groupname,@materialName,@moleWeight,@at,@projectid) ";
             SQLiteParameter[] cmdParameters =
             {
-                new SQLiteParameter("@id",item.Id),
+                new SQLiteParameter("@id",Guid.NewGuid()),
                 new SQLiteParameter("@groupname",item.GroupName),
                 new SQLiteParameter("@materialName",item.MaterialName),
                 new SQLiteParameter("@moleWeight",item.MoleWeight),
