@@ -40,7 +40,7 @@ namespace WpfMaterialCalculator.ViewModel
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<EditConditionViewModel>(true);
             SimpleIoc.Default.Register<MaterialLibraryViewModel>();
-            SimpleIoc.Default.Register<LoadViewModel>();
+            SimpleIoc.Default.Register<LoadViewModel>(true);
             SimpleIoc.Default.Register<SaveViewModel>();
 
 
