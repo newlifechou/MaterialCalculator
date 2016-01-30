@@ -36,7 +36,8 @@ namespace WpfMaterialCalculator.Service
         bool AddCondition(CalculationConditionItem item);
         bool UpdateCondition(CalculationConditionItem item);
         bool DeleteCondition(CalculationConditionItem item);
-        bool ClearCondition();
+        bool ClearConditions();
+        bool AddConditions(IList<CalculationConditionItem> items);
 
         //项目相关
 
@@ -47,5 +48,6 @@ namespace WpfMaterialCalculator.Service
         List<CalculationConditionItem> GetCalculationsByProjectId(Guid projectId);
         bool AddConditionsByProjectId(IList<CalculationConditionItem> conditions, Guid projectId);
         bool DeleteConditionsByProjectId(Guid projectId);
+
     }
 }

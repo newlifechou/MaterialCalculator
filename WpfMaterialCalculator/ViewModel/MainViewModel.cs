@@ -46,7 +46,7 @@ namespace WpfMaterialCalculator.ViewModel
 
             Results = new ObservableCollection<CalculationResultItem>();
 
-            ReloadConditions();
+            LoadConditions();
 
 
             AddConditionCommand = new RelayCommand(AddConditionAction);
@@ -70,7 +70,13 @@ namespace WpfMaterialCalculator.ViewModel
 
         private void LoadConditionsAction(ProjectItem item)
         {
-            
+            if (item!=null)
+            {
+                var data = mainDataService.GetCalculationsByProjectId(item.ProjectId);
+                //将数据插入到TempCondition里
+                mainDataService.AddConditions(data);
+                LoadConditions();
+            }
         }
 
         private void SaveConditionsAction(ProjectItem item)
@@ -132,7 +138,7 @@ namespace WpfMaterialCalculator.ViewModel
             if (dialogService.ShowDialog("Delete All Conditions?", "Delete"))
             {
                 //清除临时数据库
-                mainDataService.ClearCondition();
+                mainDataService.ClearConditions();
                 //清除集合
                 Conditions.Clear();
                 Results.Clear();
@@ -143,19 +149,24 @@ namespace WpfMaterialCalculator.ViewModel
         {
             if (obj.Notification == "ReloadConditions")
             {
-                ReloadConditions();
+                LoadConditions();
             }
         }
 
-        private void ReloadConditions()
+        private void LoadConditionsBase(IList<CalculationConditionItem> data)
         {
-            Conditions = new ObservableCollection<CalculationConditionItem>(mainDataService.GetAllConditions());
-            if (Conditions.Count==0)
+            Conditions = new ObservableCollection<CalculationConditionItem>(data);
+            if (Conditions.Count == 0)
             {
                 return;
             }
             mainDataService.CalculateWt(Conditions, Results);
-           KnownWeightGroupItem = Results[0];
+            KnownWeightGroupItem = Results[0];
+        }
+
+        private void LoadConditions()
+        {
+            LoadConditionsBase(mainDataService.GetAllConditions());
         }
 
         private void SaveAction()
@@ -199,7 +210,7 @@ namespace WpfMaterialCalculator.ViewModel
             if (dialogService.ShowDialog("Are you sure to delete it?", "Delete"))
             {
                 mainDataService.DeleteCondition(item);
-                ReloadConditions();
+                LoadConditions();
             }
         }
 

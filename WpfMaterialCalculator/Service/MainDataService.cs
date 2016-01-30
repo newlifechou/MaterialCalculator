@@ -72,12 +72,21 @@ namespace WpfMaterialCalculator.Service
         }
 
 
-        public bool ClearCondition()
+        public bool ClearConditions()
         {
             string cmdText = "delete from tempCondition";
             return SqliteHelper.ExecuteNonQuery(cmdText, null) > 0;
         }
 
+        public bool AddConditions(IList<CalculationConditionItem> items)
+        {
+            ClearConditions();
+            (items as List<CalculationConditionItem>).ForEach(item =>
+            {
+                AddCondition(item);
+            });
+            return true;
+        }
 
         public void CalculateWt(ICollection<CalculationConditionItem> conditions, ICollection<CalculationResultItem> results)
         {
@@ -261,5 +270,8 @@ namespace WpfMaterialCalculator.Service
             };
             return SqliteHelper.ExecuteNonQuery(cmdText, cmdParameters) > 0;
         }
+
+
+
     }
 }
