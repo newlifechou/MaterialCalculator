@@ -7,12 +7,12 @@ using System.Windows;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("WpfMaterialCalcualator")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("MaterialCalcualator")]
+[assembly: AssemblyDescription("这个程序是用来计算原料配比的工具")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("WpfMaterialCalcualator")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyProduct("MaterialCalcualator")]
+[assembly: AssemblyCopyright("Copyright © xs.zhou  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

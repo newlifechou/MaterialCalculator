@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
+        Icon="/Image/table-edit-icon.png"
         Title="MainWindow" DataContext="{Binding Source={StaticResource Locator},Path=Main}" Width="900" Height="650">
     <StackPanel Margin="10">
         <!--<Menu>
@@ -21,9 +22,9 @@
         </Menu>-->
         <StackPanel Orientation="Horizontal"  Background="Wheat">
 
-            <Button Content="Load" Style="{StaticResource btn}" Command="{Binding LoadCommand}"/>
-            <Button Content="Save" Style="{StaticResource btn}" Command="{Binding SaveCommand}"/>
-            <Button Content="Material Library" Style="{StaticResource btn}" Command="{Binding MaterialLibraryCommand}"/>
+            <Button Content="Load" Style="{StaticResource btnBig}" Command="{Binding LoadCommand}"/>
+            <Button Content="Save As" Style="{StaticResource btnBig}" Command="{Binding SaveCommand}"/>
+            <Button Content="Material Library" Style="{StaticResource btnBig}" Command="{Binding MaterialLibraryCommand}"/>
         </StackPanel>
         <GroupBox Header="Calculation Conditions">
             <StackPanel>
@@ -71,12 +72,12 @@
         </GroupBox>
         <GroupBox Header="Weight Calculation" Padding="5">
             <StackPanel >
-                <RadioButton Content="Know Total Mixture Weight" IsChecked="{Binding IsTotalWeight,Mode=TwoWay}" Style="{StaticResource rb}"/>
+                <RadioButton Content="Know The  Weight Of Total Mixture" IsChecked="{Binding IsTotalWeight,Mode=TwoWay}" Style="{StaticResource rb}"/>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Mixture Weight=" Style="{StaticResource txtbl}"/>
                     <TextBox Style="{StaticResource txt}" Text="{Binding TotalWeight}"/>
                 </StackPanel>
-                <RadioButton Content="Know One Group's Weight"  Style="{StaticResource rb}"/>
+                <RadioButton Content="Know The Weight Of One Group"  Style="{StaticResource rb}"/>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Known Group" VerticalAlignment="Center" Style="{StaticResource txtbl}"/>
                     <ComboBox VerticalAlignment="Center" ItemsSource="{Binding Results}"  SelectedItem="{Binding KnownWeightGroupItem}" Style="{StaticResource cbo}">

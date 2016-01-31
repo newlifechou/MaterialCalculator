@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
-        Title="LoadView" Height="400" Width="650" DataContext="{Binding Source={StaticResource Locator},Path=Load}">
+        ShowInTaskbar="False"
+        Title="LoadView" Height="400" Width="700" DataContext="{Binding Source={StaticResource Locator},Path=Load}">
     <Grid>
         <ListBox Margin="5" ItemsSource="{Binding Projects}"  HorizontalContentAlignment="Stretch">
             <ListBox.ItemTemplate>

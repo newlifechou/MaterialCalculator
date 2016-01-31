@@ -36,6 +36,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Image\Fasticon-Database-Table-edit.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
@@ -195,7 +198,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Image\Fasticon-Database-Table-add.ico" />
+    <Resource Include="Image\Fasticon-Database-Table-down.ico" />
+    <Resource Include="Image\Fasticon-Database-Table-edit.ico" />
+    <Resource Include="Image\Fasticon-Database-Tables.ico" />
+    <Resource Include="Image\table-add-icon.png" />
+    <Resource Include="Image\table-down-icon.png" />
+    <Resource Include="Image\table-edit-icon.png" />
+    <Resource Include="Image\tables-icon.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Skin\Images\Add.png" />
     <Resource Include="Skin\Images\delete-1-icon.png" />
