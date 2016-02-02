@@ -22,9 +22,9 @@
         </Menu>-->
         <StackPanel Orientation="Horizontal"  Background="Wheat">
 
-            <Button Content="Load" Style="{StaticResource btnBig}" Command="{Binding LoadCommand}"/>
-            <Button Content="Save As" Style="{StaticResource btnBig}" Command="{Binding SaveCommand}"/>
-            <Button Content="Material Library" Style="{StaticResource btnBig}" Command="{Binding MaterialLibraryCommand}"/>
+            <Button Content="Load" Style="{StaticResource btnText}" Command="{Binding LoadCommand}"/>
+            <Button Content="Save As" Style="{StaticResource btnText}" Command="{Binding SaveCommand}"/>
+            <Button Content="Material Library" Style="{StaticResource btnText}" Command="{Binding MaterialLibraryCommand}"/>
         </StackPanel>
         <GroupBox Header="Calculation Conditions">
             <StackPanel>
