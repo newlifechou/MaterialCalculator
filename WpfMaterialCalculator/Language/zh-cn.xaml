@@ -2,37 +2,42 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib"
                     xmlns:local="clr-namespace:WpfMaterialCalculator.Language">
-    <sys:String x:Key="mainTitle">原料成分配比计算器</sys:String>
+    <sys:String x:Key="titleMain">原料成分配比计算器</sys:String>
+    <sys:String x:Key="titleEditCondition">编辑条件</sys:String>
+    
     <sys:String x:Key="btnLoad">加载</sys:String>
+    <sys:String x:Key="btnSave">保存</sys:String>
     <sys:String x:Key="btnSaveAs">另存为</sys:String>
     <sys:String x:Key="btnMaterialLibrary">材料库</sys:String>
     <sys:String x:Key="btnEdit">编辑</sys:String>
     <sys:String x:Key="btnDelete">删除</sys:String>
     <sys:String x:Key="btnSelect">选择</sys:String>
-    
-    <sys:String x:Key="groupConditions">计算条件区域</sys:String>
+    <sys:String x:Key="btnCalculateNow">计算相应重量</sys:String>
+    <sys:String x:Key="btnClearAllWeights">清除所有重量数据</sys:String>
     <sys:String x:Key="btnAddCondition">添加条件</sys:String>
     <sys:String x:Key="btnClearConditons">清除所有条件</sys:String>
-    <sys:String x:Key="gridCondtionGroupName">组名</sys:String>
-    <sys:String x:Key="gridConditionMaterialName">材料名称</sys:String>
-    <sys:String x:Key="gridConditionMoleWeight">摩尔质量</sys:String>
-    <sys:String x:Key="gridConditionAt">At比例</sys:String>
-
+    
+    <sys:String x:Key="groupConditions">计算条件区域</sys:String>
     <sys:String x:Key="groupResults">计算结果区域</sys:String>
-    <sys:String x:Key="gridResultGroupName">组名</sys:String>
-    <sys:String x:Key="gridResultGroupComposition">组成分</sys:String>
-    <sys:String x:Key="gridResultWt">Wt%</sys:String>
-    <sys:String x:Key="gridResultWeight">重量</sys:String>
-
     <sys:String x:Key="groupWeightCalcualtion">重量计算区域</sys:String>
+
+    <sys:String x:Key="gridPopRate">常用度</sys:String>
+    <sys:String x:Key="gridOption">操作项</sys:String>
+    <sys:String x:Key="gridGroupName">组名</sys:String>
+    <sys:String x:Key="gridMaterialName">材料名称</sys:String>
+    <sys:String x:Key="gridMoleWeight">摩尔质量</sys:String>
+    <sys:String x:Key="gridAt">At比例</sys:String>
+    <sys:String x:Key="gridGroupComposition">组成分</sys:String>
+    <sys:String x:Key="gridWt">Wt%</sys:String>
+    <sys:String x:Key="gridWeight">重量</sys:String>
+    <sys:String x:Key="gridGroup">组</sys:String>
+
     <sys:String x:Key="groupKnowType1">知道最终混合物的总重量</sys:String>
     <sys:String x:Key="groupKnowType2">知道其中一组成分的重量</sys:String>
     <sys:String x:Key="mixtureWeight">混合物的总重量=</sys:String>
     <sys:String x:Key="knownGroup">已经知道的组的组名</sys:String>
     <sys:String x:Key="knowgroupWeight">改组的重量=</sys:String>
 
-    <sys:String x:Key="btnCalculateNow">计算相应重量</sys:String>
-    <sys:String x:Key="btnClearAllWeights">清除所有重量数据</sys:String>
     
 
     

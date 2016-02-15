@@ -10,7 +10,7 @@
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         ShowInTaskbar="False"
-        Title="EditCondition" Height="400" Width="800" DataContext="{Binding Source={StaticResource Locator},Path=EditCondition}">
+        Title="{DynamicResource titleEditCondition}" Height="400" Width="800" DataContext="{Binding Source={StaticResource Locator},Path=EditCondition}">
     <!--Add和Edit均使用这个窗口-->
     <Grid>
         <Grid.ColumnDefinitions>
@@ -25,13 +25,13 @@
             <TextBox x:Name="txtFilterContent" Style="{StaticResource txt}" Margin="0,5,0,5" TextChanged="txtFilterContent_TextChanged"/>
             <DataGrid x:Name="lstMaterials" Grid.Row="1" Style="{StaticResource dg}" ItemsSource="{Binding Materials}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="MaterialName" Binding="{Binding  MaterialName}"/>
-                    <DataGridTextColumn Header="MoleWeight" Binding="{Binding MoleWeight,StringFormat={}{0:N3}}" ElementStyle="{StaticResource dgCellARight}"/>
-                    <DataGridTextColumn Header="Pop Rate" Binding="{Binding PopRate}"/>
-                    <DataGridTemplateColumn Header="Option">
+                    <DataGridTextColumn Header="{DynamicResource gridMaterialName}" Binding="{Binding  MaterialName}"/>
+                    <DataGridTextColumn Header="{DynamicResource gridMoleWeight}" Binding="{Binding MoleWeight,StringFormat={}{0:N3}}" ElementStyle="{StaticResource dgCellARight}"/>
+                    <DataGridTextColumn Header="{DynamicResource gridPopRate}" Binding="{Binding PopRate}"/>
+                    <DataGridTemplateColumn Header="{DynamicResource gridOption}">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Select" Command="{Binding DataContext.SelectMaterialCommand,
+                                <Button Content="{DynamicResource btnSelect}" Command="{Binding DataContext.SelectMaterialCommand,
                                     RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Window}}"
                                     CommandParameter="{Binding}"    />
                             </DataTemplate>
@@ -53,19 +53,19 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <TextBlock Text="Group" Grid.Row="0" Grid.Column="0" Style="{StaticResource txtbl}"/>
+            <TextBlock Text="{DynamicResource gridGroup}" Grid.Row="0" Grid.Column="0" Style="{StaticResource txtbl}"/>
             <ComboBox Grid.Row="0" Grid.Column="1" Style="{StaticResource cbo}" ItemsSource="{Binding GroupNames}"
                       SelectedItem="{Binding  ConditionItem.GroupName}"/>
-            <TextBlock Grid.Row="1" Grid.Column="0" Text="Material Name" Style="{StaticResource txtbl}"/>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="{DynamicResource gridMaterialName}" Style="{StaticResource txtbl}"/>
             <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txtValidate}"
                      Text="{Binding ConditionItem.MaterialName,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" />
-            <TextBlock Grid.Row="2" Grid.Column="0" Text="Mole Weight" Style="{StaticResource txtbl}"/>
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="{DynamicResource gridMoleWeight}" Style="{StaticResource txtbl}"/>
             <ctrl:NumberTextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource txtValidate}"
                      Text="{Binding ConditionItem.MoleWeight,UpdateSourceTrigger=LostFocus,ValidatesOnDataErrors=True}"/>
-            <TextBlock Grid.Row="3" Grid.Column="0" Text="At%" Style="{StaticResource txtbl}"/>
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="{DynamicResource gridAt}" Style="{StaticResource txtbl}"/>
             <ctrl:NumberTextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource txtValidate}"
                      Text="{Binding ConditionItem.At,UpdateSourceTrigger=LostFocus,ValidatesOnDataErrors=True}"/>
-            <Button Grid.Row="4" Grid.ColumnSpan="2" Style="{StaticResource btn}" Content="Save" Command="{Binding SaveCommand}"/>
+            <Button Grid.Row="4" Grid.ColumnSpan="2" Style="{StaticResource btn}" Content="{DynamicResource btnSave}" Command="{Binding SaveCommand}"/>
 
         </Grid>
     </Grid>

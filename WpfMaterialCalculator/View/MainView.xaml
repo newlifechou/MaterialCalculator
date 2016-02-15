@@ -8,7 +8,7 @@
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
         Icon="/Image/table-edit-icon.png"
-        Title="{DynamicResource mainTitle}" DataContext="{Binding Source={StaticResource Locator},Path=Main}" MinWidth="900" MinHeight="650" Width="900" Height="650">
+        Title="{DynamicResource titleMain}" DataContext="{Binding Source={StaticResource Locator},Path=Main}" MinWidth="900" MinHeight="650" Width="900" Height="650">
     <StackPanel Margin="10">
         <!--<Menu>
             <MenuItem Header="File">
@@ -34,10 +34,10 @@
                 </StackPanel>
                 <DataGrid Style="{StaticResource dg}" Height="200" ItemsSource="{Binding Conditions}">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="{DynamicResource gridResultGroupName}" Binding="{Binding GroupName}"/>
-                        <DataGridTextColumn Header="{DynamicResource gridConditionMaterialName}" Binding="{Binding MaterialName}"/>
-                        <DataGridTextColumn Header="{DynamicResource gridConditionMoleWeight}" Binding="{Binding MoleWeight,StringFormat={}{0:N3}}" ElementStyle="{StaticResource dgCellARight}"/>
-                        <DataGridTextColumn Header="{DynamicResource gridConditionAt}" Binding="{Binding At,StringFormat={}{0:N3}}" ElementStyle="{StaticResource dgCellARight}" />
+                        <DataGridTextColumn Header="{DynamicResource gridGroupName}" Binding="{Binding GroupName}"/>
+                        <DataGridTextColumn Header="{DynamicResource gridMaterialName}" Binding="{Binding MaterialName}"/>
+                        <DataGridTextColumn Header="{DynamicResource gridMoleWeight}" Binding="{Binding MoleWeight,StringFormat={}{0:N3}}" ElementStyle="{StaticResource dgCellARight}"/>
+                        <DataGridTextColumn Header="{DynamicResource gridAt}" Binding="{Binding At,StringFormat={}{0:N3}}" ElementStyle="{StaticResource dgCellARight}" />
                         <DataGridTemplateColumn  Width="70" CanUserResize="False">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
@@ -62,10 +62,10 @@
             <StackPanel>
                 <DataGrid  Height="100" Style="{StaticResource dg}" ItemsSource="{Binding Results}">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="{DynamicResource gridResultGroupName}" Binding="{Binding GroupName}"/>
-                        <DataGridTextColumn Header="{DynamicResource gridResultGroupComposition}" Binding="{Binding GroupComposition}"/>
-                        <DataGridTextColumn Header="{DynamicResource gridResultWt}" Binding="{Binding Wt,StringFormat={}{0:N3}}" ElementStyle="{StaticResource dgCellARight}"/>
-                        <DataGridTextColumn Header="{DynamicResource gridResultWeight}" Binding="{Binding Weight,StringFormat={}{0:N3}}" ElementStyle="{StaticResource dgCellARight}"/>
+                        <DataGridTextColumn Header="{DynamicResource gridGroupName}" Binding="{Binding GroupName}"/>
+                        <DataGridTextColumn Header="{DynamicResource gridGroupComposition}" Binding="{Binding GroupComposition}"/>
+                        <DataGridTextColumn Header="{DynamicResource gridWt}" Binding="{Binding Wt,StringFormat={}{0:N3}}" ElementStyle="{StaticResource dgCellARight}"/>
+                        <DataGridTextColumn Header="{DynamicResource gridWeight}" Binding="{Binding Weight,StringFormat={}{0:N3}}" ElementStyle="{StaticResource dgCellARight}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
