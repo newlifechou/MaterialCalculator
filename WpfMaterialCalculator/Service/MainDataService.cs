@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using WpfMaterialCalculator.CommonHelper;
 using WpfMaterialCalculator.Model;
 using System.Data.SQLite;
+using System.Text.RegularExpressions;
 
 namespace WpfMaterialCalculator.Service
 {
@@ -124,7 +125,19 @@ namespace WpfMaterialCalculator.Service
                     {
                         foreach (var c in item.g)
                         {
-                            sb.Append(c.MaterialName);
+                            //该组分名称当中是否包含多个元素，也就是说该组分是否是化合物形式存在
+                            //判断方法就是大写字母的数量是否大于等于2
+                            //如果是就加括号
+                            if (CheckCapitalLetterMoreThanOne(c.MaterialName))
+                            {
+                                sb.Append("(");
+                                sb.Append(c.MaterialName);
+                                sb.Append(")");
+                            }
+                            else
+                            {
+                                sb.Append(c.MaterialName);
+                            }
                             //保留两位小数
                             sb.Append((c.At / item.GroupAtSum * 100).ToString("N2"));
                         }
@@ -138,7 +151,16 @@ namespace WpfMaterialCalculator.Service
                 }
             }
         }
-
+        /// <summary>
+        /// 判断输入字符串当中是否包含大于一个的大写字母
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        private bool CheckCapitalLetterMoreThanOne(string text)
+        {
+            string regexPattern = @"^[A-Z]{1}\w*[A-Z]{1}\w*$";
+            return Regex.IsMatch(text, regexPattern);
+        }
 
         public void ClearResultWeigtht(ICollection<CalculationResultItem> results)
         {
