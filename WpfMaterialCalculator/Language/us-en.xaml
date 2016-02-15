@@ -8,7 +8,7 @@
     <sys:String x:Key="btnMaterialLibrary">Material Library</sys:String>
     <sys:String x:Key="groupConditions">Calcualtion Conditions</sys:String>
     <sys:String x:Key="btnAddCondition">Add Conditons</sys:String>
-    <sys:String x:Key="btnClearConditon">Clear Condition</sys:String>
+    <sys:String x:Key="btnClearConditons">Clear Conditions</sys:String>
     <sys:String x:Key="gridCondtionGroupName">Group Name</sys:String>
     <sys:String x:Key="gridConditionMaterialName">Material Name</sys:String>
     <sys:String x:Key="gridConditionMoleWeight">Mole Weight</sys:String>
@@ -23,9 +23,9 @@
     <sys:String x:Key="groupWeightCalcualtion">Weight Calculation</sys:String>
     <sys:String x:Key="groupKnowType1">Know the weight of the total mixture</sys:String>
     <sys:String x:Key="groupKnowType2">Know the weight of one group</sys:String>
-    <sys:String x:Key="mixtureWeight">Mixture Weight</sys:String>
+    <sys:String x:Key="mixtureWeight">Mixture Weight=</sys:String>
     <sys:String x:Key="knownGroup">Known Group</sys:String>
-    <sys:String x:Key="groupWeight">Group Weight</sys:String>
+    <sys:String x:Key="knowgroupWeight">This Group Weight=</sys:String>
 
     <sys:String x:Key="btnCalculateNow">Calculate Now</sys:String>
     <sys:String x:Key="btnClearAllWeights">Clear All Weights</sys:String>
