@@ -29,4 +29,9 @@
 
     <sys:String x:Key="btnCalculateNow">Calculate Now</sys:String>
     <sys:String x:Key="btnClearAllWeights">Clear All Weights</sys:String>
+    
+    
+    
+    
+    
 </ResourceDictionary>

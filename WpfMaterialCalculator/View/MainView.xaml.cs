@@ -23,6 +23,9 @@ namespace WpfMaterialCalculator.View
         public MainWindow()
         {
             InitializeComponent();
+            //加载语言资源文件
+            UILanguageSet lang = new UILanguageSet();
+            lang.ReadConfigAndSetUILanguage();
         }
     }
 }

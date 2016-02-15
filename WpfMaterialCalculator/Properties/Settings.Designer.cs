@@ -26,12 +26,12 @@ namespace WpfMaterialCalculator.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("us-en")]
-        public string language {
+        public string Language {
             get {
-                return ((string)(this["language"]));
+                return ((string)(this["Language"]));
             }
             set {
-                this["language"] = value;
+                this["Language"] = value;
             }
         }
     }

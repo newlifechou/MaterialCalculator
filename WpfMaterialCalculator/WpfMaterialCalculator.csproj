@@ -116,6 +116,7 @@
     <Compile Include="Service\MainDataService.cs" />
     <Compile Include="Service\MaterialLibraryDataService.cs" />
     <Compile Include="Control\NumberTextBox.cs" />
+    <Compile Include="UILanguageSet.cs" />
     <Compile Include="ViewModel\EditConditionViewModel.cs" />
     <Compile Include="ViewModel\LoadViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />

@@ -1,7 +1,7 @@
 /*
   In App.xaml:
   <Application.Resources>
-      <vm:ViewModelLocator xmlns:vm="clr-namespace:WpfMaterialCalcualator"
+      <vm:ViewModelLocator xmlns:vm="clr-namespace:WpfMaterialCalculator"
                            x:Key="Locator" />
   </Application.Resources>
   
