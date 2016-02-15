@@ -5,6 +5,7 @@ using WpfMaterialCalculator.Model;
 using WpfMaterialCalculator.Service;
 using GalaSoft.MvvmLight.CommandWpf;
 using System;
+using System.Windows;
 
 namespace WpfMaterialCalculator.ViewModel
 {
@@ -40,7 +41,8 @@ namespace WpfMaterialCalculator.ViewModel
 
         private void DeleteAction(ProjectItem item)
         {
-            if (dialogDS.ShowDialog("Really want to Delete this Project?","Delete"))
+            string warningMsg = Application.Current.TryFindResource("dialogDeleteProject").ToString();
+            if (dialogDS.ShowDialog(warningMsg,"Delete"))
             {
                 mainDS.DeleteProject(item);
                 mainDS.DeleteConditionsByProjectId(item.ProjectId);

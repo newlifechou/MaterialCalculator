@@ -7,6 +7,7 @@ using GalaSoft.MvvmLight.Messaging;
 using WpfMaterialCalculator.Service;
 using System.Linq;
 using System.Collections.Generic;
+using System.Windows;
 
 namespace WpfMaterialCalculator.ViewModel
 {
@@ -135,7 +136,8 @@ namespace WpfMaterialCalculator.ViewModel
 
         private void ClearConditionsAction()
         {
-            if (dialogService.ShowDialog("Delete All Conditions?", "Delete"))
+            string warningMsg = Application.Current.TryFindResource("dialogDeleteConditions").ToString();
+            if (dialogService.ShowDialog(warningMsg, "Delete"))
             {
                 //清除临时数据库
                 mainDataService.ClearConditions();
@@ -207,7 +209,8 @@ namespace WpfMaterialCalculator.ViewModel
 
         private void DeleteConditionAction(CalculationConditionItem item)
         {
-            if (dialogService.ShowDialog("Are you sure to delete it?", "Delete"))
+            string warningMsg = Application.Current.TryFindResource("dialogDeleteCondition").ToString();
+            if (dialogService.ShowDialog(warningMsg, "Delete"))
             {
                 mainDataService.DeleteCondition(item);
                 LoadConditions();

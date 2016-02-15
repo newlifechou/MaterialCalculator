@@ -43,9 +43,12 @@
     <sys:String x:Key="groupKnowType2">知道其中一组成分的重量</sys:String>
     <sys:String x:Key="mixtureWeight">混合物的总重量=</sys:String>
     <sys:String x:Key="knownGroup">已经知道的组的组名</sys:String>
-    <sys:String x:Key="knowgroupWeight">改组的重量=</sys:String>
+    <sys:String x:Key="knowgroupWeight">该组的重量=</sys:String>
 
-    
+    <sys:String x:Key="dialogDeleteConditions">确定删除所有的计算条件?</sys:String>
+    <sys:String x:Key="dialogDeleteCondition">确定要删除当前的计算条件?</sys:String>
+    <sys:String x:Key="dialogDeleteProject">确定要删除当前的项目?</sys:String>
 
-    
+
+
 </ResourceDictionary>

@@ -4,6 +4,7 @@ using WpfMaterialCalculator.Service;
 using WpfMaterialCalculator.Model;
 using System.Collections.ObjectModel;
 using System;
+using System.Windows;
 
 namespace WpfMaterialCalculator.ViewModel
 {
@@ -50,7 +51,8 @@ namespace WpfMaterialCalculator.ViewModel
 
         private void DeleteAction(MaterialItem item)
         {
-            if (dialogService.ShowDialog("Delete this material?", "Delete"))
+            string warningMsg = Application.Current.TryFindResource("dialogDeleteCondition").ToString();
+            if (dialogService.ShowDialog(warningMsg, "Delete"))
             {
                 materialDataService.DeleteMaterialItem(item);
                 Reload();
