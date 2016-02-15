@@ -19,8 +19,13 @@ namespace WpfMaterialCalculator.ViewModel
         /// </summary>
         public SaveViewModel()
         {
-            CurrentProjectItem = new ProjectItem() { ProjectId = Guid.NewGuid(), ProjectName = "default", SaveDate = DateTime.Now };
+            InitialCurrentProjectItem();
             SaveCommand = new RelayCommand(SaveAction, CanSaveFunc);
+        }
+
+        private void InitialCurrentProjectItem()
+        {
+            CurrentProjectItem = new ProjectItem() { ProjectId = Guid.NewGuid(), ProjectName = "default", SaveDate = DateTime.Now };
         }
 
         private void SaveAction()
@@ -28,6 +33,8 @@ namespace WpfMaterialCalculator.ViewModel
             Messenger.Default.Send<ProjectItem>(CurrentProjectItem,"SaveConditions");
             //发送关闭本窗口的消息
             Messenger.Default.Send<object>(null, "SaveClose");
+            //初始化CurrentProjectItem
+            InitialCurrentProjectItem();
         }
 
         private bool CanSaveFunc()
