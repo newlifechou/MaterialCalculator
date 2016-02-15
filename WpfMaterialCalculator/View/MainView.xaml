@@ -29,8 +29,8 @@
         <GroupBox Header="{DynamicResource groupConditions}">
             <StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Button Content="{DynamicResource btnAddCondition}" Style="{StaticResource btnAdd}" Command="{Binding AddConditionCommand}"/>
-                    <Button Content="{DynamicResource btnClearConditons}" Style="{StaticResource btn}" Command="{Binding ClearConditionsCommand}"/>
+                    <Button Content="{DynamicResource btnAddCondition}" Style="{DynamicResource btnBig}" Command="{Binding AddConditionCommand}"/>
+                    <Button Content="{DynamicResource btnClearConditons}" Style="{StaticResource btnBig}" Command="{Binding ClearConditionsCommand}"/>
                 </StackPanel>
                 <DataGrid Style="{StaticResource dg}" Height="200" ItemsSource="{Binding Conditions}">
                     <DataGrid.Columns>

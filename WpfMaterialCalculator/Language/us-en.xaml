@@ -7,7 +7,7 @@
     <sys:String x:Key="btnSaveAs">Save As</sys:String>
     <sys:String x:Key="btnMaterialLibrary">Material Library</sys:String>
     <sys:String x:Key="groupConditions">Calcualtion Conditions</sys:String>
-    <sys:String x:Key="btnAddCondition">Add Conditons</sys:String>
+    <sys:String x:Key="btnAddCondition">Add Conditon</sys:String>
     <sys:String x:Key="btnClearConditons">Clear Conditions</sys:String>
     <sys:String x:Key="gridCondtionGroupName">Group Name</sys:String>
     <sys:String x:Key="gridConditionMaterialName">Material Name</sys:String>
@@ -17,7 +17,7 @@
     <sys:String x:Key="groupResults">Calculation Results</sys:String>
     <sys:String x:Key="gridResultGroupName">Group Name</sys:String>
     <sys:String x:Key="gridResultGroupComposition">Group Composition</sys:String>
-    <sys:String x:Key="gridResultWt">Wt</sys:String>
+    <sys:String x:Key="gridResultWt">Wt%</sys:String>
     <sys:String x:Key="gridResultWeight">Weight</sys:String>
 
     <sys:String x:Key="groupWeightCalcualtion">Weight Calculation</sys:String>
