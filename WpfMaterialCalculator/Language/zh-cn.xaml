@@ -6,6 +6,8 @@
     <sys:String x:Key="btnLoad">加载</sys:String>
     <sys:String x:Key="btnSaveAs">另存为</sys:String>
     <sys:String x:Key="btnMaterialLibrary">材料库</sys:String>
+    <sys:String x:Key="btnEdit">编辑</sys:String>
+    <sys:String x:Key="btnDelete">删除</sys:String>
     
     <sys:String x:Key="groupConditions">计算条件区域</sys:String>
     <sys:String x:Key="btnAddCondition">添加条件</sys:String>

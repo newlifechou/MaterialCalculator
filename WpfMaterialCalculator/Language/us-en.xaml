@@ -6,6 +6,9 @@
     <sys:String x:Key="btnLoad">Load</sys:String>
     <sys:String x:Key="btnSaveAs">Save As</sys:String>
     <sys:String x:Key="btnMaterialLibrary">Material Library</sys:String>
+    <sys:String x:Key="btnEdit">Edit</sys:String>
+    <sys:String x:Key="btnDelete">Delete</sys:String>
+    
     <sys:String x:Key="groupConditions">Calcualtion Conditions</sys:String>
     <sys:String x:Key="btnAddCondition">Add Conditon</sys:String>
     <sys:String x:Key="btnClearConditons">Clear Conditions</sys:String>
