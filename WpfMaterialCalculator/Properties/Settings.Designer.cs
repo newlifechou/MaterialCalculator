@@ -25,7 +25,7 @@ namespace WpfMaterialCalculator.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("us-en")]
+        [global::System.Configuration.DefaultSettingValueAttribute("zh-cn")]
         public string Language {
             get {
                 return ((string)(this["Language"]));
