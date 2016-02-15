@@ -8,7 +8,7 @@
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
         Icon="/Image/table-edit-icon.png"
-        Title="{DynamicResource titleMain}" DataContext="{Binding Source={StaticResource Locator},Path=Main}" MinWidth="900" MinHeight="650" Width="900" Height="650">
+        Title="{DynamicResource titleMain}" DataContext="{Binding Source={StaticResource Locator},Path=Main}" MinWidth="900" MinHeight="670" Width="900" Height="650">
     <StackPanel Margin="10">
         <!--<Menu>
             <MenuItem Header="File">
