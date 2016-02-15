@@ -8,6 +8,8 @@
     <sys:String x:Key="btnMaterialLibrary">Material Library</sys:String>
     <sys:String x:Key="btnEdit">Edit</sys:String>
     <sys:String x:Key="btnDelete">Delete</sys:String>
+    <sys:String x:Key="btnSelect">Select</sys:String>
+    
     
     <sys:String x:Key="groupConditions">Calcualtion Conditions</sys:String>
     <sys:String x:Key="btnAddCondition">Add Conditon</sys:String>

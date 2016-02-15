@@ -38,7 +38,15 @@ namespace WpfMaterialCalculator.ViewModel
 
         private bool CanSaveFunc()
         {
-            return ConditionItem.IsValid;
+            //通过判断DesignMode来避免设计时候的错误显示
+            if (IsInDesignMode)
+            {
+                return true;
+            }
+            else
+            {
+                return ConditionItem.IsValid;
+            }
         }
 
         private void SaveAction()

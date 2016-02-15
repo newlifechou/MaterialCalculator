@@ -8,6 +8,7 @@
     <sys:String x:Key="btnMaterialLibrary">材料库</sys:String>
     <sys:String x:Key="btnEdit">编辑</sys:String>
     <sys:String x:Key="btnDelete">删除</sys:String>
+    <sys:String x:Key="btnSelect">选择</sys:String>
     
     <sys:String x:Key="groupConditions">计算条件区域</sys:String>
     <sys:String x:Key="btnAddCondition">添加条件</sys:String>
@@ -33,7 +34,6 @@
     <sys:String x:Key="btnCalculateNow">计算相应重量</sys:String>
     <sys:String x:Key="btnClearAllWeights">清除所有重量数据</sys:String>
     
-    
-    
+
     
 </ResourceDictionary>
