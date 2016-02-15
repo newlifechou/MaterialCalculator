@@ -4,6 +4,9 @@
                     xmlns:local="clr-namespace:WpfMaterialCalculator.Language">
     <sys:String x:Key="titleMain">原料成分配比计算器</sys:String>
     <sys:String x:Key="titleEditCondition">编辑条件</sys:String>
+    <sys:String x:Key="titleLoad">加载窗口</sys:String>
+    <sys:String x:Key="titleSave">另存为窗口</sys:String>
+    <sys:String x:Key="titleMaterialLibrary">材料库窗口</sys:String>
     
     <sys:String x:Key="btnLoad">加载</sys:String>
     <sys:String x:Key="btnSave">保存</sys:String>
@@ -12,6 +15,8 @@
     <sys:String x:Key="btnEdit">编辑</sys:String>
     <sys:String x:Key="btnDelete">删除</sys:String>
     <sys:String x:Key="btnSelect">选择</sys:String>
+    <sys:String x:Key="btnCancel">取消</sys:String>
+    <sys:String x:Key="btnAddMaterial">添加</sys:String>
     <sys:String x:Key="btnCalculateNow">计算相应重量</sys:String>
     <sys:String x:Key="btnClearAllWeights">清除所有重量数据</sys:String>
     <sys:String x:Key="btnAddCondition">添加条件</sys:String>
@@ -32,6 +37,8 @@
     <sys:String x:Key="gridWeight">重量</sys:String>
     <sys:String x:Key="gridGroup">组</sys:String>
 
+    <sys:String x:Key="lbProjectName">项目名称</sys:String>
+    
     <sys:String x:Key="groupKnowType1">知道最终混合物的总重量</sys:String>
     <sys:String x:Key="groupKnowType2">知道其中一组成分的重量</sys:String>
     <sys:String x:Key="mixtureWeight">混合物的总重量=</sys:String>

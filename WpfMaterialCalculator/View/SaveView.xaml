@@ -8,7 +8,7 @@
         ResizeMode="NoResize"
         ShowInTaskbar="False"
         WindowStartupLocation="CenterScreen"        
-        Title="SaveView" Height="150" Width="300" DataContext="{Binding Source={StaticResource Locator},Path=Save}">
+        Title="{DynamicResource titleSave}" Height="150" Width="300" DataContext="{Binding Source={StaticResource Locator},Path=Save}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -19,9 +19,9 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Project Name" Grid.Row="0" Grid.Column="0" Style="{StaticResource txtbl}"/>
+        <TextBlock Text="{DynamicResource lbProjectName}" Grid.Row="0" Grid.Column="0" Style="{StaticResource txtbl}"/>
         <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource txt}"
                  Text="{Binding CurrentProjectItem.ProjectName,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}"/>
-        <Button Content="Save" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Right" Style="{StaticResource btn}" Command="{Binding SaveCommand}"/>
+        <Button Content="{DynamicResource btnSave}" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Right" Style="{StaticResource btn}" Command="{Binding SaveCommand}"/>
     </Grid>
 </Window>

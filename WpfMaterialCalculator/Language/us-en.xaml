@@ -4,6 +4,9 @@
                     xmlns:local="clr-namespace:WpfMaterialCalculator.Language">
     <sys:String x:Key="titleMain">Materials Ratio Calculator</sys:String>
     <sys:String x:Key="titleEditCondition">Edit Condition</sys:String>
+    <sys:String x:Key="titleLoad">Load</sys:String>
+    <sys:String x:Key="titleSave">Save As</sys:String>
+    <sys:String x:Key="titleMaterialLibrary">Material Library</sys:String>
     
     <sys:String x:Key="btnLoad">Load</sys:String>
     <sys:String x:Key="btnSave">Save</sys:String>
@@ -12,6 +15,8 @@
     <sys:String x:Key="btnEdit">Edit</sys:String>
     <sys:String x:Key="btnDelete">Delete</sys:String>
     <sys:String x:Key="btnSelect">Select</sys:String>
+    <sys:String x:Key="btnCancel">Cancel</sys:String>
+    <sys:String x:Key="btnAddMaterial">Add</sys:String>
     <sys:String x:Key="btnCalculateNow">Calculate Now</sys:String>
     <sys:String x:Key="btnClearAllWeights">Clear All Weights</sys:String>
     <sys:String x:Key="btnAddCondition">Add Conditon</sys:String>
@@ -31,6 +36,8 @@
     <sys:String x:Key="gridWt">Wt%</sys:String>
     <sys:String x:Key="gridWeight">Weight</sys:String>
     <sys:String x:Key="gridGroup">Group</sys:String>
+
+    <sys:String x:Key="lbProjectName">Project Name</sys:String>
     
     <sys:String x:Key="groupKnowType1">Know the weight of the total mixture</sys:String>
     <sys:String x:Key="groupKnowType2">Know the weight of one group</sys:String>

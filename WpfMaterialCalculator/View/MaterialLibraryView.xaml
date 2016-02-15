@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         ShowInTaskbar="False"
-        Title="MaterialLibraryView" Height="500" Width="800" MinHeight="500" MinWidth="800" DataContext="{Binding Source={StaticResource Locator},Path=MaterialLibrary}">
+        Title="{DynamicResource titleMaterialLibrary}" Height="500" Width="800" MinHeight="500" MinWidth="800" DataContext="{Binding Source={StaticResource Locator},Path=MaterialLibrary}">
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -18,19 +18,19 @@
             <RowDefinition Height="auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Grid.Row="0" Grid.ColumnSpan="2" Content="Add" Style="{StaticResource btn}"  HorizontalAlignment="Left"
+        <Button Grid.Row="0" Grid.ColumnSpan="2" Content="{DynamicResource btnAddMaterial}" Style="{StaticResource btn}"  HorizontalAlignment="Left"
                 Command="{Binding AddCommand}" IsEnabled="{Binding MainEnableState}"/>
         <DataGrid Grid.Row="1" Grid.Column="0" Style="{StaticResource dg}" IsEnabled="{Binding MainEnableState}"
                   ItemsSource="{Binding Materials}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Material Name" Binding="{Binding MaterialName}"/>
-                <DataGridTextColumn Header="Mole Weight" Binding="{Binding MoleWeight,StringFormat={}{0:N3}}"
+                <DataGridTextColumn Header="{DynamicResource gridMaterialName}" Binding="{Binding MaterialName}"/>
+                <DataGridTextColumn Header="{DynamicResource gridMoleWeight}" Binding="{Binding MoleWeight,StringFormat={}{0:N3}}"
                                     ElementStyle="{StaticResource dgCellARight}"/>
-                <DataGridTextColumn Header="Pop Rate" Binding="{Binding PopRate}"/>
+                <DataGridTextColumn Header="{DynamicResource gridPopRate}" Binding="{Binding PopRate}"/>
                 <DataGridTemplateColumn Width="70" CanUserResize="False">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Edit" Command="{Binding DataContext.EditCommand,
+                            <Button Content="{DynamicResource btnEdit}" Command="{Binding DataContext.EditCommand,
                                         RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" CommandParameter="{Binding}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
@@ -38,7 +38,7 @@
                 <DataGridTemplateColumn Width="70" CanUserResize="False">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Delete" Command="{Binding DataContext.DeleteCommand,
+                            <Button Content="{DynamicResource btnDelete}" Command="{Binding DataContext.DeleteCommand,
                                         RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" CommandParameter="{Binding}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
@@ -60,14 +60,14 @@
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource txtbl}"
                        Text='{Binding EditState,StringFormat="Now you are {0}"}' Foreground="Red" FontSize="15"/>
-            <TextBlock Grid.Row="1" Grid.Column="0" Text="Material Name" Style="{StaticResource txtbl}"/>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="{DynamicResource gridMaterialName}" Style="{StaticResource txtbl}"/>
             <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding EditMaterialItem.MaterialName,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource txtValidate}"/>
-            <TextBlock Grid.Row="2" Grid.Column="0" Text="Mole Weight" Style="{StaticResource txtbl}"/>
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="{DynamicResource gridMoleWeight}" Style="{StaticResource txtbl}"/>
             <ctrl:NumberTextBox Grid.Row="2" Grid.Column="1" Text="{Binding EditMaterialItem.MoleWeight,ValidatesOnDataErrors=True,UpdateSourceTrigger=LostFocus}" Style="{StaticResource txtValidate}"/>
             <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Content="Cancel" Style="{StaticResource btn}"
+                <Button Content="{DynamicResource btnCancel}" Style="{StaticResource btn}"
                     Command="{Binding CancelCommand}"/>
-                <Button Content="Save" Style="{StaticResource btn}"
+                <Button Content="{DynamicResource btnSave}" Style="{StaticResource btn}"
                     Command="{Binding SaveCommand}"/>
             </StackPanel>
         </Grid>
