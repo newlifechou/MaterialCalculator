@@ -6,9 +6,6 @@ namespace WpfMaterialCalculatorUnitTest
     [TestClass]
     public class TestMainDataService
     {
-        [TestMethod]
-        public void TestMethod1()
-        {
-        }
+
     }
 }
