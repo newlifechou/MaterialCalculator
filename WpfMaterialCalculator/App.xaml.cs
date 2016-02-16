@@ -16,7 +16,9 @@ namespace WpfMaterialCalculator
 
         public App()
         {
-
+            //如果验证失败，关闭当前程序
+            MessageBox.Show("遇到不可预知的问题，即将关闭程序");
+            Application.Current.Shutdown();
         }
         
     }
