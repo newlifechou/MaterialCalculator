@@ -38,7 +38,7 @@ namespace WpfMaterialCalculator.Service
 
         public IList<MaterialItem> GetAllMaterialItems()
         {
-            string cmdText = "select id,materialName,moleweight,poprate from material  order by poprate desc,materialname";
+            string cmdText = "select id,materialName,moleweight,poprate from material  order by materialname,poprate desc";
             SQLiteDataReader dr = SqliteHelper.ExecuteReader(cmdText, null);
             IList<MaterialItem> results = new List<MaterialItem>(); 
 
