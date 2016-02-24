@@ -37,7 +37,7 @@ namespace WpfMaterialCalculator.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2016-12-12")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2017-12-12")]
         public string AuthorizeTime {
             get {
                 return ((string)(this["AuthorizeTime"]));

@@ -63,7 +63,14 @@
                 <DataGrid  Height="100" Style="{StaticResource dg}" ItemsSource="{Binding Results}">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="{DynamicResource gridGroupName}" Binding="{Binding GroupName}"/>
-                        <DataGridTextColumn Header="{DynamicResource gridGroupComposition}" Binding="{Binding GroupComposition}"/>
+                        <!--<DataGridTextColumn Header="{DynamicResource gridGroupComposition}" Binding="{Binding GroupComposition}"/>-->
+                        <DataGridTemplateColumn Header="{DynamicResource gridGroupComposition}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox Text="{Binding GroupComposition,Mode=OneWay}" IsReadOnly="True"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
                         <DataGridTextColumn Header="{DynamicResource gridWt}" Binding="{Binding Wt,StringFormat={}{0:N3}}" ElementStyle="{StaticResource dgCellARight}"/>
                         <DataGridTextColumn Header="{DynamicResource gridWeight}" Binding="{Binding Weight,StringFormat={}{0:N3}}" ElementStyle="{StaticResource dgCellARight}"/>
                     </DataGrid.Columns>
