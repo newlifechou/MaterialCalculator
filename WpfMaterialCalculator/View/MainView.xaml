@@ -98,9 +98,11 @@
                             </ComboBox>
                             <TextBlock Text="{DynamicResource knowgroupWeight}" Style="{StaticResource txtbl}"/>
                             <TextBox  Style="{StaticResource txt}" Text="{Binding GroupWeight}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{DynamicResource mixtureWeight}" Style="{StaticResource txtbl}"/>
                             <TextBlock Text='{Binding TotalWeight2, StringFormat=\{0:N3\}}' VerticalAlignment="Center" Style="{StaticResource txtbl}"/>
                         </StackPanel>
-                        <TextBlock Text="{DynamicResource mixtureWeight}" Style="{StaticResource txtbl}"/>
                         <StackPanel Orientation="Horizontal">
                             <Button Content="{DynamicResource btnCalculateNow}" Style="{StaticResource btnBig}" Command="{Binding CalculateWeightCommand}"/>
                             <Button Content="{DynamicResource btnClearAllWeights}" Style="{StaticResource btnBig}" Command="{Binding ClearWeightCommand}"/>
