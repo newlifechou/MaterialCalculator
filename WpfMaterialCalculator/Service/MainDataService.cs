@@ -293,7 +293,20 @@ namespace WpfMaterialCalculator.Service
             return SqliteHelper.ExecuteNonQuery(cmdText, cmdParameters) > 0;
         }
 
+        public void CalcualteElementWeight(ICollection<CalculationConditionItem> conditions, double totalWeight, ICollection<ElementResultItem> results)
+        {
+            if (conditions!=null&&totalWeight>0&&results!=null)
+            {
+                var SumAllTmp = conditions.Sum(c => c.MoleWeight * c.At);
+                foreach (var c in conditions)
+                {
+                    var result = new ElementResultItem();
+                    result.ElementName = c.MaterialName;
+                    result.Weight = totalWeight * c.MoleWeight * c.At / SumAllTmp;
 
-
+                    results.Add(result);
+                }
+            }
+        }
     }
 }

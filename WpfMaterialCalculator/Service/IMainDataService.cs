@@ -12,6 +12,15 @@ namespace WpfMaterialCalculator.Service
     /// </summary>
     public interface IMainDataService
     {
+
+        /// <summary>
+        /// 已知计算条件和总重量，计算每个元素的重量
+        /// </summary>
+        /// <param name="conditions"></param>
+        /// <param name="totalWeight"></param>
+        /// <param name="results"></param>
+        void CalcualteElementWeight(ICollection<CalculationConditionItem> conditions, double totalWeight,ICollection<ElementResultItem> results);
+
         /// <summary>
         /// 计算Wt和装料
         /// </summary>
