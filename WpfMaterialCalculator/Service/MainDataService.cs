@@ -298,6 +298,8 @@ namespace WpfMaterialCalculator.Service
             if (conditions!=null&&totalWeight>0&&results!=null)
             {
                 var SumAllTmp = conditions.Sum(c => c.MoleWeight * c.At);
+                results.Clear();
+
                 foreach (var c in conditions)
                 {
                     var result = new ElementResultItem();

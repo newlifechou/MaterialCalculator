@@ -43,9 +43,11 @@ namespace WpfMaterialCalculator.ViewModel
             //mainDataService.ClearCondition();
             GroupWeight = 1000;
             TotalWeight = 1000;
+            TotalElementWeight = 1000;
             IsTotalWeight = true;
 
             Results = new ObservableCollection<CalculationResultItem>();
+            ElementWeightResults = new ObservableCollection<ElementResultItem>();
 
             LoadConditions();
 
@@ -56,6 +58,7 @@ namespace WpfMaterialCalculator.ViewModel
             ClearConditionsCommand = new RelayCommand(ClearConditionsAction,CanClearConditonFunc);
 
             CalculateWeightCommand = new RelayCommand(CalculationWeightAction,CanCalculateWeightFunc);
+            CalculateElementWeightCommand = new RelayCommand(CalculateElementWeightAction, CanCalculateElementWeightFunc);
             ClearWeightCommand = new RelayCommand(ClearWeightAction,CanClearWeightFunc);
 
             MaterialLibraryCommand = new RelayCommand(MaterialLibraryAction);
@@ -67,6 +70,16 @@ namespace WpfMaterialCalculator.ViewModel
 
             Messenger.Default.Register<ProjectItem>(this, "SaveConditions",SaveConditionsAction);
             Messenger.Default.Register<ProjectItem>(this, "LoadConditions", LoadConditionsAction);
+        }
+
+        private void CalculateElementWeightAction()
+        {
+            mainDataService.CalcualteElementWeight(Conditions, TotalElementWeight, ElementWeightResults);
+        }
+
+        private bool CanCalculateElementWeightFunc()
+        {
+            return ElementWeightResults.Count > 0;
         }
 
         private void LoadConditionsAction(ProjectItem item)
@@ -144,6 +157,7 @@ namespace WpfMaterialCalculator.ViewModel
                 //清除集合
                 Conditions.Clear();
                 Results.Clear();
+                ElementWeightResults.Clear();
             }
         }
 
@@ -163,6 +177,7 @@ namespace WpfMaterialCalculator.ViewModel
                 return;
             }
             mainDataService.CalculateWt(Conditions, Results);
+            mainDataService.CalcualteElementWeight(Conditions, TotalElementWeight, ElementWeightResults);
             KnownWeightGroupItem = Results[0];
         }
 
@@ -246,6 +261,31 @@ namespace WpfMaterialCalculator.ViewModel
             }
         }
 
+        private double totalElementWeight;
+        public double TotalElementWeight
+        {
+            get
+            {
+                return totalElementWeight;
+            }
+            set
+            {
+                Set(ref totalElementWeight, value);
+            }
+        }
+        //元素重量计算列表
+        private ObservableCollection<ElementResultItem> elementWeightResults;
+        public ObservableCollection<ElementResultItem> ElementWeightResults
+        {
+            get
+            {
+                return elementWeightResults;
+            }
+            set
+            {
+                Set(ref elementWeightResults, value);
+            }
+        }
         /// <summary>
         /// 计算组项
         /// </summary>
@@ -311,8 +351,9 @@ namespace WpfMaterialCalculator.ViewModel
         public RelayCommand<CalculationConditionItem> DeleteConditionCommand { get; set; }
         public RelayCommand ClearConditionsCommand { get; private set; }
 
-
         public RelayCommand CalculateWeightCommand { get; private set; }
+        public RelayCommand CalculateElementWeightCommand { get; private set; }
+
         public RelayCommand ClearWeightCommand { get; private set; }
         public RelayCommand MaterialLibraryCommand { get; private set; }
         public RelayCommand LoadCommand { get; private set; }

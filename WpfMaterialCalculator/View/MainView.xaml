@@ -113,15 +113,15 @@
             </GroupBox>
             <GroupBox Header="{DynamicResource groupWeightCalcualtion}" Padding="5" Grid.Column="1">
                 <StackPanel>
-                    <DataGrid Style="{StaticResource dg}" ItemsSource="{Binding}" Height="150" VerticalAlignment="Top" >
+                    <DataGrid Style="{StaticResource dg}" ItemsSource="{Binding ElementWeightResults}" Height="150" VerticalAlignment="Top" >
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="ELementName" Binding="{Binding ELementName}"/>
+                            <DataGridTextColumn Header="ElementName" Binding="{Binding ElementName}"/>
                             <DataGridTextColumn Header="Weight" Binding="{Binding Weight, StringFormat=\{0:N3\}}" ElementStyle="{StaticResource dgCellARight}" />
                         </DataGrid.Columns>
                     </DataGrid>
                     <TextBlock Text="Weight:" Style="{StaticResource txtbl}"/>
-                    <TextBox  Style="{StaticResource txt}"/>
-                    <Button Content="Calcualte" Style="{StaticResource btnBig}"/>
+                    <TextBox  Style="{StaticResource txt}" Text="{Binding TotalElementWeight}"/>
+                    <Button Content="Calcualte" Style="{StaticResource btnBig}" Command="{Binding CalculateElementWeightCommand}"/>
                 </StackPanel>
             </GroupBox>
         </Grid>
