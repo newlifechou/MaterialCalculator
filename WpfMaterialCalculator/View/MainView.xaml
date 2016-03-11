@@ -33,7 +33,7 @@
                     <Button Content="{DynamicResource btnAddCondition}" Style="{DynamicResource btnBig}" Command="{Binding AddConditionCommand}"/>
                     <Button Content="{DynamicResource btnClearConditons}" Style="{StaticResource btnBig}" Command="{Binding ClearConditionsCommand}"/>
                 </StackPanel>
-                <DataGrid Style="{StaticResource dg}" Height="200" ItemsSource="{Binding Conditions}">
+                <DataGrid Style="{StaticResource dg}" Height="150" ItemsSource="{Binding Conditions}">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="{DynamicResource gridGroupName}" Binding="{Binding GroupName}"/>
                         <DataGridTextColumn Header="{DynamicResource gridMaterialName}" Binding="{Binding MaterialName}"/>
@@ -126,7 +126,7 @@
                         </DataGrid.Columns>
                     </DataGrid>
                     <TextBlock Text="{DynamicResource lbMaterialWeight}" Style="{StaticResource txtbl}"/>
-                    <TextBox  Style="{StaticResource txt}" Text="{Binding TotalElementWeight}" HorizontalAlignment="Left" MinWidth="100"/>
+                    <TextBox  Style="{StaticResource txt}" Text="{Binding TotalElementWeight}" HorizontalAlignment="Left"/>
                     <Button Content="{DynamicResource btnCalculateNow}" Style="{StaticResource btnBig}" HorizontalAlignment="Left"
                             Command="{Binding CalculateElementWeightCommand}"/>
                 </StackPanel>

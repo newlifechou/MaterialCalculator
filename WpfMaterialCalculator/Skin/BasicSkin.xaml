@@ -25,7 +25,7 @@
     <Style x:Key="txt" TargetType="{x:Type TextBox}">
         <Setter Property="Margin" Value="5"/>
         <Setter Property="Padding" Value="5"/>
-        <Setter Property="MinWidth" Value="60"/>
+        <Setter Property="MinWidth" Value="80"/>
     </Style>
     <Style x:Key="txtInGrid" TargetType="{x:Type TextBox}">
         <Setter Property="Padding" Value="3,0"/>
