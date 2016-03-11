@@ -25,6 +25,7 @@
             <Button Content="{DynamicResource btnLoad}" Style="{StaticResource btnText}" Command="{Binding LoadCommand}"/>
             <Button Content="{DynamicResource btnSaveAs}" Style="{StaticResource btnText}" Command="{Binding SaveCommand}"/>
             <Button Content="{DynamicResource btnMaterialLibrary}" Style="{StaticResource btnText}" Command="{Binding MaterialLibraryCommand}"/>
+            <Button Content="Share DB With Others" Style="{StaticResource btnText}"/>
         </StackPanel>
         <GroupBox Header="{DynamicResource groupConditions}">
             <StackPanel>
