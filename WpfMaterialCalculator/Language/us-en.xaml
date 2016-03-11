@@ -21,6 +21,7 @@
     <sys:String x:Key="btnClearAllWeights">Clear All Weights</sys:String>
     <sys:String x:Key="btnAddCondition">Add Conditon</sys:String>
     <sys:String x:Key="btnClearConditons">Clear Conditions</sys:String>
+    <sys:String x:Key="btnShareDB">Share DB With Others</sys:String>
     
     <sys:String x:Key="groupConditions">Calcualtion Conditions</sys:String>
     <sys:String x:Key="groupResults">Mixture Calculation Area</sys:String>
@@ -36,14 +37,17 @@
     <sys:String x:Key="gridWt">Wt%</sys:String>
     <sys:String x:Key="gridWeight">Weight</sys:String>
     <sys:String x:Key="gridGroup">Group</sys:String>
+    <sys:String x:Key="gridElementName">Element Name</sys:String>
 
     <sys:String x:Key="lbProjectName">Project Name</sys:String>
+    <sys:String x:Key="lbMaterialWeight">Material Weight</sys:String>
     
     <sys:String x:Key="groupKnowType1">Know the weight of the total mixture</sys:String>
     <sys:String x:Key="groupKnowType2">Know the weight of one group</sys:String>
     <sys:String x:Key="mixtureWeight">Mixture Weight=</sys:String>
     <sys:String x:Key="knownGroup">Known Group</sys:String>
     <sys:String x:Key="knowgroupWeight">This Group Weight=</sys:String>
+
 
     <sys:String x:Key="dialogDeleteConditions">Do you want to delete all the conditions?</sys:String>
     <sys:String x:Key="dialogDeleteCondition">Do you want to delete this condition?</sys:String>

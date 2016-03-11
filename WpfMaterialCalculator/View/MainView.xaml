@@ -25,7 +25,7 @@
             <Button Content="{DynamicResource btnLoad}" Style="{StaticResource btnText}" Command="{Binding LoadCommand}"/>
             <Button Content="{DynamicResource btnSaveAs}" Style="{StaticResource btnText}" Command="{Binding SaveCommand}"/>
             <Button Content="{DynamicResource btnMaterialLibrary}" Style="{StaticResource btnText}" Command="{Binding MaterialLibraryCommand}"/>
-            <Button Content="Share DB With Others" Style="{StaticResource btnText}"/>
+            <Button Content="{DynamicResource btnShareDB}" Style="{StaticResource btnText}"/>
         </StackPanel>
         <GroupBox Header="{DynamicResource groupConditions}">
             <StackPanel>
@@ -115,13 +115,19 @@
                 <StackPanel>
                     <DataGrid Style="{StaticResource dg}" ItemsSource="{Binding ElementWeightResults}" Height="150" VerticalAlignment="Top" >
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="ElementName" Binding="{Binding ElementName}"/>
-                            <DataGridTextColumn Header="Weight" Binding="{Binding Weight, StringFormat=\{0:N3\}}" ElementStyle="{StaticResource dgCellARight}" />
+                            <DataGridTextColumn Header="{DynamicResource gridElementName}" Binding="{Binding ElementName}"/>
+                            <DataGridTemplateColumn Header="{DynamicResource gridWeight}">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBox Text="{Binding  Weight, StringFormat=\{0:N3\}, Mode=OneWay}" IsReadOnly="True"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <TextBlock Text="Weight:" Style="{StaticResource txtbl}"/>
+                    <TextBlock Text="{DynamicResource lbMaterialWeight}" Style="{StaticResource txtbl}"/>
                     <TextBox  Style="{StaticResource txt}" Text="{Binding TotalElementWeight}"/>
-                    <Button Content="Calcualte" Style="{StaticResource btnBig}" Command="{Binding CalculateElementWeightCommand}"/>
+                    <Button Content="{DynamicResource btnCalculateNow}" Style="{StaticResource btnBig}" Command="{Binding CalculateElementWeightCommand}"/>
                 </StackPanel>
             </GroupBox>
         </Grid>

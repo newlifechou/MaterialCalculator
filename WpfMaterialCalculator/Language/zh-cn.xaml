@@ -21,6 +21,7 @@
     <sys:String x:Key="btnClearAllWeights">清除所有重量数据</sys:String>
     <sys:String x:Key="btnAddCondition">添加条件</sys:String>
     <sys:String x:Key="btnClearConditons">清除所有条件</sys:String>
+    <sys:String x:Key="btnShareDB">和他人共享数据库</sys:String>
     
     <sys:String x:Key="groupConditions">计算条件区域</sys:String>
     <sys:String x:Key="groupResults">配料计算区域</sys:String>
@@ -36,8 +37,10 @@
     <sys:String x:Key="gridWt">Wt%</sys:String>
     <sys:String x:Key="gridWeight">重量</sys:String>
     <sys:String x:Key="gridGroup">组</sys:String>
-
+    <sys:String x:Key="gridElementName">元素名称</sys:String>
+    
     <sys:String x:Key="lbProjectName">项目名称</sys:String>
+    <sys:String x:Key="lbMaterialWeight">材料重量</sys:String>
     
     <sys:String x:Key="groupKnowType1">知道最终混合物的总重量</sys:String>
     <sys:String x:Key="groupKnowType2">知道其中一组成分的重量</sys:String>
