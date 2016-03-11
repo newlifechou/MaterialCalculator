@@ -108,7 +108,19 @@
                     </StackPanel>
                 </StackPanel>
             </GroupBox>
-            <GroupBox Header="{DynamicResource groupWeightCalcualtion}" Padding="5" Grid.Column="1"/>
+            <GroupBox Header="{DynamicResource groupWeightCalcualtion}" Padding="5" Grid.Column="1">
+                <StackPanel>
+                    <DataGrid Style="{StaticResource dg}" ItemsSource="{Binding}" Height="150" VerticalAlignment="Top" >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ELementName" Binding="{Binding ELementName}"/>
+                            <DataGridTextColumn Header="Weight" Binding="{Binding Weight, StringFormat=\{0:N3\}}" ElementStyle="{StaticResource dgCellARight}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <TextBlock Text="Weight:" Style="{StaticResource txtbl}"/>
+                    <TextBox  Style="{StaticResource txt}"/>
+                    <Button Content="Calcualte" Style="{StaticResource btnBig}"/>
+                </StackPanel>
+            </GroupBox>
         </Grid>
     </StackPanel>
 </Window>
