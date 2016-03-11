@@ -58,52 +58,57 @@
                 </DataGrid>
             </StackPanel>
         </GroupBox>
-        <GroupBox Header="{DynamicResource groupResults}">
-            <StackPanel>
-                <DataGrid  Height="100" Style="{StaticResource dg}" ItemsSource="{Binding Results}">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="{DynamicResource gridGroupName}" Binding="{Binding GroupName}"/>
-                        <!--<DataGridTextColumn Header="{DynamicResource gridGroupComposition}" Binding="{Binding GroupComposition}"/>-->
-                        <DataGridTemplateColumn Header="{DynamicResource gridGroupComposition}">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBox Text="{Binding GroupComposition,Mode=OneWay}" IsReadOnly="True"/>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTextColumn Header="{DynamicResource gridWt}" Binding="{Binding Wt,StringFormat={}{0:N3}}" ElementStyle="{StaticResource dgCellARight}"/>
-                        <DataGridTextColumn Header="{DynamicResource gridWeight}" Binding="{Binding Weight,StringFormat={}{0:N3}}" ElementStyle="{StaticResource dgCellARight}"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </StackPanel>
-        </GroupBox>
-        <GroupBox Header="{DynamicResource groupWeightCalcualtion}" Padding="5">
-            <StackPanel >
-                <RadioButton Content="{DynamicResource groupKnowType1}" IsChecked="{Binding IsTotalWeight,Mode=TwoWay}" Style="{StaticResource rb}"/>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="{DynamicResource mixtureWeight}" Style="{StaticResource txtbl}"/>
-                    <TextBox Style="{StaticResource txt}" Text="{Binding TotalWeight}"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <GroupBox Header="{DynamicResource groupResults}">
+                <StackPanel>
+                    <DataGrid  Height="100" Style="{StaticResource dg}" ItemsSource="{Binding Results}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="{DynamicResource gridGroupName}" Binding="{Binding GroupName}"/>
+                            <!--<DataGridTextColumn Header="{DynamicResource gridGroupComposition}" Binding="{Binding GroupComposition}"/>-->
+                            <DataGridTemplateColumn Header="{DynamicResource gridGroupComposition}">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBox Text="{Binding GroupComposition, Mode=OneWay}" IsReadOnly="True"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="{DynamicResource gridWt}" Binding="{Binding Wt, StringFormat=\{0:N3\}}" ElementStyle="{StaticResource dgCellARight}"/>
+                            <DataGridTextColumn Header="{DynamicResource gridWeight}" Binding="{Binding Weight, StringFormat=\{0:N3\}}" ElementStyle="{StaticResource dgCellARight}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <StackPanel Margin="0,0,10,0" >
+                        <RadioButton Content="{DynamicResource groupKnowType1}" IsChecked="{Binding IsTotalWeight, Mode=TwoWay}" Style="{StaticResource rb}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{DynamicResource mixtureWeight}" Style="{StaticResource txtbl}"/>
+                            <TextBox Style="{StaticResource txt}" Text="{Binding TotalWeight}"/>
+                        </StackPanel>
+                        <RadioButton Content="{DynamicResource groupKnowType2}"  Style="{StaticResource rb}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{DynamicResource knownGroup}" VerticalAlignment="Center" Style="{StaticResource txtbl}"/>
+                            <ComboBox VerticalAlignment="Center" ItemsSource="{Binding Results}"  SelectedItem="{Binding KnownWeightGroupItem}" Style="{StaticResource cbo}">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding GroupName}"/>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                            <TextBlock Text="{DynamicResource knowgroupWeight}" Style="{StaticResource txtbl}"/>
+                            <TextBox  Style="{StaticResource txt}" Text="{Binding GroupWeight}"/>
+                            <TextBlock Text='{Binding TotalWeight2, StringFormat=\{0:N3\}}' VerticalAlignment="Center" Style="{StaticResource txtbl}"/>
+                        </StackPanel>
+                        <TextBlock Text="{DynamicResource mixtureWeight}" Style="{StaticResource txtbl}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="{DynamicResource btnCalculateNow}" Style="{StaticResource btnBig}" Command="{Binding CalculateWeightCommand}"/>
+                            <Button Content="{DynamicResource btnClearAllWeights}" Style="{StaticResource btnBig}" Command="{Binding ClearWeightCommand}"/>
+                        </StackPanel>
+                    </StackPanel>
                 </StackPanel>
-                <RadioButton Content="{DynamicResource groupKnowType2}"  Style="{StaticResource rb}"/>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="{DynamicResource knownGroup}" VerticalAlignment="Center" Style="{StaticResource txtbl}"/>
-                    <ComboBox VerticalAlignment="Center" ItemsSource="{Binding Results}"  SelectedItem="{Binding KnownWeightGroupItem}" Style="{StaticResource cbo}">
-                        <ComboBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding GroupName}"/>
-                            </DataTemplate>
-                        </ComboBox.ItemTemplate>
-                    </ComboBox>
-                    <TextBlock Text="{DynamicResource knowgroupWeight}" Style="{StaticResource txtbl}"/>
-                    <TextBox  Style="{StaticResource txt}" Text="{Binding GroupWeight}"/>
-                    <TextBlock Text="{DynamicResource mixtureWeight}" Style="{StaticResource txtbl}"/>
-                    <TextBlock Text='{Binding TotalWeight2,StringFormat="{}{0:N3}"}' VerticalAlignment="Center" Style="{StaticResource txtbl}"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Button Content="{DynamicResource btnCalculateNow}" Style="{StaticResource btnBig}" Command="{Binding CalculateWeightCommand}"/>
-                    <Button Content="{DynamicResource btnClearAllWeights}" Style="{StaticResource btnBig}" Command="{Binding ClearWeightCommand}"/>
-                </StackPanel>
-            </StackPanel>
-        </GroupBox>
+            </GroupBox>
+            <GroupBox Header="{DynamicResource groupWeightCalcualtion}" Padding="5" Grid.Column="1"/>
+        </Grid>
     </StackPanel>
 </Window>

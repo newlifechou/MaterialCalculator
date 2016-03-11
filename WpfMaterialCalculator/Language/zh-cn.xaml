@@ -23,8 +23,8 @@
     <sys:String x:Key="btnClearConditons">清除所有条件</sys:String>
     
     <sys:String x:Key="groupConditions">计算条件区域</sys:String>
-    <sys:String x:Key="groupResults">计算结果区域</sys:String>
-    <sys:String x:Key="groupWeightCalcualtion">重量计算区域</sys:String>
+    <sys:String x:Key="groupResults">配料计算区域</sys:String>
+    <sys:String x:Key="groupWeightCalcualtion">订单所需原料区域</sys:String>
 
     <sys:String x:Key="gridPopRate">常用度</sys:String>
     <sys:String x:Key="gridOption">操作项</sys:String>

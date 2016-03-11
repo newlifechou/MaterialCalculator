@@ -23,8 +23,8 @@
     <sys:String x:Key="btnClearConditons">Clear Conditions</sys:String>
     
     <sys:String x:Key="groupConditions">Calcualtion Conditions</sys:String>
-    <sys:String x:Key="groupResults">Calculation Results</sys:String>
-    <sys:String x:Key="groupWeightCalcualtion">Weight Calculation</sys:String>
+    <sys:String x:Key="groupResults">Mixture Calculation Area</sys:String>
+    <sys:String x:Key="groupWeightCalcualtion">Material Order Calculation Area</sys:String>
 
     <sys:String x:Key="gridPopRate">Pop Rate</sys:String>
     <sys:String x:Key="gridOption">Option</sys:String>
