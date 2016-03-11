@@ -61,19 +61,18 @@
         </GroupBox>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*"/>
-                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <GroupBox Header="{DynamicResource groupResults}">
                 <StackPanel>
                     <DataGrid  Height="100" Style="{StaticResource dg}" ItemsSource="{Binding Results}">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="{DynamicResource gridGroupName}" Binding="{Binding GroupName}"/>
-                            <!--<DataGridTextColumn Header="{DynamicResource gridGroupComposition}" Binding="{Binding GroupComposition}"/>-->
                             <DataGridTemplateColumn Header="{DynamicResource gridGroupComposition}">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBox Text="{Binding GroupComposition, Mode=OneWay}" IsReadOnly="True"/>
+                                        <TextBox Text="{Binding GroupComposition, Mode=OneWay}" IsReadOnly="True" Style="{StaticResource txtInGrid}"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
@@ -119,15 +118,17 @@
                             <DataGridTemplateColumn Header="{DynamicResource gridWeight}">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBox Text="{Binding  Weight, StringFormat=\{0:N3\}, Mode=OneWay}" IsReadOnly="True"/>
+                                        <TextBox Text="{Binding  Weight, StringFormat=\{0:N3\}, Mode=OneWay}" IsReadOnly="True"
+                                                 Style="{StaticResource txtInGrid}" TextAlignment="Right"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                     <TextBlock Text="{DynamicResource lbMaterialWeight}" Style="{StaticResource txtbl}"/>
-                    <TextBox  Style="{StaticResource txt}" Text="{Binding TotalElementWeight}"/>
-                    <Button Content="{DynamicResource btnCalculateNow}" Style="{StaticResource btnBig}" Command="{Binding CalculateElementWeightCommand}"/>
+                    <TextBox  Style="{StaticResource txt}" Text="{Binding TotalElementWeight}" HorizontalAlignment="Left" MinWidth="100"/>
+                    <Button Content="{DynamicResource btnCalculateNow}" Style="{StaticResource btnBig}" HorizontalAlignment="Left"
+                            Command="{Binding CalculateElementWeightCommand}"/>
                 </StackPanel>
             </GroupBox>
         </Grid>
