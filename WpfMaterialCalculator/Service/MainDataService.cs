@@ -176,7 +176,7 @@ namespace WpfMaterialCalculator.Service
             {
                 foreach (var item in results)
                 {
-                    item.Weight = item.Wt * totalWeight / 100;
+                    item.Weight = item.Wt * totalWeight;
                 }
             }
         }
@@ -186,7 +186,7 @@ namespace WpfMaterialCalculator.Service
         {
             if (groupWeight > 0)
             {
-                totalWeight = groupWeight / (alreadyKnownGroup.Wt / 100);
+                totalWeight = groupWeight / (alreadyKnownGroup.Wt);
                 //首先得知总重量，然后调用总重量已知的计算方法
                 CalculateWithTotalWeight(results, totalWeight);
             }
