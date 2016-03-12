@@ -21,7 +21,7 @@
     <sys:String x:Key="btnClearAllWeights">Clear All Weights</sys:String>
     <sys:String x:Key="btnAddCondition">Add Conditon</sys:String>
     <sys:String x:Key="btnClearConditons">Clear Conditions</sys:String>
-    <sys:String x:Key="btnShareDB">Share DB With Others</sys:String>
+    <sys:String x:Key="btnShareDB">Share Data</sys:String>
     
     <sys:String x:Key="groupConditions">Calcualtion Conditions</sys:String>
     <sys:String x:Key="groupResults">Mixture Calculation Area</sys:String>
