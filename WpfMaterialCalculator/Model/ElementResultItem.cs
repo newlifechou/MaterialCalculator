@@ -13,6 +13,7 @@ namespace WpfMaterialCalculator.Model
     {
         public Guid Id { get; set; }
         public string ElementName { get; set; }
+        public double Wt { get; set; }
         public double Weight { get; set; }
     }
 }

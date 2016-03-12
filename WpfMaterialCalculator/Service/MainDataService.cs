@@ -145,7 +145,7 @@ namespace WpfMaterialCalculator.Service
 
                     tmpCalculationResultItem.GroupComposition = sb.ToString();
 
-                    tmpCalculationResultItem.Wt = item.GroupAtMoleSum / sumAllTmp * 100;
+                    tmpCalculationResultItem.Wt = item.GroupAtMoleSum / sumAllTmp;
                     tmpCalculationResultItem.Weight = 0;
                     results.Add(tmpCalculationResultItem);
                 }
@@ -304,8 +304,8 @@ namespace WpfMaterialCalculator.Service
                 {
                     var result = new ElementResultItem();
                     result.ElementName = c.MaterialName;
-                    result.Weight = totalWeight * c.MoleWeight * c.At / SumAllTmp;
-
+                    result.Wt = c.MoleWeight * c.At / SumAllTmp;
+                    result.Weight = totalWeight *result.Wt;
                     results.Add(result);
                 }
             }

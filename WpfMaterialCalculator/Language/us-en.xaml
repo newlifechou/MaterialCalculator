@@ -34,7 +34,7 @@
     <sys:String x:Key="gridMoleWeight">Mole Weight</sys:String>
     <sys:String x:Key="gridAt">At Ratio</sys:String>
     <sys:String x:Key="gridGroupComposition">Group Composition</sys:String>
-    <sys:String x:Key="gridWt">Wt%</sys:String>
+    <sys:String x:Key="gridWt">Wt</sys:String>
     <sys:String x:Key="gridWeight">Weight</sys:String>
     <sys:String x:Key="gridGroup">Group</sys:String>
     <sys:String x:Key="gridElementName">Element Name</sys:String>

@@ -34,7 +34,7 @@
     <sys:String x:Key="gridMoleWeight">摩尔质量</sys:String>
     <sys:String x:Key="gridAt">At比例</sys:String>
     <sys:String x:Key="gridGroupComposition">组成分</sys:String>
-    <sys:String x:Key="gridWt">Wt%</sys:String>
+    <sys:String x:Key="gridWt">Wt</sys:String>
     <sys:String x:Key="gridWeight">重量</sys:String>
     <sys:String x:Key="gridGroup">组</sys:String>
     <sys:String x:Key="gridElementName">元素名称</sys:String>

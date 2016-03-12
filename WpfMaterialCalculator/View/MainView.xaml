@@ -76,7 +76,7 @@
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
-                            <DataGridTextColumn Header="{DynamicResource gridWt}" Binding="{Binding Wt, StringFormat=\{0:N3\}}" ElementStyle="{StaticResource dgCellARight}"/>
+                            <DataGridTextColumn Header="{DynamicResource gridWt}" Binding="{Binding Wt, StringFormat=\{0:P3\}}" ElementStyle="{StaticResource dgCellARight}"/>
                             <DataGridTextColumn Header="{DynamicResource gridWeight}" Binding="{Binding Weight, StringFormat=\{0:N3\}}" ElementStyle="{StaticResource dgCellARight}"/>
                         </DataGrid.Columns>
                     </DataGrid>
@@ -115,6 +115,7 @@
                     <DataGrid Style="{StaticResource dg}" ItemsSource="{Binding ElementWeightResults}" Height="150" VerticalAlignment="Top" >
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="{DynamicResource gridElementName}" Binding="{Binding ElementName}"/>
+                            <DataGridTextColumn Header="{DynamicResource gridWt}" Binding="{Binding Wt,StringFormat={}{0:P3}}"/>
                             <DataGridTemplateColumn Header="{DynamicResource gridWeight}">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
