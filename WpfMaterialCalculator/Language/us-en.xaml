@@ -11,7 +11,7 @@
     <sys:String x:Key="btnLoad">Load</sys:String>
     <sys:String x:Key="btnSave">Save</sys:String>
     <sys:String x:Key="btnSaveAs">Save As</sys:String>
-    <sys:String x:Key="btnMaterialLibrary">Material Library</sys:String>
+    <sys:String x:Key="btnMaterialLibrary">Library</sys:String>
     <sys:String x:Key="btnEdit">Edit</sys:String>
     <sys:String x:Key="btnDelete">Delete</sys:String>
     <sys:String x:Key="btnSelect">Select</sys:String>
