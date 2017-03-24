@@ -54,16 +54,24 @@ namespace NewMaterialCalculator.ViewModel
 
         private void ClearCurrentMaterialNeedModel()
         {
-            CurrentMaterialNeedModel= new MaterialNeedModel()
+            var model = new MaterialNeedModel()
             {
                 ID = Guid.NewGuid(),
-                Density = 5.75,
                 Diameter = 230,
                 Thickness = 6,
-                Quantity = 2,
+                Quantity = 1,
                 Weight = 0,
                 WeightLoss = 0
             };
+            if (CurrentMaterialNeedModel != null)
+            {
+                model.Density = CurrentMaterialNeedModel.Density;
+            }
+            else
+            {
+                model.Density = 5.75;
+            }
+            CurrentMaterialNeedModel = model;
         }
 
         private void CalcualteTotalWeight()

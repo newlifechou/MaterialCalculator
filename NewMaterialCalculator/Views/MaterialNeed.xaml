@@ -36,28 +36,28 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Row="0" Grid.Column="0" Text="材料密度(g/cm3)" Style="{StaticResource TextBlockBasic}"/>
-                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Density}" Style="{StaticResource TextBoxBasic}"/>
+                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Density,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxBasic}"/>
                 <ComboBox Grid.Row="0" Grid.Column="2" Style="{StaticResource ComboBoxBasic}"/>
 
                 <TextBlock Grid.Row="1" Grid.Column="0" Text="模具内径(mm)" Style="{StaticResource TextBlockBasic}"/>
-                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Diameter}" Style="{StaticResource TextBoxBasic}"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Diameter,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxBasic}"/>
                 <ComboBox Grid.Row="1" Grid.Column="2" Style="{StaticResource ComboBoxBasic}"/>
 
                 <TextBlock Grid.Row="2" Grid.Column="0" Text="毛坯厚度(mm)" Style="{StaticResource TextBlockBasic}"/>
-                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Thickness}" Style="{StaticResource TextBoxBasic}"/>
+                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Thickness,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxBasic}"/>
 
                 <TextBlock Grid.Row="3" Grid.Column="0" Text="毛坯数量" Style="{StaticResource TextBlockBasic}"/>
-                <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Quantity}" Style="{StaticResource TextBoxBasic}"/>
+                <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Quantity,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxBasic}"/>
 
 
                 <TextBlock Grid.Row="4" Grid.Column="0" Text="重量损耗(g)" Style="{StaticResource TextBlockBasic}"/>
-                <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding WeightLoss}"  Style="{StaticResource TextBoxBasic}"/>
+                <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding WeightLoss,UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource TextBoxBasic}"/>
 
             </Grid>
         </Border>
         <StackPanel Grid.Row="2" Orientation="Horizontal" >
             <Button Content="添加" Style="{StaticResource ButtonBasic}" Command="{Binding Add}"/>
-            <CheckBox IsChecked="{Binding CanClear,Mode=TwoWay}" Style="{StaticResource CheckBoxBasic}" Content="添加后清空所有输入"/>
+            <CheckBox IsChecked="{Binding CanClear,Mode=TwoWay}" Style="{StaticResource CheckBoxBasic}" Content="添加后除密度外重置其他"/>
         </StackPanel>
         <DataGrid Grid.Row="3" ItemsSource="{Binding MaterialNeedModels}" Style="{StaticResource DataGridBasic}">
             <DataGrid.Columns>
