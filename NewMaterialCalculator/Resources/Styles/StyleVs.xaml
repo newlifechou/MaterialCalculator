@@ -32,7 +32,7 @@
         <Setter Property="FontSize" Value="25"/>
     </Style>
     <Style x:Key="SmallTextBlock" TargetType="TextBlock">
-        <Setter Property="Margin" Value="2"/>
+        <Setter Property="Margin" Value="2 0"/>
         <Setter Property="Padding" Value="5"/>
         <Setter Property="Foreground" Value="{StaticResource fg}"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
@@ -66,11 +66,17 @@
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="MinWidth" Value="80"/>
     </Style>
-    <Style x:Key="SmallButton" TargetType="Button">
-        <Setter Property="Padding" Value="5 0"/>
+    
+    <Style x:Key="DGButton" TargetType="Button">
+        <Setter Property="Padding" Value="2"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="MinWidth" Value="60"/>
+    </Style>
+    <Style x:Key="DGTextBlock" TargetType="TextBlock">
+        <Setter Property="Margin" Value="2 0"/>
+        <Setter Property="Padding" Value="2"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
-
     <Style x:Key="DataGridBasic" TargetType="DataGrid">
         <Setter Property="AutoGenerateColumns" Value="False"/>
         <Setter Property="CanUserSortColumns" Value="False"/>
@@ -78,5 +84,10 @@
         <Setter Property="SelectionMode" Value="Single"/>
         <Setter Property="GridLinesVisibility" Value="Horizontal"/>
         <Setter Property="HorizontalGridLinesBrush" Value="Wheat"/>
+    </Style>
+    <Style x:Key="CheckBoxBasic" TargetType="CheckBox">
+        <Setter Property="Margin" Value="10 0 0 0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="{StaticResource fg}"/>
     </Style>
 </ResourceDictionary>

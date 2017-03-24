@@ -14,17 +14,10 @@ namespace NewMaterialCalculator.ViewModel
     {
         public MaterialNeedVM()
         {
-            CurrentMaterialNeedModel = new MaterialNeedModel()
-            {
-                ID = Guid.NewGuid(),
-                Density = 5.75,
-                Diameter = 230,
-                Thickness = 6,
-                Quantity = 2,
-                Weight = 0,
-                WeightLoss = 0
-            };
+            ClearCurrentMaterialNeedModel();
             TotalWeight = 0;
+            CanClear = true;
+
             MaterialNeedModels = new ObservableCollection<MaterialNeedModel>();
 
             Add = new RelayCommand(ActionAdd);
@@ -51,6 +44,26 @@ namespace NewMaterialCalculator.ViewModel
 
             MaterialNeedModels.Add(model);
             CalcualteTotalWeight();
+            if (CanClear)
+            {
+                ClearCurrentMaterialNeedModel();
+            }
+
+
+        }
+
+        private void ClearCurrentMaterialNeedModel()
+        {
+            CurrentMaterialNeedModel= new MaterialNeedModel()
+            {
+                ID = Guid.NewGuid(),
+                Density = 5.75,
+                Diameter = 230,
+                Thickness = 6,
+                Quantity = 2,
+                Weight = 0,
+                WeightLoss = 0
+            };
         }
 
         private void CalcualteTotalWeight()
@@ -79,6 +92,15 @@ namespace NewMaterialCalculator.ViewModel
             get { return totalWeight; }
             set { totalWeight = value; RaisePropertyChanged(nameof(TotalWeight)); }
         }
+
+        private bool canClear;
+
+        public bool CanClear
+        {
+            get { return canClear; }
+            set { canClear = value; RaisePropertyChanged(nameof(CanClear)); }
+        }
+
 
 
         public RelayCommand Add { get; set; }
