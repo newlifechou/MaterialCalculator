@@ -54,8 +54,8 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBlock Name="txtStatus" Text="状态栏" Style="{StaticResource TextBlockBasic}"/>
-            <TextBlock Grid.Column="1" Text="Powered By .NET Framework 4.6 " Style="{StaticResource TextBlockBasic}" HorizontalAlignment="Right"/>
+            <TextBlock Name="txtStatus" Text="状态栏" Style="{StaticResource SmallTextBlock}"/>
+            <TextBlock Grid.Column="1" Text="Powered By .NET Framework 4.6 " Style="{StaticResource SmallTextBlock}" HorizontalAlignment="Right"/>
         </Grid>
     </Grid>
 </Window>
