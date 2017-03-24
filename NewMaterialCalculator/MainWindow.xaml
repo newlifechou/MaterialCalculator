@@ -10,7 +10,6 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
             <RowDefinition/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
@@ -20,29 +19,42 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{StaticResource AppName}" Style="{StaticResource TextBlockBasic}"/>
+                <Image Height="15" Width="15" Source="main.png" Margin="10 0 0 0"/>
+                <TextBlock Text="{StaticResource AppName}" Style="{StaticResource TitleTextBlockBasic}"/>
             </StackPanel>
             <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button x:Name="btnMenu" Style="{StaticResource ControlButton}" MinWidth="60" Margin="0 0 10 0"
+                        Content="菜单" Click="btnMenu_Click">
+                    <Button.ContextMenu>
+                        <ContextMenu x:Name="mainMenu">
+                            <MenuItem Header="成分标准化"/>
+                            <MenuItem Header="标准用料库"/>
+                            <MenuItem Header="原料配比计算"/>
+                            <MenuItem Header="At转Wt"/>
+                            <MenuItem Header="Wt转At"/>
+                            <Separator/>
+                            <MenuItem Header="帮助"/>
+                            <MenuItem Header="关于"/>
+                            <Separator/>
+                            <MenuItem Header="退出"/>
+                        </ContextMenu>
+                    </Button.ContextMenu>
+                </Button>
                 <Button Name="btnMinimum" Content="-" Style="{StaticResource ControlButton}" Click="btnMinimum_Click"/>
                 <Button Name="btnMaximum" Content="+" Style="{StaticResource ControlButton}" Click="btnMaximum_Click"/>
                 <Button Name="btnClose" Content="X" Style="{StaticResource ControlButton}" Click="btnClose_Click"/>
             </StackPanel>
         </Grid>
-        <Menu Grid.Row="1">
-            <MenuItem Header="开始">
-                <MenuItem Header="退出"/>
-            </MenuItem>
-            <MenuItem Header="帮助">
-                <MenuItem Header="关于"/>
-            </MenuItem>
-        </Menu>
-        <ContentControl x:Name="mainArea" Grid.Row="2"/>
-        <Grid Grid.Row="3" Background="{StaticResource statusbar}">
+        <Border Grid.Row="1"  Background="{StaticResource bodybg2}">
+            <ContentControl x:Name="mainArea"/>
+        </Border>
+
+        <Grid Grid.Row="2" Background="{StaticResource statusbar}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBlock Name="txtStatus" Text="状态栏" Style="{StaticResource TextBlockBasic}"/> 
+            <TextBlock Name="txtStatus" Text="状态栏" Style="{StaticResource TextBlockBasic}"/>
             <TextBlock Grid.Column="1" Text="Powered By .NET Framework 4.6 " Style="{StaticResource TextBlockBasic}" HorizontalAlignment="Right"/>
         </Grid>
     </Grid>

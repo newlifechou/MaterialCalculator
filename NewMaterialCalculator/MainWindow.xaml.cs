@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using NewMaterialCalculator.Views;
+
 
 namespace NewMaterialCalculator
 {
@@ -23,6 +25,15 @@ namespace NewMaterialCalculator
         public MainWindow()
         {
             InitializeComponent();
+            SetMainArea(new MaterialNeed());
+        }
+
+        private void SetMainArea(UserControl view)
+        {
+            if (view != null)
+            {
+                this.mainArea.Content = view;
+            }
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -37,7 +48,7 @@ namespace NewMaterialCalculator
 
         private void btnMaximum_Click(object sender, RoutedEventArgs e)
         {
-            if (this.WindowState==WindowState.Maximized)
+            if (this.WindowState == WindowState.Maximized)
             {
                 this.WindowState = WindowState.Normal;
             }
@@ -50,6 +61,11 @@ namespace NewMaterialCalculator
         private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
+        }
+
+        private void btnMenu_Click(object sender, RoutedEventArgs e)
+        {
+            mainMenu.IsOpen = true;
         }
     }
 }
