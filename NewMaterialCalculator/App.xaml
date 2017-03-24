@@ -1,11 +1,8 @@
-﻿<Application x:Class="NewMaterialCalculator.App"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:NewMaterialCalculator"
-             StartupUri="MainWindow.xaml">
+﻿<Application x:Class="NewMaterialCalculator.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:NewMaterialCalculator" StartupUri="MainWindow.xaml" >
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="MainLocator.xaml"/>
                 <ResourceDictionary Source="Resources\Languages\zh-cn.xaml"/>
                 <ResourceDictionary Source="Resources\Styles\StyleVs.xaml"/>
             </ResourceDictionary.MergedDictionaries>

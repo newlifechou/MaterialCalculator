@@ -66,5 +66,17 @@
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="MinWidth" Value="80"/>
     </Style>
+    <Style x:Key="SmallButton" TargetType="Button">
+        <Setter Property="Padding" Value="5 0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
 
+    <Style x:Key="DataGridBasic" TargetType="DataGrid">
+        <Setter Property="AutoGenerateColumns" Value="False"/>
+        <Setter Property="CanUserSortColumns" Value="False"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+        <Setter Property="SelectionMode" Value="Single"/>
+        <Setter Property="GridLinesVisibility" Value="Horizontal"/>
+        <Setter Property="HorizontalGridLinesBrush" Value="Wheat"/>
+    </Style>
 </ResourceDictionary>
