@@ -5,8 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NewMaterialCalculator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="{StaticResource AppName}" Height="350" Width="1200"
+        WindowState="Maximized" WindowStyle="None">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid Background="{StaticResource toolbar}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{StaticResource AppName}" Style="{StaticResource TextBlockBasic}"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button Content="-" Style="{StaticResource ControlButton}"/>
+                <Button Content="+" Style="{StaticResource ControlButton}"/>
+                <Button Content="X" Style="{StaticResource ControlButton}"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="3" Background="{StaticResource statusbar}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Name="txtStatus" Text="状态栏" Style="{StaticResource TextBlockBasic}"/> 
+            <TextBlock Grid.Column="1" Text="Powered By .NET Framework 4.6 " Style="{StaticResource TextBlockBasic}" HorizontalAlignment="Right"/>
+        </Grid>
     </Grid>
 </Window>

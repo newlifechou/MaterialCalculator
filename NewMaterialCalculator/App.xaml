@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:NewMaterialCalculator"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources\Languages\zh-cn.xaml"/>
+                <ResourceDictionary Source="Resources\Styles\StyleVs.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
