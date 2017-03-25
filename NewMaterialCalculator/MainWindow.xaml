@@ -45,7 +45,7 @@
                 <Button Name="btnClose" Content="X" Style="{StaticResource ControlButton}" Click="btnClose_Click"/>
             </StackPanel>
         </Grid>
-        <Border Grid.Row="1"  Background="{StaticResource bodybg2}">
+        <Border Grid.Row="1"  Background="{StaticResource bg}">
             <ContentControl x:Name="mainArea"/>
         </Border>
 

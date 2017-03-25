@@ -59,7 +59,7 @@
             <Button Content="添加" Style="{StaticResource ButtonBasic}" Command="{Binding Add}"/>
             <CheckBox IsChecked="{Binding CanClear,Mode=TwoWay}" Style="{StaticResource CheckBoxBasic}" Content="添加后除密度外重置其他"/>
         </StackPanel>
-        <DataGrid Grid.Row="3" ItemsSource="{Binding MaterialNeedModels}" Style="{StaticResource DataGridBasic}">
+        <DataGrid Grid.Row="3" ItemsSource="{Binding MaterialNeedModels}">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="操作">
                     <DataGridTemplateColumn.CellTemplate>

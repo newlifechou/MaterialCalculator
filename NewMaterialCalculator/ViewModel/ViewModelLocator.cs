@@ -32,6 +32,7 @@ namespace NewMaterialCalculator.ViewModel
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
             SimpleIoc.Default.Register<MaterialNeedVM>();
+            SimpleIoc.Default.Register<ElementAtToWtVM>();
         }
 
         public MaterialNeedVM MaterialNeed
@@ -42,6 +43,14 @@ namespace NewMaterialCalculator.ViewModel
             }
         }
         
+        public ElementAtToWtVM ElementAtToWt
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ElementAtToWtVM>();
+            }
+        }
+
         public static void Cleanup()
         {
             // TODO Clear the ViewModels

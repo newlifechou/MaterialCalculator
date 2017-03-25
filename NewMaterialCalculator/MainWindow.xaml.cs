@@ -25,7 +25,8 @@ namespace NewMaterialCalculator
         public MainWindow()
         {
             InitializeComponent();
-            SetMainArea(new MaterialNeed());
+            //SetMainArea(new MaterialNeed());
+            SetMainArea(new ElementAtToWt());
         }
 
         private void SetMainArea(UserControl view)

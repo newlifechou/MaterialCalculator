@@ -78,10 +78,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\ElementModel.cs" />
     <Compile Include="Models\MaterialNeedModel.cs" />
-    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\ElementAtToWtVM.cs" />
     <Compile Include="ViewModel\MaterialNeedVM.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="Views\ElementAtToWt.xaml.cs">
+      <DependentUpon>ElementAtToWt.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MaterialNeed.xaml.cs">
       <DependentUpon>MaterialNeed.xaml</DependentUpon>
     </Compile>
@@ -106,6 +110,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Styles\StyleVs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ElementAtToWt.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
