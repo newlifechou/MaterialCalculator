@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="BasicDataService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://192.168.16.254:8002/BasicDataService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://192.168.16.254:8002/BasicDataService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://192.168.16.254:8002/BasicDataService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/PMSWCFService.DataContracts" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICustomerService_GetCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomer" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_GetCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_AddCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCustomer" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_AddCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_UpdateCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustomer" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_UpdateCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_DeleteCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCustomer" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_DeleteCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAddressService_GetDeliveryAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeliveryAddress" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAddressService_GetDeliveryAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeliveryAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAddressService_AddDeliveryAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDeliveryAddress" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAddressService_AddDeliveryAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDeliveryAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAddressService_UpdateDeliveryAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDeliveryAddress" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAddressService_UpdateDeliveryAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDeliveryAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAddressService_DeleteDeliveryAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDeliveryAddress" />
+  </wsdl:message>
+  <wsdl:message name="IDeliveryAddressService_DeleteDeliveryAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDeliveryAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVHPDeviceService_GetVHPDevice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVHPDevice" />
+  </wsdl:message>
+  <wsdl:message name="IVHPDeviceService_GetVHPDevice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVHPDeviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVHPDeviceService_AddVHPDevice_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddVHPDevice" />
+  </wsdl:message>
+  <wsdl:message name="IVHPDeviceService_AddVHPDevice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddVHPDeviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVHPDeviceService_UpdateVHPDevice_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVHPDevice" />
+  </wsdl:message>
+  <wsdl:message name="IVHPDeviceService_UpdateVHPDevice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVHPDeviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVHPDeviceService_DeleteVHPDevice_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVHPDevice" />
+  </wsdl:message>
+  <wsdl:message name="IVHPDeviceService_DeleteVHPDevice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVHPDeviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVHPMoldService_GetVHPMold_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVHPMold" />
+  </wsdl:message>
+  <wsdl:message name="IVHPMoldService_GetVHPMold_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVHPMoldResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVHPMoldService_AddVHPMold_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddVHPMold" />
+  </wsdl:message>
+  <wsdl:message name="IVHPMoldService_AddVHPMold_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddVHPMoldResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVHPMoldService_UpdateVHPMold_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVHPMold" />
+  </wsdl:message>
+  <wsdl:message name="IVHPMoldService_UpdateVHPMold_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVHPMoldResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVHPMoldService_DeleteVHPMold_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVHPMold" />
+  </wsdl:message>
+  <wsdl:message name="IVHPMoldService_DeleteVHPMold_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVHPMoldResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVHPProcessService_GetVHPProcess_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVHPProcess" />
+  </wsdl:message>
+  <wsdl:message name="IVHPProcessService_GetVHPProcess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVHPProcessResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVHPProcessService_AddVHPProcess_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddVHPProcess" />
+  </wsdl:message>
+  <wsdl:message name="IVHPProcessService_AddVHPProcess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddVHPProcessResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVHPProcessService_UpdateVHPProcess_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVHPProcess" />
+  </wsdl:message>
+  <wsdl:message name="IVHPProcessService_UpdateVHPProcess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVHPProcessResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVHPProcessService_DeleteVHPProcess_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVHPProcess" />
+  </wsdl:message>
+  <wsdl:message name="IVHPProcessService_DeleteVHPProcess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVHPProcessResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICompoundService_GetAllCompounds_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCompounds" />
+  </wsdl:message>
+  <wsdl:message name="ICompoundService_GetAllCompounds_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCompoundsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICompoundService_AddCompound_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCompound" />
+  </wsdl:message>
+  <wsdl:message name="ICompoundService_AddCompound_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCompoundResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICompoundService_UpdateCompound_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCompound" />
+  </wsdl:message>
+  <wsdl:message name="ICompoundService_UpdateCompound_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCompoundResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICompoundService_DeleteCompound_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCompound" />
+  </wsdl:message>
+  <wsdl:message name="ICompoundService_DeleteCompound_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCompoundResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_AddSupplier_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSupplier" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_AddSupplier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddSupplierResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_UpdateSupplier_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSupplier" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_UpdateSupplier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSupplierResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_DeleteSupplier_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSupplier" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_DeleteSupplier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSupplierResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSuppliers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSuppliers" />
+  </wsdl:message>
+  <wsdl:message name="ISupplierService_GetSuppliers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSuppliersResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICustomerService">
+    <wsdl:operation name="GetCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/GetCustomer" message="tns:ICustomerService_GetCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerService/GetCustomerResponse" message="tns:ICustomerService_GetCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/AddCustomer" message="tns:ICustomerService_AddCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerService/AddCustomerResponse" message="tns:ICustomerService_AddCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/UpdateCustomer" message="tns:ICustomerService_UpdateCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerService/UpdateCustomerResponse" message="tns:ICustomerService_UpdateCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/DeleteCustomer" message="tns:ICustomerService_DeleteCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerService/DeleteCustomerResponse" message="tns:ICustomerService_DeleteCustomer_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IDeliveryAddressService">
+    <wsdl:operation name="GetDeliveryAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryAddressService/GetDeliveryAddress" message="tns:IDeliveryAddressService_GetDeliveryAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryAddressService/GetDeliveryAddressResponse" message="tns:IDeliveryAddressService_GetDeliveryAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDeliveryAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryAddressService/AddDeliveryAddress" message="tns:IDeliveryAddressService_AddDeliveryAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryAddressService/AddDeliveryAddressResponse" message="tns:IDeliveryAddressService_AddDeliveryAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDeliveryAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryAddressService/UpdateDeliveryAddress" message="tns:IDeliveryAddressService_UpdateDeliveryAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryAddressService/UpdateDeliveryAddressResponse" message="tns:IDeliveryAddressService_UpdateDeliveryAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDeliveryAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDeliveryAddressService/DeleteDeliveryAddress" message="tns:IDeliveryAddressService_DeleteDeliveryAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDeliveryAddressService/DeleteDeliveryAddressResponse" message="tns:IDeliveryAddressService_DeleteDeliveryAddress_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IVHPDeviceService">
+    <wsdl:operation name="GetVHPDevice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVHPDeviceService/GetVHPDevice" message="tns:IVHPDeviceService_GetVHPDevice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVHPDeviceService/GetVHPDeviceResponse" message="tns:IVHPDeviceService_GetVHPDevice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddVHPDevice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVHPDeviceService/AddVHPDevice" message="tns:IVHPDeviceService_AddVHPDevice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVHPDeviceService/AddVHPDeviceResponse" message="tns:IVHPDeviceService_AddVHPDevice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVHPDevice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVHPDeviceService/UpdateVHPDevice" message="tns:IVHPDeviceService_UpdateVHPDevice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVHPDeviceService/UpdateVHPDeviceResponse" message="tns:IVHPDeviceService_UpdateVHPDevice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVHPDevice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVHPDeviceService/DeleteVHPDevice" message="tns:IVHPDeviceService_DeleteVHPDevice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVHPDeviceService/DeleteVHPDeviceResponse" message="tns:IVHPDeviceService_DeleteVHPDevice_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IVHPMoldService">
+    <wsdl:operation name="GetVHPMold">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVHPMoldService/GetVHPMold" message="tns:IVHPMoldService_GetVHPMold_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVHPMoldService/GetVHPMoldResponse" message="tns:IVHPMoldService_GetVHPMold_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddVHPMold">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVHPMoldService/AddVHPMold" message="tns:IVHPMoldService_AddVHPMold_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVHPMoldService/AddVHPMoldResponse" message="tns:IVHPMoldService_AddVHPMold_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVHPMold">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVHPMoldService/UpdateVHPMold" message="tns:IVHPMoldService_UpdateVHPMold_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVHPMoldService/UpdateVHPMoldResponse" message="tns:IVHPMoldService_UpdateVHPMold_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVHPMold">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVHPMoldService/DeleteVHPMold" message="tns:IVHPMoldService_DeleteVHPMold_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVHPMoldService/DeleteVHPMoldResponse" message="tns:IVHPMoldService_DeleteVHPMold_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IVHPProcessService">
+    <wsdl:operation name="GetVHPProcess">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVHPProcessService/GetVHPProcess" message="tns:IVHPProcessService_GetVHPProcess_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVHPProcessService/GetVHPProcessResponse" message="tns:IVHPProcessService_GetVHPProcess_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddVHPProcess">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVHPProcessService/AddVHPProcess" message="tns:IVHPProcessService_AddVHPProcess_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVHPProcessService/AddVHPProcessResponse" message="tns:IVHPProcessService_AddVHPProcess_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVHPProcess">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVHPProcessService/UpdateVHPProcess" message="tns:IVHPProcessService_UpdateVHPProcess_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVHPProcessService/UpdateVHPProcessResponse" message="tns:IVHPProcessService_UpdateVHPProcess_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVHPProcess">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVHPProcessService/DeleteVHPProcess" message="tns:IVHPProcessService_DeleteVHPProcess_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVHPProcessService/DeleteVHPProcessResponse" message="tns:IVHPProcessService_DeleteVHPProcess_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ICompoundService">
+    <wsdl:operation name="GetAllCompounds">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICompoundService/GetAllCompounds" message="tns:ICompoundService_GetAllCompounds_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICompoundService/GetAllCompoundsResponse" message="tns:ICompoundService_GetAllCompounds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCompound">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICompoundService/AddCompound" message="tns:ICompoundService_AddCompound_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICompoundService/AddCompoundResponse" message="tns:ICompoundService_AddCompound_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCompound">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICompoundService/UpdateCompound" message="tns:ICompoundService_UpdateCompound_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICompoundService/UpdateCompoundResponse" message="tns:ICompoundService_UpdateCompound_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCompound">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICompoundService/DeleteCompound" message="tns:ICompoundService_DeleteCompound_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICompoundService/DeleteCompoundResponse" message="tns:ICompoundService_DeleteCompound_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ISupplierService">
+    <wsdl:operation name="AddSupplier">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/AddSupplier" message="tns:ISupplierService_AddSupplier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/AddSupplierResponse" message="tns:ISupplierService_AddSupplier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSupplier">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/UpdateSupplier" message="tns:ISupplierService_UpdateSupplier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/UpdateSupplierResponse" message="tns:ISupplierService_UpdateSupplier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSupplier">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/DeleteSupplier" message="tns:ISupplierService_DeleteSupplier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/DeleteSupplierResponse" message="tns:ISupplierService_DeleteSupplier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSuppliers">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSuppliers" message="tns:ISupplierService_GetSuppliers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSuppliersResponse" message="tns:ISupplierService_GetSuppliers_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="customer" type="tns:ICustomerService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCustomer">
+      <soap:operation soapAction="http://tempuri.org/ICustomerService/GetCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCustomer">
+      <soap:operation soapAction="http://tempuri.org/ICustomerService/AddCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <soap:operation soapAction="http://tempuri.org/ICustomerService/UpdateCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustomer">
+      <soap:operation soapAction="http://tempuri.org/ICustomerService/DeleteCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="deliveryAddress" type="tns:IDeliveryAddressService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDeliveryAddress">
+      <soap:operation soapAction="http://tempuri.org/IDeliveryAddressService/GetDeliveryAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDeliveryAddress">
+      <soap:operation soapAction="http://tempuri.org/IDeliveryAddressService/AddDeliveryAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDeliveryAddress">
+      <soap:operation soapAction="http://tempuri.org/IDeliveryAddressService/UpdateDeliveryAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDeliveryAddress">
+      <soap:operation soapAction="http://tempuri.org/IDeliveryAddressService/DeleteDeliveryAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="vhpdevice" type="tns:IVHPDeviceService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetVHPDevice">
+      <soap:operation soapAction="http://tempuri.org/IVHPDeviceService/GetVHPDevice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVHPDevice">
+      <soap:operation soapAction="http://tempuri.org/IVHPDeviceService/AddVHPDevice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVHPDevice">
+      <soap:operation soapAction="http://tempuri.org/IVHPDeviceService/UpdateVHPDevice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVHPDevice">
+      <soap:operation soapAction="http://tempuri.org/IVHPDeviceService/DeleteVHPDevice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="vhpmold" type="tns:IVHPMoldService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetVHPMold">
+      <soap:operation soapAction="http://tempuri.org/IVHPMoldService/GetVHPMold" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVHPMold">
+      <soap:operation soapAction="http://tempuri.org/IVHPMoldService/AddVHPMold" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVHPMold">
+      <soap:operation soapAction="http://tempuri.org/IVHPMoldService/UpdateVHPMold" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVHPMold">
+      <soap:operation soapAction="http://tempuri.org/IVHPMoldService/DeleteVHPMold" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="vhpprocess" type="tns:IVHPProcessService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetVHPProcess">
+      <soap:operation soapAction="http://tempuri.org/IVHPProcessService/GetVHPProcess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVHPProcess">
+      <soap:operation soapAction="http://tempuri.org/IVHPProcessService/AddVHPProcess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVHPProcess">
+      <soap:operation soapAction="http://tempuri.org/IVHPProcessService/UpdateVHPProcess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVHPProcess">
+      <soap:operation soapAction="http://tempuri.org/IVHPProcessService/DeleteVHPProcess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="compound" type="tns:ICompoundService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllCompounds">
+      <soap:operation soapAction="http://tempuri.org/ICompoundService/GetAllCompounds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCompound">
+      <soap:operation soapAction="http://tempuri.org/ICompoundService/AddCompound" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCompound">
+      <soap:operation soapAction="http://tempuri.org/ICompoundService/UpdateCompound" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCompound">
+      <soap:operation soapAction="http://tempuri.org/ICompoundService/DeleteCompound" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="supplier" type="tns:ISupplierService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddSupplier">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/AddSupplier" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSupplier">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/UpdateSupplier" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSupplier">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/DeleteSupplier" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSuppliers">
+      <soap:operation soapAction="http://tempuri.org/ISupplierService/GetSuppliers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BasicDataService">
+    <wsdl:port name="customer" binding="tns:customer">
+      <soap:address location="http://192.168.16.254:8002/BasicDataService.svc" />
+    </wsdl:port>
+    <wsdl:port name="deliveryAddress" binding="tns:deliveryAddress">
+      <soap:address location="http://192.168.16.254:8002/BasicDataService.svc" />
+    </wsdl:port>
+    <wsdl:port name="vhpdevice" binding="tns:vhpdevice">
+      <soap:address location="http://192.168.16.254:8002/BasicDataService.svc" />
+    </wsdl:port>
+    <wsdl:port name="vhpmold" binding="tns:vhpmold">
+      <soap:address location="http://192.168.16.254:8002/BasicDataService.svc" />
+    </wsdl:port>
+    <wsdl:port name="vhpprocess" binding="tns:vhpprocess">
+      <soap:address location="http://192.168.16.254:8002/BasicDataService.svc" />
+    </wsdl:port>
+    <wsdl:port name="compound" binding="tns:compound">
+      <soap:address location="http://192.168.16.254:8002/BasicDataService.svc" />
+    </wsdl:port>
+    <wsdl:port name="supplier" binding="tns:supplier">
+      <soap:address location="http://192.168.16.254:8002/BasicDataService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
