@@ -9,13 +9,50 @@ using NewMaterialCalculator.Models;
 using NewMaterialCalculator.BasicService;
 using System.Collections.ObjectModel;
 
+
 namespace NewMaterialCalculator.ViewModel
 {
     public class ElementAtToWtVM : ViewModelBase
     {
         public ElementAtToWtVM()
         {
+            Weight =1000;
+            Elements = new ObservableCollection<DcBDElement>();
+            InputElements = new ObservableCollection<ElementModel>();
+            StandardAtElements = new ObservableCollection<ElementModel>();
+            StandardWtElements = new ObservableCollection<ElementModel>();
 
+            using (var service = new ElementServiceClient())
+            {
+                var models = service.GetElements();
+                Elements.Clear();
+                models.ToList().ForEach(i => Elements.Add(i));
+            }
+
+            Select = new RelayCommand<BasicService.DcBDElement>(ActionSelect);
+            Add = new RelayCommand(ActionAdd);
+            Delete = new RelayCommand<ElementModel>(ActionDelete);
+        }
+
+        private void ActionDelete(ElementModel obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ActionAdd()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ActionSelect(DcBDElement obj)
+        {
+            var model = new ElementModel();
+            model.Name = obj.Name;
+            model.MolWeight = obj.MolWeight;
+            model.At = 10;
+            model.Wt = 0;
+            model.Weight = 0;
+            CurrentInputElement = model;
         }
 
         public ObservableCollection<DcBDElement> Elements { get; set; }
@@ -42,8 +79,8 @@ namespace NewMaterialCalculator.ViewModel
 
 
 
-        public RelayCommand<DcBDElement> Add { get; set; }
-        public RelayCommand Save { get; set; }
+        public RelayCommand<DcBDElement> Select { get; set; }
+        public RelayCommand Add { get; set; }
         public RelayCommand<ElementModel> Delete { get; set; }
     }
 }

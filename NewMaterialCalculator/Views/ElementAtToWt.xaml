@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NewMaterialCalculator.Views"
              mc:Ignorable="d" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              d:DesignHeight="600" d:DesignWidth="1200" DataContext="{Binding Source={StaticResource Locator},Path=ElementAtToWt}">
     <Grid>
         <Grid.RowDefinitions>
@@ -25,27 +26,29 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <ListBox Grid.Column="0" Grid.RowSpan="3" ItemsSource="{Binding Elements}">
+            <ListBox x:Name="lst" Grid.Column="0" Grid.RowSpan="3" ItemsSource="{Binding Elements}" SelectedIndex="0" HorizontalContentAlignment="Stretch">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction Command="{Binding DataContext.Select,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}"
+                                           CommandParameter="{Binding ElementName=lst,Path=SelectedItem}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
-                                <ColumnDefinition Width="auto"/>
                             </Grid.ColumnDefinitions>
                             <TextBlock Style="{StaticResource SmallTextBlock}" Text="{Binding Name}"/>
-                            <TextBlock Grid.Row="1" Style="{StaticResource SmallTextBlock}" Text="{Binding MolWeight}"/>
-                            <Button Grid.Row="2" Content="Add"
-                                    Command="{Binding DataContext.Add,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}"
-                                    CommandParameter="{Binding}"/>
+                            <TextBlock Grid.Column="1" Style="{StaticResource SmallTextBlock}" Text="{Binding MolWeight}"/>
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
             <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Orientation="Horizontal">
                 <TextBlock Text="原料重量(g)" Style="{StaticResource TextBlockBasic}"/>
-                <TextBox Text="1000" Style="{StaticResource TextBoxBasic}"/>
+                <TextBox Text="{Binding Weight}" Style="{StaticResource TextBoxBasic}" Width="150"/>
             </StackPanel>
             <GroupBox Grid.Row="1" Grid.Column="1" Header="输入区域">
                 <Grid DataContext="{Binding CurrentInputElement}">
@@ -58,7 +61,7 @@
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition  Width="80"/>
+                        <ColumnDefinition  Width="120"/>
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Row="0" Grid.Column="0" Text="成分名称" Style="{StaticResource TextBlockBasic}"/>
