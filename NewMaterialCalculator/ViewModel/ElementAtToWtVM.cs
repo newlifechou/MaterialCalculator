@@ -27,6 +27,16 @@ namespace NewMaterialCalculator.ViewModel
                 var models = service.GetElements();
                 Elements.Clear();
                 models.ToList().ForEach(i => Elements.Add(i));
+                var item = Elements.FirstOrDefault();
+                CurrentInputElement = new Models.ElementModel()
+                {
+                    Name = item.Name,
+                    MolWeight = item.MolWeight,
+                    At = 10,
+                    Wt = 0,
+                    Weight = 0
+                };
+
             }
 
             Select = new RelayCommand<BasicService.DcBDElement>(ActionSelect);

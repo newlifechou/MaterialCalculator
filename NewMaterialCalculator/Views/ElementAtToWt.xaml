@@ -18,7 +18,7 @@
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -61,14 +61,14 @@
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition  Width="120"/>
+                        <ColumnDefinition  Width="150"/>
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Row="0" Grid.Column="0" Text="成分名称" Style="{StaticResource TextBlockBasic}"/>
-                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Name}" Style="{StaticResource TextBoxBasic}" IsReadOnly="True"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Name}" Style="{StaticResource TextBoxBasic}" IsReadOnly="True" Foreground="Blue"/>
 
                     <TextBlock Grid.Row="1" Grid.Column="0" Text="摩尔质量(g/mol)" Style="{StaticResource TextBlockBasic}"/>
-                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding MolWeight}" Style="{StaticResource TextBoxBasic}" IsReadOnly="True"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding MolWeight}" Style="{StaticResource TextBoxBasic}" IsReadOnly="True" Foreground="Blue"/>
 
                     <TextBlock Grid.Row="2" Grid.Column="0" Text="摩尔比(At Ratio)" Style="{StaticResource TextBlockBasic}"/>
                     <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding At}" Style="{StaticResource TextBoxBasic}"/>
@@ -79,7 +79,7 @@
                 </Grid>
             </GroupBox>
 
-            <GroupBox Grid.Row="1" Grid.Column="2" Header="输入值">
+            <GroupBox Grid.Row="2" Grid.Column="1" Header="输入值">
                 <DataGrid ItemsSource="{Binding InputElements}">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Header="操作">
@@ -96,21 +96,12 @@
                 </DataGrid>
             </GroupBox>
 
-            <GroupBox Grid.Row="2" Grid.Column="1" Header="标准化后的At">
-                <DataGrid ItemsSource="{Binding StandardAtElements}">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="元素" Binding="{Binding Name}"/>
-                        <DataGridTextColumn Header="摩尔质量" Binding="{Binding MolWeight}"/>
-                        <DataGridTextColumn Header="摩尔比" Binding="{Binding At}"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </GroupBox>
-
-            <GroupBox Grid.Row="2" Grid.Column="2" Header="标准化后的Wt">
+            <GroupBox Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" Header="标准化后的Wt">
                 <DataGrid ItemsSource="{Binding StandardWtElements}">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="元素" Binding="{Binding Name}"/>
-                        <DataGridTextColumn Header="质量比" Binding="{Binding Wt}"/>
+                        <DataGridTextColumn Header="At比" Binding="{Binding Wt}"/>
+                        <DataGridTextColumn Header="Wt比" Binding="{Binding Wt}"/>
                         <DataGridTextColumn Header="重量" Binding="{Binding Weight}"/>
                     </DataGrid.Columns>
                 </DataGrid>
