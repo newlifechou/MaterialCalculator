@@ -25,15 +25,30 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <ListBox Grid.Column="0" Grid.RowSpan="3">
-
+            <ListBox Grid.Column="0" Grid.RowSpan="3" ItemsSource="{Binding Elements}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Style="{StaticResource SmallTextBlock}" Text="{Binding Name}"/>
+                            <TextBlock Grid.Row="1" Style="{StaticResource SmallTextBlock}" Text="{Binding MolWeight}"/>
+                            <Button Grid.Row="2" Content="Add"
+                                    Command="{Binding DataContext.Add,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}"
+                                    CommandParameter="{Binding}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
             </ListBox>
             <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Orientation="Horizontal">
                 <TextBlock Text="原料重量(g)" Style="{StaticResource TextBlockBasic}"/>
                 <TextBox Text="1000" Style="{StaticResource TextBoxBasic}"/>
             </StackPanel>
             <GroupBox Grid.Row="1" Grid.Column="1" Header="输入区域">
-                <Grid>
+                <Grid DataContext="{Binding CurrentInputElement}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
@@ -56,26 +71,45 @@
                     <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding At}" Style="{StaticResource TextBoxBasic}"/>
 
                     <StackPanel Grid.Row="4" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Right">
-                        <Button Content="添加" Style="{StaticResource ButtonBasic}"/>
+                        <Button Content="添加" Style="{StaticResource ButtonBasic}" Command="{Binding DataContext.Save,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}"/>
                     </StackPanel>
                 </Grid>
             </GroupBox>
 
             <GroupBox Grid.Row="1" Grid.Column="2" Header="输入值">
-                <DataGrid>
-
+                <DataGrid ItemsSource="{Binding InputElements}">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="操作">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="删除" Command="{Binding DataContext.Delete,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}" CommandParameter="{Binding}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="元素" Binding="{Binding Name}"/>
+                        <DataGridTextColumn Header="摩尔质量" Binding="{Binding MolWeight}"/>
+                        <DataGridTextColumn Header="摩尔比" Binding="{Binding At}"/>
+                    </DataGrid.Columns>
                 </DataGrid>
             </GroupBox>
 
             <GroupBox Grid.Row="2" Grid.Column="1" Header="标准化后的At">
-                <DataGrid>
-
+                <DataGrid ItemsSource="{Binding StandardAtElements}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="元素" Binding="{Binding Name}"/>
+                        <DataGridTextColumn Header="摩尔质量" Binding="{Binding MolWeight}"/>
+                        <DataGridTextColumn Header="摩尔比" Binding="{Binding At}"/>
+                    </DataGrid.Columns>
                 </DataGrid>
             </GroupBox>
 
             <GroupBox Grid.Row="2" Grid.Column="2" Header="标准化后的Wt">
-                <DataGrid>
-
+                <DataGrid ItemsSource="{Binding StandardWtElements}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="元素" Binding="{Binding Name}"/>
+                        <DataGridTextColumn Header="质量比" Binding="{Binding Wt}"/>
+                        <DataGridTextColumn Header="重量" Binding="{Binding Weight}"/>
+                    </DataGrid.Columns>
                 </DataGrid>
             </GroupBox>
         </Grid>
