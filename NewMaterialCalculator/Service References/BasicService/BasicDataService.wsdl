@@ -175,6 +175,30 @@
   <wsdl:message name="ISupplierService_GetSuppliers_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetSuppliersResponse" />
   </wsdl:message>
+  <wsdl:message name="IElementService_GetElements_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetElements" />
+  </wsdl:message>
+  <wsdl:message name="IElementService_GetElements_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetElementsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IElementService_AddElement_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddElement" />
+  </wsdl:message>
+  <wsdl:message name="IElementService_AddElement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddElementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IElementService_UpdateElement_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateElement" />
+  </wsdl:message>
+  <wsdl:message name="IElementService_UpdateElement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateElementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IElementService_DeleteElement_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteElement" />
+  </wsdl:message>
+  <wsdl:message name="IElementService_DeleteElement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteElementResponse" />
+  </wsdl:message>
   <wsdl:portType name="ICustomerService">
     <wsdl:operation name="GetCustomer">
       <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/GetCustomer" message="tns:ICustomerService_GetCustomer_InputMessage" />
@@ -299,6 +323,24 @@
     <wsdl:operation name="GetSuppliers">
       <wsdl:input wsaw:Action="http://tempuri.org/ISupplierService/GetSuppliers" message="tns:ISupplierService_GetSuppliers_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISupplierService/GetSuppliersResponse" message="tns:ISupplierService_GetSuppliers_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IElementService">
+    <wsdl:operation name="GetElements">
+      <wsdl:input wsaw:Action="http://tempuri.org/IElementService/GetElements" message="tns:IElementService_GetElements_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IElementService/GetElementsResponse" message="tns:IElementService_GetElements_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddElement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IElementService/AddElement" message="tns:IElementService_AddElement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IElementService/AddElementResponse" message="tns:IElementService_AddElement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateElement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IElementService/UpdateElement" message="tns:IElementService_UpdateElement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IElementService/UpdateElementResponse" message="tns:IElementService_UpdateElement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteElement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IElementService/DeleteElement" message="tns:IElementService_DeleteElement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IElementService/DeleteElementResponse" message="tns:IElementService_DeleteElement_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="customer" type="tns:ICustomerService">
@@ -574,6 +616,45 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="element" type="tns:IElementService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetElements">
+      <soap:operation soapAction="http://tempuri.org/IElementService/GetElements" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddElement">
+      <soap:operation soapAction="http://tempuri.org/IElementService/AddElement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateElement">
+      <soap:operation soapAction="http://tempuri.org/IElementService/UpdateElement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteElement">
+      <soap:operation soapAction="http://tempuri.org/IElementService/DeleteElement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:service name="BasicDataService">
     <wsdl:port name="customer" binding="tns:customer">
       <soap:address location="http://192.168.16.254:8002/BasicDataService.svc" />
@@ -594,6 +675,9 @@
       <soap:address location="http://192.168.16.254:8002/BasicDataService.svc" />
     </wsdl:port>
     <wsdl:port name="supplier" binding="tns:supplier">
+      <soap:address location="http://192.168.16.254:8002/BasicDataService.svc" />
+    </wsdl:port>
+    <wsdl:port name="element" binding="tns:element">
       <soap:address location="http://192.168.16.254:8002/BasicDataService.svc" />
     </wsdl:port>
   </wsdl:service>

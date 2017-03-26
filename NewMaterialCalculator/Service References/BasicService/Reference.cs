@@ -1304,6 +1304,99 @@ namespace NewMaterialCalculator.BasicService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DcBDElement", Namespace="http://schemas.datacontract.org/2004/07/PMSWCFService.DataContracts")]
+    [System.SerializableAttribute()]
+    public partial class DcBDElement : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int AtomicNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Guid IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double MolWeightField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int AtomicNumber {
+            get {
+                return this.AtomicNumberField;
+            }
+            set {
+                if ((this.AtomicNumberField.Equals(value) != true)) {
+                    this.AtomicNumberField = value;
+                    this.RaisePropertyChanged("AtomicNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Guid ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double MolWeight {
+            get {
+                return this.MolWeightField;
+            }
+            set {
+                if ((this.MolWeightField.Equals(value) != true)) {
+                    this.MolWeightField = value;
+                    this.RaisePropertyChanged("MolWeight");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="BasicService.ICustomerService")]
     public interface ICustomerService {
@@ -1924,6 +2017,95 @@ namespace NewMaterialCalculator.BasicService {
         
         public System.Threading.Tasks.Task<NewMaterialCalculator.BasicService.DcBDSupplier[]> GetSuppliersAsync() {
             return base.Channel.GetSuppliersAsync();
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="BasicService.IElementService")]
+    public interface IElementService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IElementService/GetElements", ReplyAction="http://tempuri.org/IElementService/GetElementsResponse")]
+        NewMaterialCalculator.BasicService.DcBDElement[] GetElements();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IElementService/GetElements", ReplyAction="http://tempuri.org/IElementService/GetElementsResponse")]
+        System.Threading.Tasks.Task<NewMaterialCalculator.BasicService.DcBDElement[]> GetElementsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IElementService/AddElement", ReplyAction="http://tempuri.org/IElementService/AddElementResponse")]
+        int AddElement(NewMaterialCalculator.BasicService.DcBDElement model);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IElementService/AddElement", ReplyAction="http://tempuri.org/IElementService/AddElementResponse")]
+        System.Threading.Tasks.Task<int> AddElementAsync(NewMaterialCalculator.BasicService.DcBDElement model);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IElementService/UpdateElement", ReplyAction="http://tempuri.org/IElementService/UpdateElementResponse")]
+        int UpdateElement(NewMaterialCalculator.BasicService.DcBDElement model);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IElementService/UpdateElement", ReplyAction="http://tempuri.org/IElementService/UpdateElementResponse")]
+        System.Threading.Tasks.Task<int> UpdateElementAsync(NewMaterialCalculator.BasicService.DcBDElement model);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IElementService/DeleteElement", ReplyAction="http://tempuri.org/IElementService/DeleteElementResponse")]
+        int DeleteElement(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IElementService/DeleteElement", ReplyAction="http://tempuri.org/IElementService/DeleteElementResponse")]
+        System.Threading.Tasks.Task<int> DeleteElementAsync(System.Guid id);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IElementServiceChannel : NewMaterialCalculator.BasicService.IElementService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ElementServiceClient : System.ServiceModel.ClientBase<NewMaterialCalculator.BasicService.IElementService>, NewMaterialCalculator.BasicService.IElementService {
+        
+        public ElementServiceClient() {
+        }
+        
+        public ElementServiceClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public ElementServiceClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ElementServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ElementServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public NewMaterialCalculator.BasicService.DcBDElement[] GetElements() {
+            return base.Channel.GetElements();
+        }
+        
+        public System.Threading.Tasks.Task<NewMaterialCalculator.BasicService.DcBDElement[]> GetElementsAsync() {
+            return base.Channel.GetElementsAsync();
+        }
+        
+        public int AddElement(NewMaterialCalculator.BasicService.DcBDElement model) {
+            return base.Channel.AddElement(model);
+        }
+        
+        public System.Threading.Tasks.Task<int> AddElementAsync(NewMaterialCalculator.BasicService.DcBDElement model) {
+            return base.Channel.AddElementAsync(model);
+        }
+        
+        public int UpdateElement(NewMaterialCalculator.BasicService.DcBDElement model) {
+            return base.Channel.UpdateElement(model);
+        }
+        
+        public System.Threading.Tasks.Task<int> UpdateElementAsync(NewMaterialCalculator.BasicService.DcBDElement model) {
+            return base.Channel.UpdateElementAsync(model);
+        }
+        
+        public int DeleteElement(System.Guid id) {
+            return base.Channel.DeleteElement(id);
+        }
+        
+        public System.Threading.Tasks.Task<int> DeleteElementAsync(System.Guid id) {
+            return base.Channel.DeleteElementAsync(id);
         }
     }
 }

@@ -146,4 +146,19 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfDcBDSupplier" nillable="true" type="tns:ArrayOfDcBDSupplier" />
+  <xs:complexType name="ArrayOfDcBDElement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DcBDElement" nillable="true" type="tns:DcBDElement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDcBDElement" nillable="true" type="tns:ArrayOfDcBDElement" />
+  <xs:complexType name="DcBDElement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AtomicNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" type="ser:guid" />
+      <xs:element minOccurs="0" name="MolWeight" type="xs:double" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DcBDElement" nillable="true" type="tns:DcBDElement" />
 </xs:schema>
