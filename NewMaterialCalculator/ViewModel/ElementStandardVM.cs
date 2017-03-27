@@ -141,20 +141,27 @@ namespace NewMaterialCalculator.ViewModel
                 var groupItem = new ElementGroupModel();
                 groupItem.ID = Guid.NewGuid();
                 groupItem.GroupNumber = group.Key;
+
                 double compositonWtSum = 0;
+                double compositionAtSum = 0;
+                foreach (var item in group)
+                {
+                    compositonWtSum += item.Wt;
+                    compositionAtSum += item.At;
+                }
+                groupItem.Weight = compositonWtSum * TotalWeight;
+
                 foreach (var item in group)
                 {
                     if (group.Count() > 1)
                     {
-                        groupItem.GroupComposition += item.Name + (item.At * 100).ToString("F2");
+                        groupItem.GroupComposition += item.Name + (item.At / compositionAtSum * 100).ToString("F2");
                     }
                     else
                     {
                         groupItem.GroupComposition = item.Name;
                     }
-                    compositonWtSum += item.Wt;
                 }
-                groupItem.Weight = compositonWtSum * TotalWeight;
                 StandardGroups.Add(groupItem);
             }
         }
