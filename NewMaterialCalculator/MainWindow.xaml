@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NewMaterialCalculator"
         mc:Ignorable="d"
-        Title="{StaticResource AppName}" Height="600" Width="800"
+        Title="{StaticResource AppName}" Height="300" Width="800"
         WindowState="Maximized" WindowStyle="None" ResizeMode="CanMinimize">
     <Grid>
         <Grid.RowDefinitions>
