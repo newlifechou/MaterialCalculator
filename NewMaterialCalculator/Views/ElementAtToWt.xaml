@@ -26,7 +26,8 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <ListBox x:Name="lst" Grid.Column="0" Grid.RowSpan="3" ItemsSource="{Binding Elements}" SelectedIndex="0" HorizontalContentAlignment="Stretch">
+            <TextBox Grid.Row="0" Grid.Column="0" Style="{StaticResource TextBoxBasic}"/>
+            <ListBox x:Name="lst" Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" ItemsSource="{Binding Elements}" SelectedIndex="0" HorizontalContentAlignment="Stretch">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="SelectionChanged">
                         <i:InvokeCommandAction Command="{Binding DataContext.Select,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}"
@@ -73,7 +74,7 @@
                     <TextBlock Grid.Row="2" Grid.Column="0" Text="摩尔比(At Ratio)" Style="{StaticResource TextBlockBasic}"/>
                     <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding At}" Style="{StaticResource TextBoxBasic}"/>
 
-                    <StackPanel Grid.Row="4" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <StackPanel Grid.Row="4" Grid.ColumnSpan="3" Orientation="Horizontal">
                         <Button Content="添加" Style="{StaticResource ButtonBasic}" Command="{Binding DataContext.Save,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}"/>
                     </StackPanel>
                 </Grid>
@@ -85,7 +86,10 @@
                         <DataGridTemplateColumn Header="操作">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Content="删除" Command="{Binding DataContext.Delete,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}" CommandParameter="{Binding}"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Content="编辑" Command="{Binding DataContext.Delete,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}" CommandParameter="{Binding}"/>
+                                        <Button Content="删除" Command="{Binding DataContext.Delete,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}" CommandParameter="{Binding}"/>
+                                    </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
