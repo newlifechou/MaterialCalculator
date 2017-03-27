@@ -47,13 +47,22 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Orientation="Horizontal">
+            <StackPanel Grid.Row="0" Grid.Column="1"  Orientation="Horizontal">
                 <TextBlock Text="原料重量(g)" Style="{StaticResource TextBlockBasic}"/>
                 <TextBox Text="{Binding Weight}" Style="{StaticResource TextBoxBasic}" Width="150"/>
             </StackPanel>
+            <Grid Grid.Row="0" Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="预设快速录入" Style="{StaticResource TextBlockBasic}"/>
+                <ComboBox Grid.Column="1" Style="{StaticResource ComboBoxBasic}" />
+            </Grid>
             <GroupBox Grid.Row="1" Grid.Column="1" Header="输入区域">
                 <Grid DataContext="{Binding CurrentInputElement}">
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
@@ -65,22 +74,25 @@
                         <ColumnDefinition  Width="150"/>
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Row="0" Grid.Column="0" Text="成分名称" Style="{StaticResource TextBlockBasic}"/>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="成分组" Style="{StaticResource TextBlockBasic}"/>
                     <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Name}" Style="{StaticResource TextBoxBasic}" IsReadOnly="True" Foreground="Blue"/>
 
-                    <TextBlock Grid.Row="1" Grid.Column="0" Text="摩尔质量(g/mol)" Style="{StaticResource TextBlockBasic}"/>
-                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding MolWeight}" Style="{StaticResource TextBoxBasic}" IsReadOnly="True" Foreground="Blue"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="成分名称" Style="{StaticResource TextBlockBasic}"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Name}" Style="{StaticResource TextBoxBasic}" IsReadOnly="True" Foreground="Blue"/>
 
-                    <TextBlock Grid.Row="2" Grid.Column="0" Text="摩尔比(At Ratio)" Style="{StaticResource TextBlockBasic}"/>
-                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding At}" Style="{StaticResource TextBoxBasic}"/>
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="摩尔质量(g/mol)" Style="{StaticResource TextBlockBasic}"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding MolWeight}" Style="{StaticResource TextBoxBasic}" IsReadOnly="True" Foreground="Blue"/>
 
-                    <StackPanel Grid.Row="4" Grid.ColumnSpan="3" Orientation="Horizontal">
+                    <TextBlock Grid.Row="3" Grid.Column="0" Text="摩尔比(At Ratio)" Style="{StaticResource TextBlockBasic}"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding At}" Style="{StaticResource TextBoxBasic}"/>
+
+                    <StackPanel Grid.Row="5" Grid.ColumnSpan="3" Orientation="Horizontal">
                         <Button Content="添加" Style="{StaticResource ButtonBasic}" Command="{Binding DataContext.Save,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}"/>
                     </StackPanel>
                 </Grid>
             </GroupBox>
 
-            <GroupBox Grid.Row="2" Grid.Column="1" Header="输入值">
+            <GroupBox Grid.Row="1" Grid.Column="2" Header="输入值序列">
                 <DataGrid ItemsSource="{Binding InputElements}">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Header="操作">
@@ -100,7 +112,17 @@
                 </DataGrid>
             </GroupBox>
 
-            <GroupBox Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" Header="标准化后的Wt">
+            <GroupBox Grid.Row="2" Grid.Column="1"  Header="标准化后的Wt">
+                <DataGrid ItemsSource="{Binding StandardWtElements}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="元素" Binding="{Binding Name}"/>
+                        <DataGridTextColumn Header="At比" Binding="{Binding Wt}"/>
+                        <DataGridTextColumn Header="Wt比" Binding="{Binding Wt}"/>
+                        <DataGridTextColumn Header="重量" Binding="{Binding Weight}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </GroupBox>
+            <GroupBox Grid.Row="2" Grid.Column="2"  Header="分组混料区域">
                 <DataGrid ItemsSource="{Binding StandardWtElements}">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="元素" Binding="{Binding Name}"/>
