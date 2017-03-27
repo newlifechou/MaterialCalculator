@@ -16,7 +16,9 @@ namespace NewMaterialCalculator.ViewModel
     {
         public ElementAtToWtVM()
         {
-            Weight =1000;
+            isNew = true;
+
+            Weight = 1000;
             Elements = new ObservableCollection<DcBDElement>();
             InputElements = new ObservableCollection<ElementModel>();
             StandardGroups = new ObservableCollection<ElementGroupModel>();
@@ -30,6 +32,7 @@ namespace NewMaterialCalculator.ViewModel
                 var item = Elements.FirstOrDefault();
                 CurrentInputElement = new Models.ElementModel()
                 {
+                    GroupNumber = 1,
                     Name = item.Name,
                     MolWeight = item.MolWeight,
                     At = 10,
@@ -40,18 +43,34 @@ namespace NewMaterialCalculator.ViewModel
             }
 
             Select = new RelayCommand<BasicService.DcBDElement>(ActionSelect);
-            Add = new RelayCommand(ActionAdd);
+            Save = new RelayCommand(ActionSave);
             Delete = new RelayCommand<ElementModel>(ActionDelete);
+            Edit = new RelayCommand<Models.ElementModel>(ActionEdit);
         }
 
-        private void ActionDelete(ElementModel obj)
+        private void ActionEdit(ElementModel model)
         {
-            throw new NotImplementedException();
+            CurrentInputElement = model;
+            isNew = false;
         }
 
-        private void ActionAdd()
+        private bool isNew;
+        private void ActionDelete(ElementModel model)
         {
-            throw new NotImplementedException();
+            InputElements.Remove(model);
+        }
+
+        private void ActionSave()
+        {
+            if (isNew)
+            {
+                InputElements.Add(CurrentInputElement);
+            }
+            else
+            {
+
+            }
+            isNew = true;
         }
 
         private void ActionSelect(DcBDElement obj)
@@ -62,6 +81,7 @@ namespace NewMaterialCalculator.ViewModel
             model.At = 10;
             model.Wt = 0;
             model.Weight = 0;
+            model.GroupNumber = 1;
             CurrentInputElement = model;
         }
 
@@ -89,7 +109,8 @@ namespace NewMaterialCalculator.ViewModel
 
 
         public RelayCommand<DcBDElement> Select { get; set; }
-        public RelayCommand Add { get; set; }
+        public RelayCommand Save { get; set; }
+        public RelayCommand<ElementModel> Edit{ get; set; }
         public RelayCommand<ElementModel> Delete { get; set; }
     }
 }

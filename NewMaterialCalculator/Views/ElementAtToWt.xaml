@@ -18,7 +18,7 @@
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -75,7 +75,7 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Row="0" Grid.Column="0" Text="成分组" Style="{StaticResource TextBlockBasic}"/>
-                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Name}" Style="{StaticResource TextBoxBasic}" IsReadOnly="True" Foreground="Blue"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding GroupNumber}" Style="{StaticResource TextBoxBasic}"/>
 
                     <TextBlock Grid.Row="1" Grid.Column="0" Text="成分名称" Style="{StaticResource TextBlockBasic}"/>
                     <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Name}" Style="{StaticResource TextBoxBasic}" IsReadOnly="True" Foreground="Blue"/>
@@ -99,15 +99,16 @@
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <Button Content="编辑" Command="{Binding DataContext.Delete,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}" CommandParameter="{Binding}"/>
-                                        <Button Content="删除" Command="{Binding DataContext.Delete,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}" CommandParameter="{Binding}"/>
+                                        <Button Content="编辑" Style="{StaticResource DGButton}" Command="{Binding DataContext.Edit,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}" CommandParameter="{Binding}"/>
+                                        <Button Content="删除"  Style="{StaticResource DGButton}"  Command="{Binding DataContext.Delete,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}" CommandParameter="{Binding}"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTextColumn Header="元素" Binding="{Binding Name}"/>
-                        <DataGridTextColumn Header="摩尔质量" Binding="{Binding MolWeight}"/>
-                        <DataGridTextColumn Header="摩尔比" Binding="{Binding At}"/>
+                        <DataGridTextColumn Header="分组" Binding="{Binding GroupNumber}" ElementStyle="{StaticResource DGTextBlock}"/>
+                        <DataGridTextColumn Header="元素" Binding="{Binding Name}" ElementStyle="{StaticResource DGTextBlock}"/>
+                        <DataGridTextColumn Header="摩尔质量" Binding="{Binding MolWeight}" ElementStyle="{StaticResource DGTextBlock}"/>
+                        <DataGridTextColumn Header="摩尔比" Binding="{Binding At}" ElementStyle="{StaticResource DGTextBlock}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </GroupBox>
