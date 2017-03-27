@@ -53,6 +53,12 @@ namespace NewMaterialCalculator.ViewModel
             Delete = new RelayCommand<ElementModel>(ActionDelete);
             Edit = new RelayCommand<Models.ElementModel>(ActionEdit);
             SelectionChanged = new RelayCommand<DcBDElementGroup>(ActionSelectionChanged);
+            CalculateAll = new RelayCommand(ActionCalcuateAll);
+        }
+
+        private void ActionCalcuateAll()
+        {
+            MakeCalculation();
         }
 
         private void ActionSelectionChanged(DcBDElementGroup model)
@@ -78,7 +84,7 @@ namespace NewMaterialCalculator.ViewModel
                                 InputElements.Add(item);
                             });
 
-                            CalcuationAll();
+                            MakeCalculation();
                         }
                     }
                 }
@@ -101,10 +107,10 @@ namespace NewMaterialCalculator.ViewModel
         {
             InputElements.Remove(model);
             //计算标准值
-            CalcuationAll();
+            MakeCalculation();
         }
 
-        private void CalcuationAll()
+        private void MakeCalculation()
         {
             MakeStandardCalculation();
             MakeStandardGroupCalcuation();
@@ -123,7 +129,7 @@ namespace NewMaterialCalculator.ViewModel
             isNew = true;
 
             //计算标准值
-            CalcuationAll();
+            MakeCalculation();
         }
 
         private void MakeStandardGroupCalcuation()
@@ -215,5 +221,7 @@ namespace NewMaterialCalculator.ViewModel
         public RelayCommand<ElementModel> Edit { get; set; }
         public RelayCommand<ElementModel> Delete { get; set; }
         public RelayCommand<DcBDElementGroup> SelectionChanged { get; set; }
+
+        public RelayCommand CalculateAll { get; set; }
     }
 }
