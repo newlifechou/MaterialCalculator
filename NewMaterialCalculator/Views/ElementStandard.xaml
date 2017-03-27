@@ -13,7 +13,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <TextBlock Text="成分标准化和At到Wt转换计算" Style="{StaticResource PageTitleTextBlockBasic}"/>
+            <TextBlock Text="组分标准化计算" Style="{StaticResource PageTitleTextBlockBasic}"/>
         </StackPanel>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
