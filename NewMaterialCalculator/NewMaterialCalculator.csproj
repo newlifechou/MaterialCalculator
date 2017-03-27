@@ -178,6 +178,12 @@
     <None Include="Service References\BasicService\NewMaterialCalculator.BasicService.DcBDElement.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\BasicService\NewMaterialCalculator.BasicService.DcBDElementGroup.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BasicService\NewMaterialCalculator.BasicService.DcBDElementGroupItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\BasicService\NewMaterialCalculator.BasicService.DcBDSupplier.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

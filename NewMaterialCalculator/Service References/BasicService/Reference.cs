@@ -1397,6 +1397,208 @@ namespace NewMaterialCalculator.BasicService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DcBDElementGroup", Namespace="http://schemas.datacontract.org/2004/07/PMSWCFService.DataContracts")]
+    [System.SerializableAttribute()]
+    public partial class DcBDElementGroup : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime CreateTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string GroupNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Guid IDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreateTime {
+            get {
+                return this.CreateTimeField;
+            }
+            set {
+                if ((this.CreateTimeField.Equals(value) != true)) {
+                    this.CreateTimeField = value;
+                    this.RaisePropertyChanged("CreateTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string GroupName {
+            get {
+                return this.GroupNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GroupNameField, value) != true)) {
+                    this.GroupNameField = value;
+                    this.RaisePropertyChanged("GroupName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Guid ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DcBDElementGroupItem", Namespace="http://schemas.datacontract.org/2004/07/PMSWCFService.DataContracts")]
+    [System.SerializableAttribute()]
+    public partial class DcBDElementGroupItem : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double AtField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Guid GroupElementIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int GroupNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Guid IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double MolWeightField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double At {
+            get {
+                return this.AtField;
+            }
+            set {
+                if ((this.AtField.Equals(value) != true)) {
+                    this.AtField = value;
+                    this.RaisePropertyChanged("At");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Guid GroupElementID {
+            get {
+                return this.GroupElementIDField;
+            }
+            set {
+                if ((this.GroupElementIDField.Equals(value) != true)) {
+                    this.GroupElementIDField = value;
+                    this.RaisePropertyChanged("GroupElementID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int GroupNumber {
+            get {
+                return this.GroupNumberField;
+            }
+            set {
+                if ((this.GroupNumberField.Equals(value) != true)) {
+                    this.GroupNumberField = value;
+                    this.RaisePropertyChanged("GroupNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Guid Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double MolWeight {
+            get {
+                return this.MolWeightField;
+            }
+            set {
+                if ((this.MolWeightField.Equals(value) != true)) {
+                    this.MolWeightField = value;
+                    this.RaisePropertyChanged("MolWeight");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="BasicService.ICustomerService")]
     public interface ICustomerService {
@@ -2047,6 +2249,24 @@ namespace NewMaterialCalculator.BasicService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IElementService/DeleteElement", ReplyAction="http://tempuri.org/IElementService/DeleteElementResponse")]
         System.Threading.Tasks.Task<int> DeleteElementAsync(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IElementService/GetElementGroup", ReplyAction="http://tempuri.org/IElementService/GetElementGroupResponse")]
+        NewMaterialCalculator.BasicService.DcBDElementGroup[] GetElementGroup();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IElementService/GetElementGroup", ReplyAction="http://tempuri.org/IElementService/GetElementGroupResponse")]
+        System.Threading.Tasks.Task<NewMaterialCalculator.BasicService.DcBDElementGroup[]> GetElementGroupAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IElementService/GetElementGroupItem", ReplyAction="http://tempuri.org/IElementService/GetElementGroupItemResponse")]
+        NewMaterialCalculator.BasicService.DcBDElementGroupItem[] GetElementGroupItem(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IElementService/GetElementGroupItem", ReplyAction="http://tempuri.org/IElementService/GetElementGroupItemResponse")]
+        System.Threading.Tasks.Task<NewMaterialCalculator.BasicService.DcBDElementGroupItem[]> GetElementGroupItemAsync(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IElementService/AddElementGroupAndItems", ReplyAction="http://tempuri.org/IElementService/AddElementGroupAndItemsResponse")]
+        int AddElementGroupAndItems(string groupName, NewMaterialCalculator.BasicService.DcBDElementGroupItem[] elements);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IElementService/AddElementGroupAndItems", ReplyAction="http://tempuri.org/IElementService/AddElementGroupAndItemsResponse")]
+        System.Threading.Tasks.Task<int> AddElementGroupAndItemsAsync(string groupName, NewMaterialCalculator.BasicService.DcBDElementGroupItem[] elements);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2106,6 +2326,30 @@ namespace NewMaterialCalculator.BasicService {
         
         public System.Threading.Tasks.Task<int> DeleteElementAsync(System.Guid id) {
             return base.Channel.DeleteElementAsync(id);
+        }
+        
+        public NewMaterialCalculator.BasicService.DcBDElementGroup[] GetElementGroup() {
+            return base.Channel.GetElementGroup();
+        }
+        
+        public System.Threading.Tasks.Task<NewMaterialCalculator.BasicService.DcBDElementGroup[]> GetElementGroupAsync() {
+            return base.Channel.GetElementGroupAsync();
+        }
+        
+        public NewMaterialCalculator.BasicService.DcBDElementGroupItem[] GetElementGroupItem(System.Guid id) {
+            return base.Channel.GetElementGroupItem(id);
+        }
+        
+        public System.Threading.Tasks.Task<NewMaterialCalculator.BasicService.DcBDElementGroupItem[]> GetElementGroupItemAsync(System.Guid id) {
+            return base.Channel.GetElementGroupItemAsync(id);
+        }
+        
+        public int AddElementGroupAndItems(string groupName, NewMaterialCalculator.BasicService.DcBDElementGroupItem[] elements) {
+            return base.Channel.AddElementGroupAndItems(groupName, elements);
+        }
+        
+        public System.Threading.Tasks.Task<int> AddElementGroupAndItemsAsync(string groupName, NewMaterialCalculator.BasicService.DcBDElementGroupItem[] elements) {
+            return base.Channel.AddElementGroupAndItemsAsync(groupName, elements);
         }
     }
 }

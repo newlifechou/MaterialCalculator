@@ -57,7 +57,26 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="预设快速录入" Style="{StaticResource TextBlockBasic}"/>
-                <ComboBox Grid.Column="1" Style="{StaticResource ComboBoxBasic}" />
+                <ComboBox Name="cboElementGroups" Grid.Column="1" Style="{StaticResource ComboBoxBasic}" ItemsSource="{Binding  ElementGroups}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction  Command="{Binding DataContext.SelectionChanged,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}"
+                                CommandParameter="{Binding ElementName=cboElementGroups,Path=SelectedItem}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="{Binding GroupName}" Style="{StaticResource SmallTextBlock}" Foreground="Blue"/>
+                                <TextBlock Grid.Column="1" Text="{Binding CreateTime,StringFormat={}{0:yyyy-MM-dd}}" Style="{StaticResource SmallTextBlock}" Foreground="Blue"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
             </Grid>
             <GroupBox Grid.Row="1" Grid.Column="1" Header="输入区域">
                 <Grid DataContext="{Binding CurrentInputElement}">

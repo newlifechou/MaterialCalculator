@@ -199,6 +199,24 @@
   <wsdl:message name="IElementService_DeleteElement_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteElementResponse" />
   </wsdl:message>
+  <wsdl:message name="IElementService_GetElementGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetElementGroup" />
+  </wsdl:message>
+  <wsdl:message name="IElementService_GetElementGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetElementGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IElementService_GetElementGroupItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetElementGroupItem" />
+  </wsdl:message>
+  <wsdl:message name="IElementService_GetElementGroupItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetElementGroupItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IElementService_AddElementGroupAndItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddElementGroupAndItems" />
+  </wsdl:message>
+  <wsdl:message name="IElementService_AddElementGroupAndItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddElementGroupAndItemsResponse" />
+  </wsdl:message>
   <wsdl:portType name="ICustomerService">
     <wsdl:operation name="GetCustomer">
       <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/GetCustomer" message="tns:ICustomerService_GetCustomer_InputMessage" />
@@ -341,6 +359,18 @@
     <wsdl:operation name="DeleteElement">
       <wsdl:input wsaw:Action="http://tempuri.org/IElementService/DeleteElement" message="tns:IElementService_DeleteElement_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IElementService/DeleteElementResponse" message="tns:IElementService_DeleteElement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetElementGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IElementService/GetElementGroup" message="tns:IElementService_GetElementGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IElementService/GetElementGroupResponse" message="tns:IElementService_GetElementGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetElementGroupItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IElementService/GetElementGroupItem" message="tns:IElementService_GetElementGroupItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IElementService/GetElementGroupItemResponse" message="tns:IElementService_GetElementGroupItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddElementGroupAndItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IElementService/AddElementGroupAndItems" message="tns:IElementService_AddElementGroupAndItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IElementService/AddElementGroupAndItemsResponse" message="tns:IElementService_AddElementGroupAndItems_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="customer" type="tns:ICustomerService">
@@ -647,6 +677,33 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteElement">
       <soap:operation soapAction="http://tempuri.org/IElementService/DeleteElement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetElementGroup">
+      <soap:operation soapAction="http://tempuri.org/IElementService/GetElementGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetElementGroupItem">
+      <soap:operation soapAction="http://tempuri.org/IElementService/GetElementGroupItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddElementGroupAndItems">
+      <soap:operation soapAction="http://tempuri.org/IElementService/AddElementGroupAndItems" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

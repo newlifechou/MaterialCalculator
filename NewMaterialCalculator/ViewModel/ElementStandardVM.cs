@@ -23,6 +23,7 @@ namespace NewMaterialCalculator.ViewModel
             InputElements = new ObservableCollection<ElementModel>();
             StandardGroups = new ObservableCollection<ElementGroupModel>();
             StandardWtElements = new ObservableCollection<ElementModel>();
+            ElementGroups = new ObservableCollection<DcBDElementGroup>();
 
             using (var service = new ElementServiceClient())
             {
@@ -40,12 +41,53 @@ namespace NewMaterialCalculator.ViewModel
                     Weight = 0
                 };
 
+
+                var result = service.GetElementGroup();
+                ElementGroups.Clear();
+                result.ToList().ForEach(i => ElementGroups.Add(i));
             }
+
 
             Select = new RelayCommand<BasicService.DcBDElement>(ActionSelect);
             Save = new RelayCommand(ActionSave);
             Delete = new RelayCommand<ElementModel>(ActionDelete);
             Edit = new RelayCommand<Models.ElementModel>(ActionEdit);
+            SelectionChanged = new RelayCommand<DcBDElementGroup>(ActionSelectionChanged);
+        }
+
+        private void ActionSelectionChanged(DcBDElementGroup model)
+        {
+            if (model != null)
+            {
+                try
+                {
+                    using (var service = new ElementServiceClient())
+                    {
+                        var result = service.GetElementGroupItem(model.ID);
+                        if (result.Count() > 1)
+                        {
+                            InputElements.Clear();
+                            result.ToList().ForEach(i =>
+                            {
+                                var item = new ElementModel();
+                                item.ID = i.Id;
+                                item.Name = i.Name;
+                                item.MolWeight = i.MolWeight;
+                                item.GroupNumber = i.GroupNumber;
+                                item.At = i.At;
+                                InputElements.Add(item);
+                            });
+
+                            CalcuationAll();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+
+            }
         }
 
         private void ActionEdit(ElementModel model)
@@ -59,6 +101,11 @@ namespace NewMaterialCalculator.ViewModel
         {
             InputElements.Remove(model);
             //计算标准值
+            CalcuationAll();
+        }
+
+        private void CalcuationAll()
+        {
             MakeStandardCalculation();
             MakeStandardGroupCalcuation();
         }
@@ -76,8 +123,7 @@ namespace NewMaterialCalculator.ViewModel
             isNew = true;
 
             //计算标准值
-            MakeStandardCalculation();
-            MakeStandardGroupCalcuation();
+            CalcuationAll();
         }
 
         private void MakeStandardGroupCalcuation()
@@ -146,7 +192,7 @@ namespace NewMaterialCalculator.ViewModel
         public ObservableCollection<ElementModel> StandardWtElements { get; set; }
         public ObservableCollection<ElementGroupModel> StandardGroups { get; set; }
 
-
+        public ObservableCollection<DcBDElementGroup> ElementGroups { get; set; }
         private double totalWeight;
         public double TotalWeight
         {
@@ -168,5 +214,6 @@ namespace NewMaterialCalculator.ViewModel
         public RelayCommand Save { get; set; }
         public RelayCommand<ElementModel> Edit { get; set; }
         public RelayCommand<ElementModel> Delete { get; set; }
+        public RelayCommand<DcBDElementGroup> SelectionChanged { get; set; }
     }
 }

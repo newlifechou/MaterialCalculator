@@ -434,4 +434,45 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetElementGroup">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetElementGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/PMSWCFService.DataContracts" minOccurs="0" name="GetElementGroupResult" nillable="true" type="q33:ArrayOfDcBDElementGroup" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetElementGroupItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="id" type="q34:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetElementGroupItemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/PMSWCFService.DataContracts" minOccurs="0" name="GetElementGroupItemResult" nillable="true" type="q35:ArrayOfDcBDElementGroupItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddElementGroupAndItems">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="groupName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/PMSWCFService.DataContracts" minOccurs="0" name="elements" nillable="true" type="q36:ArrayOfDcBDElementGroupItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddElementGroupAndItemsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddElementGroupAndItemsResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

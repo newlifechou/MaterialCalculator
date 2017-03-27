@@ -161,4 +161,35 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="DcBDElement" nillable="true" type="tns:DcBDElement" />
+  <xs:complexType name="ArrayOfDcBDElementGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DcBDElementGroup" nillable="true" type="tns:DcBDElementGroup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDcBDElementGroup" nillable="true" type="tns:ArrayOfDcBDElementGroup" />
+  <xs:complexType name="DcBDElementGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="GroupName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DcBDElementGroup" nillable="true" type="tns:DcBDElementGroup" />
+  <xs:complexType name="ArrayOfDcBDElementGroupItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DcBDElementGroupItem" nillable="true" type="tns:DcBDElementGroupItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDcBDElementGroupItem" nillable="true" type="tns:ArrayOfDcBDElementGroupItem" />
+  <xs:complexType name="DcBDElementGroupItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="At" type="xs:double" />
+      <xs:element minOccurs="0" name="GroupElementID" type="ser:guid" />
+      <xs:element minOccurs="0" name="GroupNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="MolWeight" type="xs:double" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DcBDElementGroupItem" nillable="true" type="tns:DcBDElementGroupItem" />
 </xs:schema>
