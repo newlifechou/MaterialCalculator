@@ -7,13 +7,72 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1000">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Orientation="Horizontal">
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Grid.ColumnSpan="2">
             <TextBlock Text="加权密度计算" Style="{StaticResource PageTitleTextBlockBasic}"/>
         </StackPanel>
-        
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBox Grid.Row="0" Text="" Style="{StaticResource TextBoxBasic}"/>
+            <ListBox Grid.Row="1">
+
+            </ListBox>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <GroupBox Grid.Row="0" Grid.Column="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="成分"  Style="{StaticResource TextBlockBasic}"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Text="" Style="{StaticResource TextBoxBasic}"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="密度"  Style="{StaticResource TextBlockBasic}"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Text="" Style="{StaticResource TextBoxBasic}"/>
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="摩尔比"  Style="{StaticResource TextBlockBasic}"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Text="" Style="{StaticResource TextBoxBasic}"/>
+
+                    <Button Style="{StaticResource ButtonBasic}" Content="保存" Grid.Row="4" Grid.Column="0"/>
+
+                </Grid>
+            </GroupBox>
+
+            <GroupBox Grid.Row="0" Grid.Column="1" Header="输入数据序列">
+                <DataGrid>
+                    
+                </DataGrid>
+            </GroupBox>
+            <GroupBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Header="加权结果">
+                <DataGrid>
+
+                </DataGrid>
+            </GroupBox>
+
+        </Grid>
     </Grid>
 </UserControl>

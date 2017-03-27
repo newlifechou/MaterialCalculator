@@ -83,6 +83,7 @@
     <Compile Include="Models\ElementGroupModel.cs" />
     <Compile Include="Models\ElementModel.cs" />
     <Compile Include="Models\MaterialNeedModel.cs" />
+    <Compile Include="Models\WeightedDensityModel.cs" />
     <Compile Include="Service References\BasicService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
