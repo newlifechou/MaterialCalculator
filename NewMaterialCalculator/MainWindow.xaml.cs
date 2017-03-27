@@ -25,8 +25,7 @@ namespace NewMaterialCalculator
         public MainWindow()
         {
             InitializeComponent();
-            //SetMainArea(new MaterialNeed());
-            SetMainArea(new ElementAtToWt());
+            SetMainArea(new MaterialNeed());
         }
 
         private void SetMainArea(UserControl view)
@@ -67,6 +66,16 @@ namespace NewMaterialCalculator
         private void btnMenu_Click(object sender, RoutedEventArgs e)
         {
             mainMenu.IsOpen = true;
+        }
+
+        private void Element_Click(object sender, RoutedEventArgs e)
+        {
+            SetMainArea(new ElementAtToWt());
+        }
+
+        private void MaterialNeed_Click(object sender,RoutedEventArgs e)
+        {
+            SetMainArea(new MaterialNeed());
         }
     }
 }
