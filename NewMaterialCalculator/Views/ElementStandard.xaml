@@ -50,7 +50,7 @@
             <StackPanel Grid.Row="0" Grid.Column="1"  Orientation="Horizontal">
                 <TextBlock Text="原料重量(g)" Style="{StaticResource TextBlockBasic}"/>
                 <TextBox Text="{Binding TotalWeight}" Style="{StaticResource TextBoxBasic}" Width="150"/>
-                <Button Content="计算" Style="{StaticResource ButtonBasic}"/>
+                <Button Content="计算" Style="{StaticResource ButtonBasic}" Command="{Binding CalculateAll}"/>
             </StackPanel>
             <Grid Grid.Row="0" Grid.Column="2">
                 <Grid.ColumnDefinitions>
