@@ -125,10 +125,10 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTextColumn Header="分组" Binding="{Binding GroupNumber}" ElementStyle="{StaticResource DGTextBlock}"/>
+                        <DataGridTextColumn Header="分组" Binding="{Binding GroupNumber}" ElementStyle="{StaticResource DGCenterTB}"/>
                         <DataGridTextColumn Header="元素" Binding="{Binding Name}" ElementStyle="{StaticResource DGTextBlock}"/>
-                        <DataGridTextColumn Header="摩尔质量" Binding="{Binding MolWeight}" ElementStyle="{StaticResource DGTextBlock}"/>
-                        <DataGridTextColumn Header="摩尔比" Binding="{Binding At}" ElementStyle="{StaticResource DGTextBlock}"/>
+                        <DataGridTextColumn Header="摩尔质量" Binding="{Binding MolWeight}" ElementStyle="{StaticResource DGRightTB}"/>
+                        <DataGridTextColumn Header="摩尔比" Binding="{Binding At}" ElementStyle="{StaticResource DGRightTB}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </GroupBox>
@@ -136,20 +136,27 @@
             <GroupBox Grid.Row="2" Grid.Column="1"  Header="标准化后的Wt">
                 <DataGrid ItemsSource="{Binding StandardWtElements}">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="分组" Binding="{Binding GroupNumber}" ElementStyle="{StaticResource DGTextBlock}"/>
+                        <DataGridTextColumn Header="分组" Binding="{Binding GroupNumber}" ElementStyle="{StaticResource DGCenterTB}"/>
                         <DataGridTextColumn Header="元素" Binding="{Binding Name}" ElementStyle="{StaticResource DGTextBlock}"/>
-                        <DataGridTextColumn Header="At比" Binding="{Binding At,StringFormat={}{0:P}}" ElementStyle="{StaticResource DGTextBlock}"/>
-                        <DataGridTextColumn Header="Wt比" Binding="{Binding Wt,StringFormat={}{0:P}}" ElementStyle="{StaticResource DGTextBlock}"/>
-                        <DataGridTextColumn Header="重量" Binding="{Binding Weight,StringFormat={}{0:F3}}" ElementStyle="{StaticResource DGTextBlock}"/>
+                        <DataGridTextColumn Header="At比" Binding="{Binding At,StringFormat={}{0:P}}"  ElementStyle="{StaticResource DGRightTB}"/>
+                        <DataGridTextColumn Header="Wt比" Binding="{Binding Wt,StringFormat={}{0:P}}"  ElementStyle="{StaticResource DGRightTB}"/>
+                        <DataGridTextColumn Header="重量" Binding="{Binding Weight,StringFormat={}{0:F3}}"  ElementStyle="{StaticResource DGRightTB}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </GroupBox>
             <GroupBox Grid.Row="2" Grid.Column="2"  Header="分组混料区域">
                 <DataGrid ItemsSource="{Binding StandardGroups}">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="分组" Binding="{Binding GroupNumber}" ElementStyle="{StaticResource DGTextBlock}"/>
-                        <DataGridTextColumn Header="成分" Binding="{Binding GroupComposition}" ElementStyle="{StaticResource DGTextBlock}"/>
-                        <DataGridTextColumn Header="重量" Binding="{Binding Weight,StringFormat={}{0:F3}}" ElementStyle="{StaticResource DGTextBlock}"/>
+                        <DataGridTextColumn Header="分组" Binding="{Binding GroupNumber}" ElementStyle="{StaticResource DGCenterTB}"/>
+                        <DataGridTemplateColumn Header="成分">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox Text="{Binding GroupComposition}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <!--<DataGridTextColumn Header="成分" Binding="{Binding GroupComposition}" ElementStyle="{StaticResource DGTextBlock}"/>-->
+                        <DataGridTextColumn Header="重量" Binding="{Binding Weight,StringFormat={}{0:F3}}" ElementStyle="{StaticResource DGRightTB}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </GroupBox>
