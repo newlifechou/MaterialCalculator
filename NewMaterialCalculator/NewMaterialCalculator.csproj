@@ -80,6 +80,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\ElementGroupModel.cs" />
     <Compile Include="Models\ElementModel.cs" />
     <Compile Include="Models\MaterialNeedModel.cs" />
     <Compile Include="Service References\BasicService\Reference.cs">

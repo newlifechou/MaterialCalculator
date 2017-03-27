@@ -19,7 +19,7 @@ namespace NewMaterialCalculator.ViewModel
             Weight =1000;
             Elements = new ObservableCollection<DcBDElement>();
             InputElements = new ObservableCollection<ElementModel>();
-            StandardAtElements = new ObservableCollection<ElementModel>();
+            StandardGroups = new ObservableCollection<ElementGroupModel>();
             StandardWtElements = new ObservableCollection<ElementModel>();
 
             using (var service = new ElementServiceClient())
@@ -66,13 +66,12 @@ namespace NewMaterialCalculator.ViewModel
         }
 
         public ObservableCollection<DcBDElement> Elements { get; set; }
-
         public ObservableCollection<ElementModel> InputElements { get; set; }
-        public ObservableCollection<ElementModel> StandardAtElements { get; set; }
         public ObservableCollection<ElementModel> StandardWtElements { get; set; }
+        public ObservableCollection<ElementGroupModel> StandardGroups { get; set; }
+
 
         private double weight;
-
         public double Weight
         {
             get { return weight; }

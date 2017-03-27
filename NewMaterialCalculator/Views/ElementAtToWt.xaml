@@ -87,7 +87,7 @@
                     <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding At}" Style="{StaticResource TextBoxBasic}"/>
 
                     <StackPanel Grid.Row="5" Grid.ColumnSpan="3" Orientation="Horizontal">
-                        <Button Content="添加" Style="{StaticResource ButtonBasic}" Command="{Binding DataContext.Save,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}"/>
+                        <Button Content="保存" Style="{StaticResource ButtonBasic}" Command="{Binding DataContext.Save,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}"/>
                     </StackPanel>
                 </Grid>
             </GroupBox>
@@ -123,7 +123,7 @@
                 </DataGrid>
             </GroupBox>
             <GroupBox Grid.Row="2" Grid.Column="2"  Header="分组混料区域">
-                <DataGrid ItemsSource="{Binding StandardWtElements}">
+                <DataGrid ItemsSource="{Binding StandardGroups}">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="元素" Binding="{Binding Name}"/>
                         <DataGridTextColumn Header="At比" Binding="{Binding Wt}"/>
