@@ -18,7 +18,7 @@ namespace NewMaterialCalculator.ViewModel
         {
             isNew = true;
 
-            Weight = 1000;
+            TotalWeight = 1000;
             Elements = new ObservableCollection<DcBDElement>();
             InputElements = new ObservableCollection<ElementModel>();
             StandardGroups = new ObservableCollection<ElementGroupModel>();
@@ -58,6 +58,8 @@ namespace NewMaterialCalculator.ViewModel
         private void ActionDelete(ElementModel model)
         {
             InputElements.Remove(model);
+            //计算标准值
+            CaculateIt();
         }
 
         private void ActionSave()
@@ -71,6 +73,31 @@ namespace NewMaterialCalculator.ViewModel
 
             }
             isNew = true;
+
+            //计算标准值
+            CaculateIt();
+        }
+
+        private void CaculateIt()
+        {
+            double sumWt = 0;
+            sumWt = InputElements.ToList().Sum(i => i.MolWeight * i.At);
+            double sumAt = 0;
+            sumAt = InputElements.ToList().Sum(i => i.At);
+            StandardWtElements.Clear();
+            foreach (var item in InputElements)
+            {
+                var temp = new ElementModel();
+                temp.ID = item.ID;
+                temp.GroupNumber = item.GroupNumber;
+                temp.Name = item.Name;
+                temp.MolWeight = item.MolWeight;
+                temp.At = item.At / sumAt;
+                temp.Wt = item.MolWeight * item.At / sumWt;
+                temp.Weight = temp.Wt * TotalWeight;
+
+                StandardWtElements.Add(temp);
+            }
         }
 
         private void ActionSelect(DcBDElement obj)
@@ -91,11 +118,11 @@ namespace NewMaterialCalculator.ViewModel
         public ObservableCollection<ElementGroupModel> StandardGroups { get; set; }
 
 
-        private double weight;
-        public double Weight
+        private double totalWeight;
+        public double TotalWeight
         {
-            get { return weight; }
-            set { weight = value; RaisePropertyChanged(nameof(Weight)); }
+            get { return totalWeight; }
+            set { totalWeight = value; RaisePropertyChanged(nameof(TotalWeight)); }
         }
 
         private ElementModel currentInputElement;
@@ -110,7 +137,7 @@ namespace NewMaterialCalculator.ViewModel
 
         public RelayCommand<DcBDElement> Select { get; set; }
         public RelayCommand Save { get; set; }
-        public RelayCommand<ElementModel> Edit{ get; set; }
+        public RelayCommand<ElementModel> Edit { get; set; }
         public RelayCommand<ElementModel> Delete { get; set; }
     }
 }
