@@ -12,9 +12,9 @@ using System.Collections.ObjectModel;
 
 namespace NewMaterialCalculator.ViewModel
 {
-    public class ElementAtToWtVM : ViewModelBase
+    public class ElementStandardVM : ViewModelBase
     {
-        public ElementAtToWtVM()
+        public ElementStandardVM()
         {
             isNew = true;
 

@@ -18,9 +18,9 @@ namespace NewMaterialCalculator.Views
     /// <summary>
     /// ElementAtToWt.xaml 的交互逻辑
     /// </summary>
-    public partial class ElementAtToWt : UserControl
+    public partial class ElementStandard : UserControl
     {
-        public ElementAtToWt()
+        public ElementStandard()
         {
             InitializeComponent();
         }
