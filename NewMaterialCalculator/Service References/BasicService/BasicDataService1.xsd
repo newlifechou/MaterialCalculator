@@ -189,6 +189,7 @@
       <xs:element minOccurs="0" name="Id" type="ser:guid" />
       <xs:element minOccurs="0" name="MolWeight" type="xs:double" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderNumber" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="DcBDElementGroupItem" nillable="true" type="tns:DcBDElementGroupItem" />
