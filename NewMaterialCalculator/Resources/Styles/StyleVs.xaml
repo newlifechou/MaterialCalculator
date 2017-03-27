@@ -122,6 +122,7 @@
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Background" Value="{StaticResource bg}"/>
         <Setter Property="Foreground" Value="{StaticResource fg}"/>
+        <Setter Property="MinWidth" Value="60"/>
     </Style>
 
 </ResourceDictionary>

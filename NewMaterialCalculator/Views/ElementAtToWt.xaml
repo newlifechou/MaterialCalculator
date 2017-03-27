@@ -49,7 +49,7 @@
             </ListBox>
             <StackPanel Grid.Row="0" Grid.Column="1"  Orientation="Horizontal">
                 <TextBlock Text="原料重量(g)" Style="{StaticResource TextBlockBasic}"/>
-                <TextBox Text="{Binding Weight}" Style="{StaticResource TextBoxBasic}" Width="150"/>
+                <TextBox Text="{Binding TotalWeight}" Style="{StaticResource TextBoxBasic}" Width="150"/>
             </StackPanel>
             <Grid Grid.Row="0" Grid.Column="2">
                 <Grid.ColumnDefinitions>
@@ -128,9 +128,7 @@
                 <DataGrid ItemsSource="{Binding StandardGroups}">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="分组" Binding="{Binding GroupNumber}" ElementStyle="{StaticResource DGTextBlock}"/>
-                        <DataGridTextColumn Header="元素" Binding="{Binding Name}" ElementStyle="{StaticResource DGTextBlock}"/>
-                        <DataGridTextColumn Header="At比" Binding="{Binding At,StringFormat={}{0:P}}"  ElementStyle="{StaticResource DGTextBlock}"/>
-                        <DataGridTextColumn Header="Wt比" Binding="{Binding Wt,StringFormat={}{0:P}}" ElementStyle="{StaticResource DGTextBlock}"/>
+                        <DataGridTextColumn Header="成分" Binding="{Binding GroupComposition}" ElementStyle="{StaticResource DGTextBlock}"/>
                         <DataGridTextColumn Header="重量" Binding="{Binding Weight,StringFormat={}{0:F3}}" ElementStyle="{StaticResource DGTextBlock}"/>
                     </DataGrid.Columns>
                 </DataGrid>

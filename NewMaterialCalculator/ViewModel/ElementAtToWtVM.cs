@@ -59,7 +59,8 @@ namespace NewMaterialCalculator.ViewModel
         {
             InputElements.Remove(model);
             //计算标准值
-            CaculateIt();
+            MakeStandardCalculation();
+            MakeStandardGroupCalcuation();
         }
 
         private void ActionSave()
@@ -75,10 +76,38 @@ namespace NewMaterialCalculator.ViewModel
             isNew = true;
 
             //计算标准值
-            CaculateIt();
+            MakeStandardCalculation();
+            MakeStandardGroupCalcuation();
         }
 
-        private void CaculateIt()
+        private void MakeStandardGroupCalcuation()
+        {
+            StandardGroups.Clear();
+            var groupResult = StandardWtElements.GroupBy(i => i.GroupNumber);
+            foreach (var group in groupResult)
+            {
+                var groupItem = new ElementGroupModel();
+                groupItem.ID = Guid.NewGuid();
+                groupItem.GroupNumber = group.Key;
+                double compositonWtSum = 0;
+                foreach (var item in group)
+                {
+                    if (group.Count() > 1)
+                    {
+                        groupItem.GroupComposition += item.Name + (item.At * 100).ToString("F2");
+                    }
+                    else
+                    {
+                        groupItem.GroupComposition = item.Name;
+                    }
+                    compositonWtSum += item.Wt;
+                }
+                groupItem.Weight = compositonWtSum * TotalWeight;
+                StandardGroups.Add(groupItem);
+            }
+        }
+
+        private void MakeStandardCalculation()
         {
             double sumWt = 0;
             sumWt = InputElements.ToList().Sum(i => i.MolWeight * i.At);
