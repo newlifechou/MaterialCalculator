@@ -91,11 +91,15 @@
     <Compile Include="ViewModel\ElementStandardVM.cs" />
     <Compile Include="ViewModel\MaterialNeedVM.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="ViewModel\WeightedDensityVM.cs" />
     <Compile Include="Views\ElementStandard.xaml.cs">
       <DependentUpon>ElementStandard.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MaterialNeed.xaml.cs">
       <DependentUpon>MaterialNeed.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WeightedDensity.xaml.cs">
+      <DependentUpon>WeightedDensity.xaml</DependentUpon>
     </Compile>
     <Page Include="MainLocator.xaml">
       <SubType>Designer</SubType>
@@ -126,6 +130,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MaterialNeed.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WeightedDensity.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
