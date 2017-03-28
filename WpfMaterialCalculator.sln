@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftwareAuthorizeLib", "Sof
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewMaterialCalculator", "NewMaterialCalculator\NewMaterialCalculator.csproj", "{EB6AE160-E9B9-4CE7-8EA7-28D85B20EBD7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataOperation", "DataOperation\DataOperation.csproj", "{C0340FD7-D5FD-480C-B09B-B972CEFA8A9C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{EB6AE160-E9B9-4CE7-8EA7-28D85B20EBD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB6AE160-E9B9-4CE7-8EA7-28D85B20EBD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB6AE160-E9B9-4CE7-8EA7-28D85B20EBD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0340FD7-D5FD-480C-B09B-B972CEFA8A9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0340FD7-D5FD-480C-B09B-B972CEFA8A9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0340FD7-D5FD-480C-B09B-B972CEFA8A9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0340FD7-D5FD-480C-B09B-B972CEFA8A9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
