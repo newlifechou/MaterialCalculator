@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/PMSWCFService.DataContracts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PMSWCFService.DataContracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://192.168.16.254:8002/BasicDataService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfDcBDCustomer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DcBDCustomer" nillable="true" type="tns:DcBDCustomer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDcBDCustomer" nillable="true" type="tns:ArrayOfDcBDCustomer" />
+  <xs:complexType name="DcBDCustomer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactPerson" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fax" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="ser:guid" />
+      <xs:element minOccurs="0" name="Memo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DcBDCustomer" nillable="true" type="tns:DcBDCustomer" />
+  <xs:complexType name="ArrayOfDcBDDeliveryAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DcBDDeliveryAddress" nillable="true" type="tns:DcBDDeliveryAddress" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDcBDDeliveryAddress" nillable="true" type="tns:ArrayOfDcBDDeliveryAddress" />
+  <xs:complexType name="DcBDDeliveryAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CellPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="ser:guid" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Receiver" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tax" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DcBDDeliveryAddress" nillable="true" type="tns:DcBDDeliveryAddress" />
+  <xs:complexType name="ArrayOfDcBDVHPDevice">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DcBDVHPDevice" nillable="true" type="tns:DcBDVHPDevice" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDcBDVHPDevice" nillable="true" type="tns:ArrayOfDcBDVHPDevice" />
+  <xs:complexType name="DcBDVHPDevice">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Creator" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeviceInformation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HighestDiameter" type="xs:double" />
+      <xs:element minOccurs="0" name="HighestPressure" type="xs:double" />
+      <xs:element minOccurs="0" name="HighestTemperature" type="xs:double" />
+      <xs:element minOccurs="0" name="ID" type="ser:guid" />
+      <xs:element minOccurs="0" name="Manufacturer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReceiveTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DcBDVHPDevice" nillable="true" type="tns:DcBDVHPDevice" />
+  <xs:complexType name="ArrayOfDcBDVHPMold">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DcBDVHPMold" nillable="true" type="tns:DcBDVHPMold" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDcBDVHPMold" nillable="true" type="tns:ArrayOfDcBDVHPMold" />
+  <xs:complexType name="DcBDVHPMold">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Creator" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CurrentUsedCount" type="xs:int" />
+      <xs:element minOccurs="0" name="EstimateUsedCount" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" type="ser:guid" />
+      <xs:element minOccurs="0" name="InnerDiameter" type="xs:double" />
+      <xs:element minOccurs="0" name="ModelHeight" type="xs:double" />
+      <xs:element minOccurs="0" name="MoldDetails" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MoldName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MoldType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DcBDVHPMold" nillable="true" type="tns:DcBDVHPMold" />
+  <xs:complexType name="ArrayOfDcBDVHPProcess">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DcBDVHPProcess" nillable="true" type="tns:DcBDVHPProcess" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDcBDVHPProcess" nillable="true" type="tns:ArrayOfDcBDVHPProcess" />
+  <xs:complexType name="DcBDVHPProcess">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodeMeaning" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Creator" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="ser:guid" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DcBDVHPProcess" nillable="true" type="tns:DcBDVHPProcess" />
+  <xs:complexType name="ArrayOfDcBDCompound">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DcBDCompound" nillable="true" type="tns:DcBDCompound" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDcBDCompound" nillable="true" type="tns:ArrayOfDcBDCompound" />
+  <xs:complexType name="DcBDCompound">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BoilingPoint" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Creator" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Density" type="xs:double" />
+      <xs:element minOccurs="0" name="ID" type="ser:guid" />
+      <xs:element minOccurs="0" name="InformationSource" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaterialName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MeltingPoint" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SpecialProperty" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DcBDCompound" nillable="true" type="tns:DcBDCompound" />
+  <xs:complexType name="DcBDSupplier">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Abbr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CellPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContactPerson" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="ser:guid" />
+      <xs:element minOccurs="0" name="Remark" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DcBDSupplier" nillable="true" type="tns:DcBDSupplier" />
+  <xs:complexType name="ArrayOfDcBDSupplier">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DcBDSupplier" nillable="true" type="tns:DcBDSupplier" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDcBDSupplier" nillable="true" type="tns:ArrayOfDcBDSupplier" />
+  <xs:complexType name="ArrayOfDcBDElement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DcBDElement" nillable="true" type="tns:DcBDElement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDcBDElement" nillable="true" type="tns:ArrayOfDcBDElement" />
+  <xs:complexType name="DcBDElement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AtomicNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="BoilingPoint" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Density" type="xs:double" />
+      <xs:element minOccurs="0" name="ID" type="ser:guid" />
+      <xs:element minOccurs="0" name="MeltingPoint" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MolWeight" type="xs:double" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DcBDElement" nillable="true" type="tns:DcBDElement" />
+  <xs:complexType name="ArrayOfDcBDElementGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DcBDElementGroup" nillable="true" type="tns:DcBDElementGroup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDcBDElementGroup" nillable="true" type="tns:ArrayOfDcBDElementGroup" />
+  <xs:complexType name="DcBDElementGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="GroupName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DcBDElementGroup" nillable="true" type="tns:DcBDElementGroup" />
+  <xs:complexType name="ArrayOfDcBDElementGroupItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DcBDElementGroupItem" nillable="true" type="tns:DcBDElementGroupItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDcBDElementGroupItem" nillable="true" type="tns:ArrayOfDcBDElementGroupItem" />
+  <xs:complexType name="DcBDElementGroupItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="At" type="xs:double" />
+      <xs:element minOccurs="0" name="GroupElementID" type="ser:guid" />
+      <xs:element minOccurs="0" name="GroupNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+      <xs:element minOccurs="0" name="MolWeight" type="xs:double" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrderNumber" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DcBDElementGroupItem" nillable="true" type="tns:DcBDElementGroupItem" />
+</xs:schema>
