@@ -155,7 +155,10 @@
   <xs:complexType name="DcBDElement">
     <xs:sequence>
       <xs:element minOccurs="0" name="AtomicNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="BoilingPoint" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Density" type="xs:double" />
       <xs:element minOccurs="0" name="ID" type="ser:guid" />
+      <xs:element minOccurs="0" name="MeltingPoint" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="MolWeight" type="xs:double" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
     </xs:sequence>

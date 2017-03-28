@@ -1317,7 +1317,16 @@ namespace NewMaterialCalculator.BasicService {
         private int AtomicNumberField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BoilingPointField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double DensityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Guid IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MeltingPointField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double MolWeightField;
@@ -1349,6 +1358,32 @@ namespace NewMaterialCalculator.BasicService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BoilingPoint {
+            get {
+                return this.BoilingPointField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BoilingPointField, value) != true)) {
+                    this.BoilingPointField = value;
+                    this.RaisePropertyChanged("BoilingPoint");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Density {
+            get {
+                return this.DensityField;
+            }
+            set {
+                if ((this.DensityField.Equals(value) != true)) {
+                    this.DensityField = value;
+                    this.RaisePropertyChanged("Density");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Guid ID {
             get {
                 return this.IDField;
@@ -1357,6 +1392,19 @@ namespace NewMaterialCalculator.BasicService {
                 if ((this.IDField.Equals(value) != true)) {
                     this.IDField = value;
                     this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MeltingPoint {
+            get {
+                return this.MeltingPointField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MeltingPointField, value) != true)) {
+                    this.MeltingPointField = value;
+                    this.RaisePropertyChanged("MeltingPoint");
                 }
             }
         }
