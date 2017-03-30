@@ -26,7 +26,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBox Grid.Row="0" Grid.Column="0" Style="{StaticResource TextBoxBasic}"/>
+            <TextBox Name="txtSearch" Grid.Row="0" Grid.Column="0" Style="{StaticResource TextBoxBasic}" TextChanged="txtSearch_TextChanged"/>
             <ListBox x:Name="lst" Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" ItemsSource="{Binding Elements}" SelectedIndex="0" HorizontalContentAlignment="Stretch">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="SelectionChanged">

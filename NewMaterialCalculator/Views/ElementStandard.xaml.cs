@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using NewMaterialCalculator.BasicService;
 
 namespace NewMaterialCalculator.Views
 {
@@ -20,9 +22,30 @@ namespace NewMaterialCalculator.Views
     /// </summary>
     public partial class ElementStandard : UserControl
     {
+        ICollectionView view;
         public ElementStandard()
         {
             InitializeComponent();
+            view = CollectionViewSource.GetDefaultView(lst.ItemsSource);
+        }
+
+        private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                view.Filter = new Predicate<object>(item =>
+                {
+                    var child = txtSearch.Text.Trim().ToLower();
+                    DcBDElement element = (DcBDElement)item;
+                    return element.Name.ToLower().Contains(child);
+                });
+                view.Refresh();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            e.Handled = true;
         }
     }
 }

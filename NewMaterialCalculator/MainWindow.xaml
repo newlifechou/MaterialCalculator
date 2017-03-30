@@ -27,8 +27,8 @@
                         Content="菜单" Click="btnMenu_Click">
                     <Button.ContextMenu>
                         <ContextMenu x:Name="mainMenu">
-                            <MenuItem Header="原料需求计算" Click="MaterialNeed_Click"/>
                             <MenuItem Header="组分标准化计算" Click="Element_Click"/>
+                            <MenuItem Header="原料需求计算" Click="MaterialNeed_Click"/>
                             <MenuItem Header="原料配比"/>
                             <MenuItem Header="At转Wt"/>
                             <MenuItem Header="Wt转At"/>
