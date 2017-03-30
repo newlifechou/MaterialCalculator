@@ -28,17 +28,19 @@ namespace NewMaterialCalculator.Views
 
         private void lstCompounds_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (lstCompounds.SelectedItem!=null)
+            if (lstCompounds.SelectedItem != null)
             {
                 txtDensity.Text = (lstCompounds.SelectedItem as DcBDCompound).Density.ToString();
+                txtDensity.Focus();
             }
         }
 
         private void lstMolds_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (lstMolds.SelectedItem!=null)
+            if (lstMolds.SelectedItem != null)
             {
                 txtInnerDiameter.Text = (lstMolds.SelectedItem as DcBDVHPMold).InnerDiameter.ToString();
+                txtInnerDiameter.Focus();
             }
         }
     }
