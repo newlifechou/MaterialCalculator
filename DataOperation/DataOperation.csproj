@@ -104,6 +104,9 @@
     <None Include="Service References\BasicDataServices\configuration.svcinfo" />
     <None Include="Service References\BasicDataServices\configuration91.svcinfo" />
     <None Include="Service References\BasicDataServices\BasicDataService.disco" />
+    <None Include="Data\SubstanceData.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Content Include="SubstanceData.xml" />
   </ItemGroup>
   <ItemGroup>
