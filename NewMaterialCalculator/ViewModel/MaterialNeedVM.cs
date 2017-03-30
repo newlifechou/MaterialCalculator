@@ -7,6 +7,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using NewMaterialCalculator.Models;
 using System.Collections.ObjectModel;
+using NewMaterialCalculator.BasicService;
 
 namespace NewMaterialCalculator.ViewModel
 {
@@ -18,10 +19,39 @@ namespace NewMaterialCalculator.ViewModel
             TotalWeight = 0;
             CanClear = true;
 
+            InitializeProperties();
+
             MaterialNeedModels = new ObservableCollection<MaterialNeedModel>();
+            Compounds = new ObservableCollection<DcBDCompound>();
+            Molds = new ObservableCollection<DcBDVHPMold>();
+            
 
             Add = new RelayCommand(ActionAdd);
             Delete = new RelayCommand<MaterialNeedModel>(ActionDelete);
+        }
+
+        private void InitializeProperties()
+        {
+            try
+            {
+                using (var service = new VHPMoldServiceClient())
+                {
+                    var result = service.GetVHPMold();
+                    Molds.Clear();
+                    result.ToList().ForEach(i => Molds.Add(i));
+                }
+                using (var service = new CompoundServiceClient())
+                {
+                    var result = service.GetAllCompounds();
+                    Compounds.Clear();
+                    result.ToList().ForEach(i => Compounds.Add(i));
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         private void ActionDelete(MaterialNeedModel model)
@@ -117,5 +147,8 @@ namespace NewMaterialCalculator.ViewModel
 
         public ObservableCollection<MaterialNeedModel> MaterialNeedModels { get; set; }
 
+
+        public ObservableCollection<DcBDCompound> Compounds { get; set; }
+        public ObservableCollection<DcBDVHPMold> Molds { get; set; }
     }
 }

@@ -37,11 +37,38 @@
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Row="0" Grid.Column="0" Text="材料密度(g/cm3)" Style="{StaticResource TextBlockBasic}"/>
                 <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Density}" Style="{StaticResource TextBoxBasic}"/>
-                <ComboBox Grid.Row="0" Grid.Column="2" Style="{StaticResource ComboBoxBasic}"/>
+                <ComboBox Grid.Row="0" Grid.Column="2" Style="{StaticResource ComboBoxBasic}" ItemsSource="{Binding DataContext.Compounds,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Style="{StaticResource SmallTextBlock}" Text="{Binding MaterialName}"/>
+                                <TextBlock Style="{StaticResource SmallTextBlock}" Text="{Binding Density}" Grid.Column="1"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
 
                 <TextBlock Grid.Row="1" Grid.Column="0" Text="模具内径(mm)" Style="{StaticResource TextBlockBasic}"/>
                 <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Diameter}" Style="{StaticResource TextBoxBasic}"/>
-                <ComboBox Grid.Row="1" Grid.Column="2" Style="{StaticResource ComboBoxBasic}"/>
+                <ComboBox Grid.Row="1" Grid.Column="2" Style="{StaticResource ComboBoxBasic}"
+                          ItemsSource="{Binding DataContext.Molds,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Style="{StaticResource SmallTextBlock}" Text="{Binding InnerDetails}"/>
+                                <TextBlock Style="{StaticResource SmallTextBlock}" Text="{Binding MoldType}" Grid.Column="1"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
 
                 <TextBlock Grid.Row="2" Grid.Column="0" Text="毛坯厚度(mm)" Style="{StaticResource TextBlockBasic}"/>
                 <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Thickness}" Style="{StaticResource TextBoxBasic}"/>
