@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using NewMaterialCalculator.BasicService;
 
 namespace NewMaterialCalculator.Views
 {
@@ -23,6 +24,22 @@ namespace NewMaterialCalculator.Views
         public MaterialNeed()
         {
             InitializeComponent();
+        }
+
+        private void lstCompounds_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lstCompounds.SelectedItem!=null)
+            {
+                txtDensity.Text = (lstCompounds.SelectedItem as DcBDCompound).Density.ToString();
+            }
+        }
+
+        private void lstMolds_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lstMolds.SelectedItem!=null)
+            {
+                txtInnerDiameter.Text = (lstMolds.SelectedItem as DcBDVHPMold).InnerDiameter.ToString();
+            }
         }
     }
 }

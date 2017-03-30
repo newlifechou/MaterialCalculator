@@ -9,106 +9,119 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
             <RowDefinition/>
-            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
+
         <StackPanel Grid.Row="0" Orientation="Horizontal">
             <TextBlock Text="用料计算" Style="{StaticResource PageTitleTextBlockBasic}"/>
         </StackPanel>
-        <Border Grid.Row="1" BorderThickness="1" Margin="2" Padding="2" BorderBrush="{StaticResource fg}">
-            <Grid DataContext="{Binding CurrentMaterialNeedModel}">
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <ListBox x:Name="lstCompounds" Grid.Column="0"  ItemsSource="{Binding DataContext.Compounds,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}" SelectionChanged="lstCompounds_SelectionChanged">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Style="{StaticResource SmallTextBlock}" Text="{Binding MaterialName}"/>
+                            <TextBlock Style="{StaticResource SmallTextBlock}" Text="{Binding Density}" Grid.Column="1" Foreground="Blue"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <ListBox x:Name="lstMolds" Grid.Column="1" ItemsSource="{Binding DataContext.Molds,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}" SelectionChanged="lstMolds_SelectionChanged">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Style="{StaticResource SmallTextBlock}" Text="{Binding MoldType}"/>
+                            <TextBlock Style="{StaticResource SmallTextBlock}" Text="{Binding InnerDiameter}"  Grid.Column="1" Foreground="Blue"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Grid Grid.Column="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
                     <RowDefinition/>
+                    <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="0" Text="材料密度(g/cm3)" Style="{StaticResource TextBlockBasic}"/>
-                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Density}" Style="{StaticResource TextBoxBasic}"/>
-                <ComboBox Grid.Row="0" Grid.Column="2" Style="{StaticResource ComboBoxBasic}" ItemsSource="{Binding DataContext.Compounds,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Style="{StaticResource SmallTextBlock}" Text="{Binding MaterialName}"/>
-                                <TextBlock Style="{StaticResource SmallTextBlock}" Text="{Binding Density}" Grid.Column="1"/>
-                            </Grid>
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
-
-                <TextBlock Grid.Row="1" Grid.Column="0" Text="模具内径(mm)" Style="{StaticResource TextBlockBasic}"/>
-                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Diameter}" Style="{StaticResource TextBoxBasic}"/>
-                <ComboBox Grid.Row="1" Grid.Column="2" Style="{StaticResource ComboBoxBasic}"
-                          ItemsSource="{Binding DataContext.Molds,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Style="{StaticResource SmallTextBlock}" Text="{Binding InnerDetails}"/>
-                                <TextBlock Style="{StaticResource SmallTextBlock}" Text="{Binding MoldType}" Grid.Column="1"/>
-                            </Grid>
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
-
-                <TextBlock Grid.Row="2" Grid.Column="0" Text="毛坯厚度(mm)" Style="{StaticResource TextBlockBasic}"/>
-                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Thickness}" Style="{StaticResource TextBoxBasic}"/>
-
-                <TextBlock Grid.Row="3" Grid.Column="0" Text="毛坯数量" Style="{StaticResource TextBlockBasic}"/>
-                <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Quantity}" Style="{StaticResource TextBoxBasic}"/>
+                <Border Grid.Row="0" BorderThickness="1" Margin="2" Padding="2" BorderBrush="{StaticResource fg}">
+                    <Grid DataContext="{Binding CurrentMaterialNeedModel}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="材料密度(g/cm3)" Style="{StaticResource TextBlockBasic}"/>
+                        <TextBox x:Name="txtDensity" Grid.Row="0" Grid.Column="1" Text="{Binding Density}" Style="{StaticResource TextBoxBasic}"/>
+                        <TextBlock Grid.Row="0" Grid.Column="2" Text="可以从左侧化合物列表中选择，也可以直接输入" Style="{StaticResource HelpTips}"/>
 
 
-                <TextBlock Grid.Row="4" Grid.Column="0" Text="重量损耗(g)" Style="{StaticResource TextBlockBasic}"/>
-                <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding WeightLoss}"  Style="{StaticResource TextBoxBasic}"/>
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="模具内径(mm)" Style="{StaticResource TextBlockBasic}"/>
+                        <TextBox x:Name="txtInnerDiameter" Grid.Row="1" Grid.Column="1" Text="{Binding Diameter}" Style="{StaticResource TextBoxBasic}"/>
+                        <TextBlock Grid.Row="1" Grid.Column="2" Text="可以从左侧模具列表中选择，也可以直接输入" Style="{StaticResource HelpTips}"/>
 
-            </Grid>
-        </Border>
-        <StackPanel Grid.Row="2" Orientation="Horizontal" >
-            <Button Content="添加" Style="{StaticResource ButtonBasic}" Command="{Binding Add}"/>
-            <CheckBox IsChecked="{Binding CanClear,Mode=TwoWay}" Style="{StaticResource CheckBoxBasic}" Content="添加后除密度外重置其他"/>
-        </StackPanel>
-        <DataGrid Grid.Row="3" ItemsSource="{Binding MaterialNeedModels}">
-            <DataGrid.Columns>
-                <DataGridTemplateColumn Header="操作">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Content="删除" Style="{StaticResource DGButton}"
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="毛坯厚度(mm)" Style="{StaticResource TextBlockBasic}"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Thickness}" Style="{StaticResource TextBoxBasic}"/>
+
+                        <TextBlock Grid.Row="3" Grid.Column="0" Text="毛坯数量" Style="{StaticResource TextBlockBasic}"/>
+                        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Quantity}" Style="{StaticResource TextBoxBasic}"/>
+
+
+                        <TextBlock Grid.Row="4" Grid.Column="0" Text="重量损耗(g)" Style="{StaticResource TextBlockBasic}"/>
+                        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding WeightLoss}"  Style="{StaticResource TextBoxBasic}"/>
+
+                    </Grid>
+                </Border>
+                <StackPanel Grid.Row="1" Orientation="Horizontal" >
+                    <Button Content="添加" Style="{StaticResource ButtonBasic}" Command="{Binding Add}"/>
+                    <CheckBox IsChecked="{Binding CanClear,Mode=TwoWay}" Style="{StaticResource CheckBoxBasic}" Content="添加后除密度外重置其他"/>
+                </StackPanel>
+                <DataGrid Grid.Row="2" ItemsSource="{Binding MaterialNeedModels}">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="操作">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Content="删除" Style="{StaticResource DGButton}"
                                         Command="{Binding DataContext.Delete,RelativeSource={RelativeSource AncestorType=UserControl,Mode=FindAncestor}}"
                                         CommandParameter="{Binding}"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTextColumn Header="材料密度(g/cm3)" Binding="{Binding Density}" ElementStyle="{StaticResource DGTextBlock}"/>
-                <DataGridTextColumn Header="模具内径(mm)" Binding="{Binding Diameter}" ElementStyle="{StaticResource DGTextBlock}"/>
-                <DataGridTextColumn Header="毛坯厚度(mm)" Binding="{Binding Thickness}" ElementStyle="{StaticResource DGTextBlock}"/>
-                <DataGridTextColumn Header="毛坯数量" Binding="{Binding Quantity}" ElementStyle="{StaticResource DGTextBlock}"/>
-                <DataGridTextColumn Header="重量损耗(g)" Binding="{Binding WeightLoss}" ElementStyle="{StaticResource DGTextBlock}"/>
-                <DataGridTextColumn Header="所需重量(g)" Binding="{Binding Weight,StringFormat={}{0:F2}}" ElementStyle="{StaticResource DGTextBlock}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <StackPanel Grid.Row="4" Orientation="Horizontal">
-            <TextBlock Text="{Binding TotalWeight,StringFormat='总重量:{0:F2}g'}" Style="{StaticResource TextBlockBasic}" Foreground="Orange" FontSize="35"/>
-        </StackPanel>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="材料密度(g/cm3)" Binding="{Binding Density}" ElementStyle="{StaticResource DGTextBlock}"/>
+                        <DataGridTextColumn Header="模具内径(mm)" Binding="{Binding Diameter}" ElementStyle="{StaticResource DGTextBlock}"/>
+                        <DataGridTextColumn Header="毛坯厚度(mm)" Binding="{Binding Thickness}" ElementStyle="{StaticResource DGTextBlock}"/>
+                        <DataGridTextColumn Header="毛坯数量" Binding="{Binding Quantity}" ElementStyle="{StaticResource DGTextBlock}"/>
+                        <DataGridTextColumn Header="重量损耗(g)" Binding="{Binding WeightLoss}" ElementStyle="{StaticResource DGTextBlock}"/>
+                        <DataGridTextColumn Header="所需重量(g)" Binding="{Binding Weight,StringFormat={}{0:F2}}" ElementStyle="{StaticResource DGTextBlock}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <StackPanel Grid.Row="3"  Orientation="Horizontal">
+                    <TextBlock Text="{Binding TotalWeight,StringFormat='总重量:{0:F2}g'}" Style="{StaticResource TextBlockBasic}" Foreground="Orange" FontSize="35"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
     </Grid>
 </UserControl>

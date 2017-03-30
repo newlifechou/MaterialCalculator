@@ -19,12 +19,11 @@ namespace NewMaterialCalculator.ViewModel
             TotalWeight = 0;
             CanClear = true;
 
-            InitializeProperties();
-
             MaterialNeedModels = new ObservableCollection<MaterialNeedModel>();
             Compounds = new ObservableCollection<DcBDCompound>();
             Molds = new ObservableCollection<DcBDVHPMold>();
-            
+
+            InitializeProperties();
 
             Add = new RelayCommand(ActionAdd);
             Delete = new RelayCommand<MaterialNeedModel>(ActionDelete);
@@ -38,13 +37,13 @@ namespace NewMaterialCalculator.ViewModel
                 {
                     var result = service.GetVHPMold();
                     Molds.Clear();
-                    result.ToList().ForEach(i => Molds.Add(i));
+                    result.OrderBy(i => i.InnerDiameter).ToList().ForEach(i => Molds.Add(i));
                 }
                 using (var service = new CompoundServiceClient())
                 {
                     var result = service.GetAllCompounds();
                     Compounds.Clear();
-                    result.ToList().ForEach(i => Compounds.Add(i));
+                    result.OrderBy(i=>i.MaterialName).ToList().ForEach(i => Compounds.Add(i));
                 }
             }
             catch (Exception ex)
@@ -73,7 +72,9 @@ namespace NewMaterialCalculator.ViewModel
             model.Weight = Math.PI * current.Diameter * current.Diameter * current.Thickness / 4 / 1000 * current.Density * current.Quantity + current.WeightLoss;
 
             MaterialNeedModels.Add(model);
+
             CalcualteTotalWeight();
+
             if (CanClear)
             {
                 ClearCurrentMaterialNeedModel();

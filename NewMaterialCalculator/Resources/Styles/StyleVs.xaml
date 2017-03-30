@@ -10,7 +10,6 @@
     <SolidColorBrush x:Key="bg" Color="{x:Static SystemColors.WindowColor}"  />
     <SolidColorBrush x:Key="toolbar" Color="Orange"/>
     <SolidColorBrush x:Key="statusbar" Color="Orange"/>
-
     <!--Numbers-->
 
 
@@ -76,13 +75,13 @@
     <Style TargetType="GroupBox">
         <Setter Property="Margin" Value="2"/>
         <Setter Property="Padding" Value="5"/>
-        <Setter Property="Background" Value="{StaticResource bg}"/>
-        <Setter Property="Foreground" Value="{StaticResource fg}"/>
+        <!--<Setter Property="Background" Value="{StaticResource bg}"/>
+        <Setter Property="Foreground" Value="{StaticResource fg}"/>-->
     </Style>
     <Style TargetType="ListBox">
-        <Setter Property="Background" Value="{StaticResource bg}"/>
-        <Setter Property="Foreground" Value="{StaticResource fg}"/>
-        
+        <Setter Property="Margin" Value="2"/>
+        <!--<Setter Property="Background" Value="{StaticResource bg}"/>
+        <Setter Property="Foreground" Value="{StaticResource fg}"/>-->
     </Style>
     <!--control style-->
     <Style x:Key="ControlButton" TargetType="Button">
@@ -112,8 +111,11 @@
         <Setter Property="Padding" Value="5"/>
         <Setter Property="Foreground" Value="{StaticResource fg}"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="12"/>
     </Style>
-
+    <Style x:Key="HelpTips" TargetType="TextBlock" BasedOn="{StaticResource SmallTextBlock}">
+        <Setter Property="Foreground" Value="Orange"/>
+    </Style>
 
     <!--dg style-->
     <Style x:Key="DGButton" TargetType="Button">
