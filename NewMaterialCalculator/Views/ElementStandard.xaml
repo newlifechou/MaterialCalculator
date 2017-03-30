@@ -42,7 +42,7 @@
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
                             <TextBlock Style="{StaticResource SmallTextBlock}" Text="{Binding Name}"/>
-                            <TextBlock Grid.Column="1" Style="{StaticResource SmallTextBlock}" Text="{Binding MolWeight}"/>
+                            <TextBlock Grid.Column="1" Style="{StaticResource SmallTextBlock}" Text="{Binding MolWeight}" TextAlignment="Right"/>
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
@@ -50,7 +50,7 @@
             <StackPanel Grid.Row="0" Grid.Column="1"  Orientation="Horizontal">
                 <TextBlock Text="原料重量(g)" Style="{StaticResource TextBlockBasic}"/>
                 <TextBox Text="{Binding TotalWeight}" Style="{StaticResource TextBoxBasic}" Width="150"/>
-                <Button Content="计算" Style="{StaticResource ButtonBasic}" Command="{Binding CalculateAll}"/>
+                <Button Content="计算重量" Style="{StaticResource ButtonBasic}" Command="{Binding CalculateAll}"/>
             </StackPanel>
             <Grid Grid.Row="0" Grid.Column="2">
                 <Grid.ColumnDefinitions>
@@ -148,7 +148,7 @@
                 <DataGrid ItemsSource="{Binding StandardGroups}">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="分组" Binding="{Binding GroupNumber}" ElementStyle="{StaticResource DGCenterTB}"/>
-                        <DataGridTemplateColumn Header="成分">
+                        <DataGridTemplateColumn Header="成分" Width="250">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBox Text="{Binding GroupComposition}"/>
