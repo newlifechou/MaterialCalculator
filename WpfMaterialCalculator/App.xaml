@@ -6,7 +6,7 @@
         <ResourceDictionary>
             <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:WpfMaterialCalculator.ViewModel" />
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Language/us-en.xaml"/>
+                <ResourceDictionary Source="Language/zh-cn.xaml"/>
                 <ResourceDictionary Source="Skin/BasicSkin.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
