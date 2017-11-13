@@ -20,19 +20,19 @@
                 <MenuItem Header="Exit"/>
             </MenuItem>
         </Menu>-->
-        <Grid   Background="Wheat">
+        <Grid   Background="#004B8B">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.Column="0">
-                <Button Content="{DynamicResource btnLoad}" Style="{StaticResource btnText}" Command="{Binding LoadCommand}"/>
-                <Button Content="{DynamicResource btnSaveAs}" Style="{StaticResource btnText}" Command="{Binding SaveCommand}"/>
-                <Button Content="{DynamicResource btnMaterialLibrary}" Style="{StaticResource btnText}" Command="{Binding MaterialLibraryCommand}"/>
+                <Button Content="{DynamicResource btnLoad}" Style="{StaticResource btnText}" Command="{Binding LoadCommand}" Foreground="White"/>
+                <Button Content="{DynamicResource btnSaveAs}" Style="{StaticResource btnText}" Command="{Binding SaveCommand}" Foreground="White"/>
+                <Button Content="{DynamicResource btnMaterialLibrary}" Style="{StaticResource btnText}" Command="{Binding MaterialLibraryCommand}" Foreground="White"/>
                 <Button Content="{DynamicResource btnShareDB}" Style="{StaticResource btnText}" Visibility="Collapsed"/>
             </StackPanel>
             <TextBlock Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"
-                       Text="designed by xs.zhou" Foreground="LightGray"/>
+                       Text="designed by xs.zhou" Foreground="Gray"/>
         </Grid>
         <GroupBox Header="{DynamicResource groupConditions}">
             <StackPanel>

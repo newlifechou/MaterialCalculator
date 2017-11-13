@@ -12,7 +12,7 @@
         ShowInTaskbar="False"
         Title="{DynamicResource titleEditCondition}" Height="400" Width="800" DataContext="{Binding Source={StaticResource Locator},Path=EditCondition}">
     <!--Add和Edit均使用这个窗口-->
-    <Grid>
+    <Grid Background="Wheat">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="4*"/>
             <ColumnDefinition Width="5*"/>
@@ -58,14 +58,15 @@
                       SelectedItem="{Binding  ConditionItem.GroupName}"/>
             <TextBlock Grid.Row="1" Grid.Column="0" Text="{DynamicResource gridMaterialName}" Style="{StaticResource txtbl}"/>
             <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource txtValidate}"
-                     Text="{Binding ConditionItem.MaterialName,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" />
+                     Text="{Binding ConditionItem.MaterialName}" />
             <TextBlock Grid.Row="2" Grid.Column="0" Text="{DynamicResource gridMoleWeight}" Style="{StaticResource txtbl}"/>
-            <ctrl:NumberTextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource txtValidate}"
-                     Text="{Binding ConditionItem.MoleWeight,UpdateSourceTrigger=LostFocus,ValidatesOnDataErrors=True}"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource txtValidate}"
+                     Text="{Binding ConditionItem.MoleWeight}"/>
             <TextBlock Grid.Row="3" Grid.Column="0" Text="{DynamicResource gridAt}" Style="{StaticResource txtbl}"/>
-            <ctrl:NumberTextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource txtValidate}"
-                     Text="{Binding ConditionItem.At,UpdateSourceTrigger=LostFocus,ValidatesOnDataErrors=True}"/>
-            <Button Grid.Row="4" Grid.ColumnSpan="2" Style="{StaticResource btn}" Content="{DynamicResource btnSave}" Command="{Binding SaveCommand}"/>
+            <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource txtValidate}"
+                     Text="{Binding ConditionItem.At}"/>
+            <Button Grid.Row="4" Grid.ColumnSpan="2" Style="{StaticResource btnBig}" HorizontalAlignment="Left"
+                    Content="{DynamicResource btnSave}" Command="{Binding SaveCommand}"/>
 
         </Grid>
     </Grid>

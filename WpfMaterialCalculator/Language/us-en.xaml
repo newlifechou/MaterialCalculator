@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib"
                     xmlns:local="clr-namespace:WpfMaterialCalculator.Language">
-    <sys:String x:Key="titleMain">Materials Ratio Calculator</sys:String>
+    <sys:String x:Key="titleMain">Materials Ratio Calculator 2.0</sys:String>
     <sys:String x:Key="titleEditCondition">Edit Condition</sys:String>
     <sys:String x:Key="titleLoad">Load</sys:String>
     <sys:String x:Key="titleSave">Save As</sys:String>
